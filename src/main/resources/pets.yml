@@ -1,0 +1,581 @@
+# ──────────────────────────────────────────────
+#  Petly — Pet Definitions (All 50 Pets)
+#  skin-texture: Base64 encoded texture string.
+#  Replace placeholder values with real textures.
+# ──────────────────────────────────────────────
+# Power formula (reference):
+#   power = (basePower + ascBaseBonus * asc)
+#         + (powerPerLevel + ascScalingBonus * asc) * (level - 1)
+#         + (powerPerStar + 200 * asc) * stars
+
+pets:
+
+  # ════════════════════════════════════════
+  #  NORMAL (N) — 15 pets — Base 80–200
+  # ════════════════════════════════════════
+
+  lil_piggy:
+    display-name: "ʟɪʟ' ᴘɪɢɢʏ"
+    rarity: N
+    base-power: 120
+    power-per-level: 8
+    power-per-star: 400
+    ascension-base-bonus: 180
+    ascension-scaling-bonus: 12
+    skin-texture: "PLACEHOLDER_LIL_PIGGY"
+    lore: "A tiny pig with surprisingly big dreams."
+
+  pebble_turtle:
+    display-name: "ᴘᴇʙʙʟᴇ ᴛᴜʀᴛʟᴇ"
+    rarity: N
+    base-power: 90
+    power-per-level: 6
+    power-per-star: 400
+    ascension-base-bonus: 180
+    ascension-scaling-bonus: 12
+    skin-texture: "PLACEHOLDER_PEBBLE_TURTLE"
+    lore: "Carries the weight of the world, one pebble at a time."
+
+  fluffy_bun:
+    display-name: "ꜰʟᴜꜰꜰʏ ʙᴜɴ"
+    rarity: N
+    base-power: 100
+    power-per-level: 7
+    power-per-star: 400
+    ascension-base-bonus: 180
+    ascension-scaling-bonus: 12
+    skin-texture: "PLACEHOLDER_FLUFFY_BUN"
+    lore: "Soft as a cloud, brave as a knight."
+
+  tiny_mole:
+    display-name: "ᴛɪɴʏ ᴍᴏʟᴇ"
+    rarity: N
+    base-power: 80
+    power-per-level: 5
+    power-per-star: 400
+    ascension-base-bonus: 180
+    ascension-scaling-bonus: 12
+    skin-texture: "PLACEHOLDER_TINY_MOLE"
+    lore: "Has never seen the sun and is perfectly fine with that."
+
+  dawn_sparrow:
+    display-name: "ᴅᴀᴡɴ ꜱᴘᴀʀʀᴏᴡ"
+    rarity: N
+    base-power: 110
+    power-per-level: 7
+    power-per-star: 400
+    ascension-base-bonus: 180
+    ascension-scaling-bonus: 12
+    skin-texture: "PLACEHOLDER_DAWN_SPARROW"
+    lore: "The first song you hear every morning."
+
+  mossy_snail:
+    display-name: "ᴍᴏꜱꜱʏ ꜱɴᴀɪʟ"
+    rarity: N
+    base-power: 85
+    power-per-level: 5
+    power-per-star: 400
+    ascension-base-bonus: 180
+    ascension-scaling-bonus: 12
+    skin-texture: "PLACEHOLDER_MOSSY_SNAIL"
+    lore: "Slow, but has never once been in a hurry."
+
+  river_frog:
+    display-name: "ʀɪᴠᴇʀ ꜰʀᴏɢ"
+    rarity: N
+    base-power: 95
+    power-per-level: 6
+    power-per-star: 400
+    ascension-base-bonus: 180
+    ascension-scaling-bonus: 12
+    skin-texture: "PLACEHOLDER_RIVER_FROG"
+    lore: "Leaps before it looks, but lands just fine."
+
+  cloud_lamb:
+    display-name: "ᴄʟᴏᴜᴅ ʟᴀᴍʙ"
+    rarity: N
+    base-power: 105
+    power-per-level: 7
+    power-per-star: 400
+    ascension-base-bonus: 180
+    ascension-scaling-bonus: 12
+    skin-texture: "PLACEHOLDER_CLOUD_LAMB"
+    lore: "A wandering puffball that smells like rain."
+
+  dusty_hedgehog:
+    display-name: "ᴅᴜꜱᴛʏ ʜᴇᴅɢᴇʜᴏɢ"
+    rarity: N
+    base-power: 115
+    power-per-level: 7
+    power-per-star: 400
+    ascension-base-bonus: 180
+    ascension-scaling-bonus: 12
+    skin-texture: "PLACEHOLDER_DUSTY_HEDGEHOG"
+    lore: "Rolls up at the first sign of danger — and then peeks."
+
+  sunbeam_duck:
+    display-name: "ꜱᴜɴʙᴇᴀᴍ ᴅᴜᴄᴋ"
+    rarity: N
+    base-power: 130
+    power-per-level: 8
+    power-per-star: 400
+    ascension-base-bonus: 180
+    ascension-scaling-bonus: 12
+    skin-texture: "PLACEHOLDER_SUNBEAM_DUCK"
+    lore: "Glows faintly in the afternoon light."
+
+  forest_mouse:
+    display-name: "ꜰᴏʀᴇꜱᴛ ᴍᴏᴜꜱᴇ"
+    rarity: N
+    base-power: 88
+    power-per-level: 6
+    power-per-star: 400
+    ascension-base-bonus: 180
+    ascension-scaling-bonus: 12
+    skin-texture: "PLACEHOLDER_FOREST_MOUSE"
+    lore: "Small enough to go unnoticed, clever enough to survive."
+
+  tide_crab:
+    display-name: "ᴛɪᴅᴇ ᴄʀᴀʙ"
+    rarity: N
+    base-power: 140
+    power-per-level: 9
+    power-per-star: 400
+    ascension-base-bonus: 180
+    ascension-scaling-bonus: 12
+    skin-texture: "PLACEHOLDER_TIDE_CRAB"
+    lore: "Pinches first, asks questions never."
+
+  gentle_doe:
+    display-name: "ɢᴇɴᴛʟᴇ ᴅᴏᴇ"
+    rarity: N
+    base-power: 160
+    power-per-level: 10
+    power-per-star: 400
+    ascension-base-bonus: 180
+    ascension-scaling-bonus: 12
+    skin-texture: "PLACEHOLDER_GENTLE_DOE"
+    lore: "Graceful and quiet, it watches over the forest floor."
+
+  stone_beetle:
+    display-name: "ꜱᴛᴏɴᴇ ʙᴇᴇᴛʟᴇ"
+    rarity: N
+    base-power: 175
+    power-per-level: 10
+    power-per-star: 400
+    ascension-base-bonus: 180
+    ascension-scaling-bonus: 12
+    skin-texture: "PLACEHOLDER_STONE_BEETLE"
+    lore: "Its shell is tougher than most helmets."
+
+  morning_chick:
+    display-name: "ᴍᴏʀɴɪɴɢ ᴄʜɪᴄᴋ"
+    rarity: N
+    base-power: 195
+    power-per-level: 12
+    power-per-star: 400
+    ascension-base-bonus: 180
+    ascension-scaling-bonus: 12
+    skin-texture: "PLACEHOLDER_MORNING_CHICK"
+    lore: "Hatched at sunrise, destined for something greater."
+
+  # ════════════════════════════════════════
+  #  RARE (R) — 15 pets — Base 280–500
+  # ════════════════════════════════════════
+
+  ember_fox:
+    display-name: "ᴇᴍʙᴇʀ ꜰᴏx"
+    rarity: R
+    base-power: 340
+    power-per-level: 18
+    power-per-star: 900
+    ascension-base-bonus: 450
+    ascension-scaling-bonus: 28
+    skin-texture: "PLACEHOLDER_EMBER_FOX"
+    lore: "Burns brighter with every step."
+
+  storm_crab:
+    display-name: "ꜱᴛᴏʀᴍ ᴄʀᴀʙ"
+    rarity: R
+    base-power: 290
+    power-per-level: 15
+    power-per-star: 900
+    ascension-base-bonus: 450
+    ascension-scaling-bonus: 28
+    skin-texture: "PLACEHOLDER_STORM_CRAB"
+    lore: "Claws forged in the heart of a sea storm."
+
+  crystal_slug:
+    display-name: "ᴄʀʏꜱᴛᴀʟ ꜱʟᴜɢ"
+    rarity: R
+    base-power: 280
+    power-per-level: 14
+    power-per-star: 900
+    ascension-base-bonus: 450
+    ascension-scaling-bonus: 28
+    skin-texture: "PLACEHOLDER_CRYSTAL_SLUG"
+    lore: "Leaves a trail of sparkling minerals wherever it goes."
+
+  moss_golem:
+    display-name: "ᴍᴏꜱꜱ ɢᴏʟᴇᴍ"
+    rarity: R
+    base-power: 420
+    power-per-level: 22
+    power-per-star: 900
+    ascension-base-bonus: 450
+    ascension-scaling-bonus: 28
+    skin-texture: "PLACEHOLDER_MOSS_GOLEM"
+    lore: "Ancient stone wrapped in a thousand years of growth."
+
+  magma_lizard:
+    display-name: "ᴍᴀɢᴍᴀ ʟɪᴢᴀʀᴅ"
+    rarity: R
+    base-power: 380
+    power-per-level: 20
+    power-per-star: 900
+    ascension-base-bonus: 450
+    ascension-scaling-bonus: 28
+    skin-texture: "PLACEHOLDER_MAGMA_LIZARD"
+    lore: "Sunbathes directly on lava flows."
+
+  thunder_cat:
+    display-name: "ᴛʜᴜɴᴅᴇʀ ᴄᴀᴛ"
+    rarity: R
+    base-power: 310
+    power-per-level: 16
+    power-per-star: 900
+    ascension-base-bonus: 450
+    ascension-scaling-bonus: 28
+    skin-texture: "PLACEHOLDER_THUNDER_CAT"
+    lore: "Its purring sounds exactly like distant thunder."
+
+  ice_ferret:
+    display-name: "ɪᴄᴇ ꜰᴇʀʀᴇᴛ"
+    rarity: R
+    base-power: 300
+    power-per-level: 15
+    power-per-star: 900
+    ascension-base-bonus: 450
+    ascension-scaling-bonus: 28
+    skin-texture: "PLACEHOLDER_ICE_FERRET"
+    lore: "Dances across frozen lakes without leaving a crack."
+
+  shadow_wolf:
+    display-name: "ꜱʜᴀᴅᴏᴡ ᴡᴏʟꜰ"
+    rarity: R
+    base-power: 460
+    power-per-level: 24
+    power-per-star: 900
+    ascension-base-bonus: 450
+    ascension-scaling-bonus: 28
+    skin-texture: "PLACEHOLDER_SHADOW_WOLF"
+    lore: "Hunts only by moonlight, leaving no tracks."
+
+  coral_sprite:
+    display-name: "ᴄᴏʀᴀʟ ꜱᴘʀɪᴛᴇ"
+    rarity: R
+    base-power: 320
+    power-per-level: 17
+    power-per-star: 900
+    ascension-base-bonus: 450
+    ascension-scaling-bonus: 28
+    skin-texture: "PLACEHOLDER_CORAL_SPRITE"
+    lore: "A tiny guardian of the deep reef."
+
+  vine_raptor:
+    display-name: "ᴠɪɴᴇ ʀᴀᴘᴛᴏʀ"
+    rarity: R
+    base-power: 500
+    power-per-level: 26
+    power-per-star: 900
+    ascension-base-bonus: 450
+    ascension-scaling-bonus: 28
+    skin-texture: "PLACEHOLDER_VINE_RAPTOR"
+    lore: "Sprints through the jungle faster than thought."
+
+  wind_hawk:
+    display-name: "ᴡɪɴᴅ ʜᴀᴡᴋ"
+    rarity: R
+    base-power: 350
+    power-per-level: 19
+    power-per-star: 900
+    ascension-base-bonus: 450
+    ascension-scaling-bonus: 28
+    skin-texture: "PLACEHOLDER_WIND_HAWK"
+    lore: "Rides thermals so high the stars feel close."
+
+  deep_angler:
+    display-name: "ᴅᴇᴇᴘ ᴀɴɢʟᴇʀ"
+    rarity: R
+    base-power: 395
+    power-per-level: 21
+    power-per-star: 900
+    ascension-base-bonus: 450
+    ascension-scaling-bonus: 28
+    skin-texture: "PLACEHOLDER_DEEP_ANGLER"
+    lore: "Its bioluminescent lure has lured many a brave soul."
+
+  iron_boar:
+    display-name: "ɪʀᴏɴ ʙᴏᴀʀ"
+    rarity: R
+    base-power: 440
+    power-per-level: 23
+    power-per-star: 900
+    ascension-base-bonus: 450
+    ascension-scaling-bonus: 28
+    skin-texture: "PLACEHOLDER_IRON_BOAR"
+    lore: "Its hide has deflected arrows, axes, and bad decisions."
+
+  swamp_basilisk:
+    display-name: "ꜱᴡᴀᴍᴘ ʙᴀꜱɪʟɪꜱᴋ"
+    rarity: R
+    base-power: 480
+    power-per-level: 25
+    power-per-star: 900
+    ascension-base-bonus: 450
+    ascension-scaling-bonus: 28
+    skin-texture: "PLACEHOLDER_SWAMP_BASILISK"
+    lore: "Do not meet its gaze — or so they say."
+
+  dusk_panther:
+    display-name: "ᴅᴜꜱᴋ ᴘᴀɴᴛʜᴇʀ"
+    rarity: R
+    base-power: 360
+    power-per-level: 19
+    power-per-star: 900
+    ascension-base-bonus: 450
+    ascension-scaling-bonus: 28
+    skin-texture: "PLACEHOLDER_DUSK_PANTHER"
+    lore: "Appears only at twilight, vanishes by midnight."
+
+  # ════════════════════════════════════════
+  #  SUPER RARE (SR) — 10 pets — Base 800–1400
+  # ════════════════════════════════════════
+
+  thunder_lynx:
+    display-name: "ᴛʜᴜɴᴅᴇʀ ʟʏɴx"
+    rarity: SR
+    base-power: 900
+    power-per-level: 45
+    power-per-star: 2500
+    ascension-base-bonus: 1200
+    ascension-scaling-bonus: 75
+    skin-texture: "PLACEHOLDER_THUNDER_LYNX"
+    lore: "Each footstep echoes like a thunderclap."
+
+  frost_phoenix:
+    display-name: "ꜰʀᴏꜱᴛ ᴘʜᴏᴇɴɪx"
+    rarity: SR
+    base-power: 1100
+    power-per-level: 55
+    power-per-star: 2500
+    ascension-base-bonus: 1200
+    ascension-scaling-bonus: 75
+    skin-texture: "PLACEHOLDER_FROST_PHOENIX"
+    lore: "Reborn from ice rather than flame."
+
+  void_serpent:
+    display-name: "ᴠᴏɪᴅ ꜱᴇʀᴘᴇɴᴛ"
+    rarity: SR
+    base-power: 1400
+    power-per-level: 70
+    power-per-star: 2500
+    ascension-base-bonus: 1200
+    ascension-scaling-bonus: 75
+    skin-texture: "PLACEHOLDER_VOID_SERPENT"
+    lore: "Slithers between dimensions without effort."
+
+  storm_guardian:
+    display-name: "ꜱᴛᴏʀᴍ ɢᴜᴀʀᴅɪᴀɴ"
+    rarity: SR
+    base-power: 800
+    power-per-level: 40
+    power-per-star: 2500
+    ascension-base-bonus: 1200
+    ascension-scaling-bonus: 75
+    skin-texture: "PLACEHOLDER_STORM_GUARDIAN"
+    lore: "Summoned by the sky itself to protect what matters."
+
+  earth_titan:
+    display-name: "ᴇᴀʀᴛʜ ᴛɪᴛᴀɴ"
+    rarity: SR
+    base-power: 1050
+    power-per-level: 52
+    power-per-star: 2500
+    ascension-base-bonus: 1200
+    ascension-scaling-bonus: 75
+    skin-texture: "PLACEHOLDER_EARTH_TITAN"
+    lore: "Mountains bow to its presence."
+
+  solar_gryphon:
+    display-name: "ꜱᴏʟᴀʀ ɢʀʏᴘʜᴏɴ"
+    rarity: SR
+    base-power: 1200
+    power-per-level: 60
+    power-per-star: 2500
+    ascension-base-bonus: 1200
+    ascension-scaling-bonus: 75
+    skin-texture: "PLACEHOLDER_SOLAR_GRYPHON"
+    lore: "Feathers that catch fire at high noon."
+
+  lunar_kirin:
+    display-name: "ʟᴜɴᴀʀ ᴋɪʀɪɴ"
+    rarity: SR
+    base-power: 950
+    power-per-level: 47
+    power-per-star: 2500
+    ascension-base-bonus: 1200
+    ascension-scaling-bonus: 75
+    skin-texture: "PLACEHOLDER_LUNAR_KIRIN"
+    lore: "Its steps leave flowers where the moonlight falls."
+
+  rune_leviathan:
+    display-name: "ʀᴜɴᴇ ʟᴇᴠɪᴀᴛʜᴀɴ"
+    rarity: SR
+    base-power: 1300
+    power-per-level: 65
+    power-per-star: 2500
+    ascension-base-bonus: 1200
+    ascension-scaling-bonus: 75
+    skin-texture: "PLACEHOLDER_RUNE_LEVIATHAN"
+    lore: "Ancient runes glow along its colossal body."
+
+  ember_wyvern:
+    display-name: "ᴇᴍʙᴇʀ ᴡʏᴠᴇʀɴ"
+    rarity: SR
+    base-power: 1150
+    power-per-level: 57
+    power-per-star: 2500
+    ascension-base-bonus: 1200
+    ascension-scaling-bonus: 75
+    skin-texture: "PLACEHOLDER_EMBER_WYVERN"
+    lore: "Breathes not fire, but living embers that never die."
+
+  crystal_golem:
+    display-name: "ᴄʀʏꜱᴛᴀʟ ɢᴏʟᴇᴍ"
+    rarity: SR
+    base-power: 850
+    power-per-level: 42
+    power-per-star: 2500
+    ascension-base-bonus: 1200
+    ascension-scaling-bonus: 75
+    skin-texture: "PLACEHOLDER_CRYSTAL_GOLEM"
+    lore: "Carved from a single flawless gemstone aeons ago."
+
+  # ════════════════════════════════════════
+  #  SUPER MEGA RARE (SMR) — 7 pets — Base 2200–3800
+  # ════════════════════════════════════════
+
+  celestial_dragon:
+    display-name: "ᴄᴇʟᴇꜱᴛɪᴀʟ ᴅʀᴀɢᴏɴ"
+    rarity: SMR
+    base-power: 2800
+    power-per-level: 140
+    power-per-star: 7000
+    ascension-base-bonus: 3500
+    ascension-scaling-bonus: 200
+    skin-texture: "PLACEHOLDER_CELESTIAL_DRAGON"
+    lore: "Descended from the stars to grace the mortal realm."
+
+  chrono_wolf:
+    display-name: "ᴄʜʀᴏɴᴏ ᴡᴏʟꜰ"
+    rarity: SMR
+    base-power: 2200
+    power-per-level: 110
+    power-per-star: 7000
+    ascension-base-bonus: 3500
+    ascension-scaling-bonus: 200
+    skin-texture: "PLACEHOLDER_CHRONO_WOLF"
+    lore: "Time bends around its howl."
+
+  astral_phoenix:
+    display-name: "ᴀꜱᴛʀᴀʟ ᴘʜᴏᴇɴɪx"
+    rarity: SMR
+    base-power: 3400
+    power-per-level: 170
+    power-per-star: 7000
+    ascension-base-bonus: 3500
+    ascension-scaling-bonus: 200
+    skin-texture: "PLACEHOLDER_ASTRAL_PHOENIX"
+    lore: "Burns with the light of a thousand stars."
+
+  shadow_titan:
+    display-name: "ꜱʜᴀᴅᴏᴡ ᴛɪᴛᴀɴ"
+    rarity: SMR
+    base-power: 2600
+    power-per-level: 130
+    power-per-star: 7000
+    ascension-base-bonus: 3500
+    ascension-scaling-bonus: 200
+    skin-texture: "PLACEHOLDER_SHADOW_TITAN"
+    lore: "A titan that was swallowed by the void and returned changed."
+
+  storm_emperor:
+    display-name: "ꜱᴛᴏʀᴍ ᴇᴍᴘᴇʀᴏʀ"
+    rarity: SMR
+    base-power: 3800
+    power-per-level: 190
+    power-per-star: 7000
+    ascension-base-bonus: 3500
+    ascension-scaling-bonus: 200
+    skin-texture: "PLACEHOLDER_STORM_EMPEROR"
+    lore: "Commands every tempest on every sea."
+
+  nature_sovereign:
+    display-name: "ɴᴀᴛᴜʀᴇ ꜱᴏᴠᴇʀᴇɪɢɴ"
+    rarity: SMR
+    base-power: 3000
+    power-per-level: 150
+    power-per-star: 7000
+    ascension-base-bonus: 3500
+    ascension-scaling-bonus: 200
+    skin-texture: "PLACEHOLDER_NATURE_SOVEREIGN"
+    lore: "Every living thing in the forest answers to its call."
+
+  void_reaper:
+    display-name: "ᴠᴏɪᴅ ʀᴇᴀᴘᴇʀ"
+    rarity: SMR
+    base-power: 3200
+    power-per-level: 160
+    power-per-star: 7000
+    ascension-base-bonus: 3500
+    ascension-scaling-bonus: 200
+    skin-texture: "PLACEHOLDER_VOID_REAPER"
+    lore: "Harvests the echoes of things that never existed."
+
+  # ════════════════════════════════════════
+  #  ULTRA RARE (UR) — 3 pets — Base 6000–9000
+  # ════════════════════════════════════════
+
+  abyss_titan:
+    display-name: "ᴀʙʏꜱꜱ ᴛɪᴛᴀɴ"
+    rarity: UR
+    base-power: 7500
+    power-per-level: 375
+    power-per-star: 18000
+    ascension-base-bonus: 9000
+    ascension-scaling-bonus: 500
+    skin-texture: "PLACEHOLDER_ABYSS_TITAN"
+    lore: "Older than the abyss itself; it remembers when darkness was born."
+
+  eternal_phoenix:
+    display-name: "ᴇᴛᴇʀɴᴀʟ ᴘʜᴏᴇɴɪx"
+    rarity: UR
+    base-power: 9000
+    power-per-level: 450
+    power-per-star: 18000
+    ascension-base-bonus: 9000
+    ascension-scaling-bonus: 500
+    skin-texture: "PLACEHOLDER_ETERNAL_PHOENIX"
+    lore: "Has died and been reborn more times than history can record."
+
+  primordial_dragon:
+    display-name: "ᴘʀɪᴍᴏʀᴅɪᴀʟ ᴅʀᴀɢᴏɴ"
+    rarity: UR
+    base-power: 6000
+    power-per-level: 300
+    power-per-star: 18000
+    ascension-base-bonus: 9000
+    ascension-scaling-bonus: 500
+    skin-texture: "PLACEHOLDER_PRIMORDIAL_DRAGON"
+    lore: "The first dragon. All others are pale imitations."
