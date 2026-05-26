@@ -52,9 +52,10 @@ public class PetStorageGui extends BaseGui {
         pagePets = allPets.subList(start, Math.min(start + PER_PAGE, allPets.size()));
 
         for (int i = 0; i < pagePets.size(); i++) {
+            final int slot = i;
             OwnedPet op = pagePets.get(i);
             config.getPetConfig().getPet(op.getPetId()).ifPresent(pet ->
-                    inventory.setItem(i, buildPetItem(pet, op, data))
+                    inventory.setItem(slot, buildPetItem(pet, op, data))
             );
         }
 
