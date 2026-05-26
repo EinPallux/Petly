@@ -79,41 +79,25 @@ public class StorageAdapter {
         }
 
         List<MissionResult> log = new ArrayList<>();
-        ConfigurationSection logSection = cfg.getConfigurationSection("mission-log");
-        if (logSection != null) {
-            List<?> rawLog = cfg.getList("mission-log");
-            if (rawLog != null) {
-                for (Object obj : rawLog) {
-                    if (obj instanceof ConfigurationSection s) {
-                        log.add(new MissionResult(
-                                s.getInt("mission-id"),
-                                s.getString("mission-name", ""),
-                                s.getBoolean("success"),
-                                s.getLong("dust"),
-                                s.getInt("xp"),
-                                s.getString("pet-drop", null),
-                                s.getLong("at")
-                        ));
-                    }
-                }
-            }
-        }
-        // Fallback: read as list of maps
-        if (log.isEmpty()) {
-            List<java.util.Map<?, ?>> rawLog = cfg.getMapList("mission-log");
-            for (java.util.Map<?, ?> m : rawLog) {
-                try {
-                    log.add(new MissionResult(
-                            (Integer) m.getOrDefault("mission-id", 0),
-                            (String) m.getOrDefault("mission-name", ""),
-                            (Boolean) m.getOrDefault("success", false),
-                            ((Number) m.getOrDefault("dust", 0)).longValue(),
-                            ((Number) m.getOrDefault("xp", 0)).intValue(),
-                            (String) m.get("pet-drop"),
-                            ((Number) m.getOrDefault("at", 0L)).longValue()
-                    ));
-                } catch (Exception ignored) {}
-            }
+        for (java.util.Map<?, ?> m : cfg.getMapList("mission-log")) {
+            try {
+                Object id   = m.getOrDefault("mission-id",   0);
+                Object name = m.getOrDefault("mission-name", "");
+                Object succ = m.getOrDefault("success",      false);
+                Object dust = m.getOrDefault("dust",         0);
+                Object xp   = m.getOrDefault("xp",          0);
+                Object drop = m.get("pet-drop");
+                Object at   = m.getOrDefault("at",           0L);
+                log.add(new MissionResult(
+                        id   instanceof Number  n ? n.intValue()  : 0,
+                        name instanceof String  s ? s             : "",
+                        succ instanceof Boolean b ? b             : false,
+                        dust instanceof Number  n ? n.longValue() : 0L,
+                        xp   instanceof Number  n ? n.intValue()  : 0,
+                        drop instanceof String  s ? s             : null,
+                        at   instanceof Number  n ? n.longValue() : 0L
+                ));
+            } catch (Exception ignored) {}
         }
 
         List<UUID> chamberIds = new ArrayList<>();
