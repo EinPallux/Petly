@@ -81,21 +81,21 @@ public class StorageAdapter {
         List<MissionResult> log = new ArrayList<>();
         for (java.util.Map<?, ?> m : cfg.getMapList("mission-log")) {
             try {
-                Object id   = m.getOrDefault("mission-id",   0);
-                Object name = m.getOrDefault("mission-name", "");
-                Object succ = m.getOrDefault("success",      false);
-                Object dust = m.getOrDefault("dust",         0);
-                Object xp   = m.getOrDefault("xp",          0);
-                Object drop = m.get("pet-drop");
-                Object at   = m.getOrDefault("at",           0L);
+                Object id      = m.get("mission-id");
+                Object mname   = m.get("mission-name");
+                Object succ    = m.get("success");
+                Object mDust   = m.get("dust");
+                Object mXp     = m.get("xp");
+                Object drop    = m.get("pet-drop");
+                Object at      = m.get("at");
                 log.add(new MissionResult(
-                        id   instanceof Number  n ? n.intValue()  : 0,
-                        name instanceof String  s ? s             : "",
-                        succ instanceof Boolean b ? b             : false,
-                        dust instanceof Number  n ? n.longValue() : 0L,
-                        xp   instanceof Number  n ? n.intValue()  : 0,
-                        drop instanceof String  s ? s             : null,
-                        at   instanceof Number  n ? n.longValue() : 0L
+                        id    instanceof Number  n ? n.intValue()  : 0,
+                        mname instanceof String  s ? s             : "",
+                        succ  instanceof Boolean b ? b             : false,
+                        mDust instanceof Number  n ? n.longValue() : 0L,
+                        mXp   instanceof Number  n ? n.intValue()  : 0,
+                        drop  instanceof String  s ? s             : null,
+                        at    instanceof Number  n ? n.longValue() : 0L
                 ));
             } catch (Exception ignored) {}
         }
