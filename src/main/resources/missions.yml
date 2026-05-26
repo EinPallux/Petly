@@ -1,0 +1,1036 @@
+# ──────────────────────────────────────────────
+#  Petly — Field Missions (All 100)
+#  duration-ticks: 20 ticks = 1 second.
+#  pet-drop-chance: 0.0 – 1.0 probability.
+# ──────────────────────────────────────────────
+missions:
+
+  # ════════════════════════════════
+  #  MISSIONS 1–10  (Nature/Forest)
+  #  Power 800–4,000 | 1–5 min
+  # ════════════════════════════════
+
+  1:
+    name: "ᴅᴇɴꜱᴇ ꜰᴏʀᴇꜱᴛ"
+    name-gradient: "<gradient:#22c55e:#166534>"
+    lore: "A forest so dense that even deer lose their way."
+    recommended-power: 800
+    duration-ticks: 1200
+    dust-reward: 80
+    pet-xp-reward: 60
+    pet-drop-chance: 0.03
+
+  2:
+    name: "ᴍᴜᴅᴅʏ ʀɪᴠᴇʀʙᴀɴᴋ"
+    name-gradient: "<gradient:#78716c:#3b82f6>"
+    lore: "The mud here has swallowed entire boots whole."
+    recommended-power: 1200
+    duration-ticks: 1800
+    dust-reward: 100
+    pet-xp-reward: 75
+    pet-drop-chance: 0.03
+
+  3:
+    name: "ᴍɪꜱᴛʏ ᴍᴇᴀᴅᴏᴡ"
+    name-gradient: "<gradient:#86efac:#d1fae5>"
+    lore: "Morning fog so thick you could cut it with a blade."
+    recommended-power: 1500
+    duration-ticks: 2400
+    dust-reward: 120
+    pet-xp-reward: 90
+    pet-drop-chance: 0.03
+
+  4:
+    name: "ꜱʜᴀʟʟᴏᴡ ᴄᴀᴠᴇꜱ"
+    name-gradient: "<gradient:#6b7280:#374151>"
+    lore: "Shallow enough to enter, deep enough to get lost."
+    recommended-power: 1800
+    duration-ticks: 3000
+    dust-reward: 145
+    pet-xp-reward: 110
+    pet-drop-chance: 0.03
+
+  5:
+    name: "ᴏʟᴅ ᴍɪʟʟ ʀᴜɪɴꜱ"
+    name-gradient: "<gradient:#a16207:#92400e>"
+    lore: "The millstone still turns, though no one has been here for centuries."
+    recommended-power: 2200
+    duration-ticks: 3600
+    dust-reward: 170
+    pet-xp-reward: 130
+    pet-drop-chance: 0.03
+
+  6:
+    name: "ᴛʜᴏʀɴᴡᴏᴏᴅ ᴘᴀᴛʜ"
+    name-gradient: "<gradient:#15803d:#854d0e>"
+    lore: "Every step forward costs a little blood."
+    recommended-power: 2600
+    duration-ticks: 4200
+    dust-reward: 195
+    pet-xp-reward: 145
+    pet-drop-chance: 0.03
+
+  7:
+    name: "ꜱᴜɴʟɪᴛ ɢʟᴀᴅᴇ"
+    name-gradient: "<gradient:#fbbf24:#22c55e>"
+    lore: "Peaceful on the surface, restless underneath."
+    recommended-power: 3000
+    duration-ticks: 4800
+    dust-reward: 220
+    pet-xp-reward: 165
+    pet-drop-chance: 0.03
+
+  8:
+    name: "ʀᴏᴄᴋʏ ʜɪʟʟꜱɪᴅᴇ"
+    name-gradient: "<gradient:#6b7280:#78350f>"
+    lore: "Rolling boulders are the least of your worries here."
+    recommended-power: 3400
+    duration-ticks: 5400
+    dust-reward: 245
+    pet-xp-reward: 185
+    pet-drop-chance: 0.03
+
+  9:
+    name: "ᴀɴᴄɪᴇɴᴛ ɢʀᴏᴠᴇ"
+    name-gradient: "<gradient:#166534:#065f46>"
+    lore: "The trees here predate every civilization ever known."
+    recommended-power: 3700
+    duration-ticks: 5700
+    dust-reward: 265
+    pet-xp-reward: 200
+    pet-drop-chance: 0.03
+
+  10:
+    name: "ꜱᴛᴏʀᴍ-ᴛᴏᴜᴄʜᴇᴅ ᴘʟᴀɪɴꜱ"
+    name-gradient: "<gradient:#6b7280:#1d4ed8>"
+    lore: "Perpetually overcast, as if the sky holds a grudge."
+    recommended-power: 4000
+    duration-ticks: 6000
+    dust-reward: 280
+    pet-xp-reward: 210
+    pet-drop-chance: 0.03
+
+  # ════════════════════════════════
+  #  MISSIONS 11–25  (Underground/Ruins)
+  #  Power 5,000–25,000 | 6–18 min
+  # ════════════════════════════════
+
+  11:
+    name: "ᴀʙᴀɴᴅᴏɴᴇᴅ ᴍɪɴᴇ"
+    name-gradient: "<gradient:#78716c:#292524>"
+    lore: "The miners left in a hurry; their tools still hang on the walls."
+    recommended-power: 5000
+    duration-ticks: 7200
+    dust-reward: 350
+    pet-xp-reward: 265
+    pet-drop-chance: 0.03
+
+  12:
+    name: "ꜱᴡᴀᴍᴘ ᴛʜɪᴄᴋᴇᴛ"
+    name-gradient: "<gradient:#4d7c0f:#166534>"
+    lore: "The water here glows faintly — best not to ask why."
+    recommended-power: 6500
+    duration-ticks: 8400
+    dust-reward: 500
+    pet-xp-reward: 375
+    pet-drop-chance: 0.03
+
+  13:
+    name: "ꜰʟᴏᴏᴅᴇᴅ ʀᴜɪɴꜱ"
+    name-gradient: "<gradient:#0369a1:#075985>"
+    lore: "A once-great city now submerged and forgotten."
+    recommended-power: 8000
+    duration-ticks: 9600
+    dust-reward: 650
+    pet-xp-reward: 490
+    pet-drop-chance: 0.03
+
+  14:
+    name: "ɢᴏʙʟɪɴ ᴡᴀʀʀᴇɴ"
+    name-gradient: "<gradient:#854d0e:#78350f>"
+    lore: "Tunnels dug in every direction by creatures who never sleep."
+    recommended-power: 9500
+    duration-ticks: 10800
+    dust-reward: 820
+    pet-xp-reward: 615
+    pet-drop-chance: 0.03
+
+  15:
+    name: "ʜᴀᴜɴᴛᴇᴅ ᴄʟᴇᴀʀɪɴɢ"
+    name-gradient: "<gradient:#6d28d9:#4c1d95>"
+    lore: "Footsteps follow you here even when you stand still."
+    recommended-power: 11000
+    duration-ticks: 12000
+    dust-reward: 970
+    pet-xp-reward: 730
+    pet-drop-chance: 0.03
+
+  16:
+    name: "ꜱᴘɪᴅᴇʀ ʜᴏʟʟᴏᴡ"
+    name-gradient: "<gradient:#1c1917:#3f3f46>"
+    lore: "The webs here are strong enough to hold a horse."
+    recommended-power: 12500
+    duration-ticks: 13200
+    dust-reward: 1120
+    pet-xp-reward: 840
+    pet-drop-chance: 0.03
+
+  17:
+    name: "ᴄᴜʀꜱᴇᴅ ꜱʜʀɪɴᴇ"
+    name-gradient: "<gradient:#7c2d12:#431407>"
+    lore: "Whatever was worshipped here wanted very bad things."
+    recommended-power: 14000
+    duration-ticks: 14400
+    dust-reward: 1280
+    pet-xp-reward: 960
+    pet-drop-chance: 0.04
+
+  18:
+    name: "ᴅᴀʀᴋ ʙᴜʀʀᴏᴡ"
+    name-gradient: "<gradient:#1c1917:#3f3f46>"
+    lore: "Dig too deep and you'll find something that digs back."
+    recommended-power: 15500
+    duration-ticks: 15600
+    dust-reward: 1430
+    pet-xp-reward: 1075
+    pet-drop-chance: 0.04
+
+  19:
+    name: "ꜱᴇʀᴘᴇɴᴛ ᴍᴀʀꜱʜ"
+    name-gradient: "<gradient:#166534:#4d7c0f>"
+    lore: "The serpents here have learned to walk on two legs."
+    recommended-power: 17000
+    duration-ticks: 16800
+    dust-reward: 1590
+    pet-xp-reward: 1195
+    pet-drop-chance: 0.04
+
+  20:
+    name: "ꜱʜᴀᴅᴏᴡ ᴄᴏᴘꜱᴇ"
+    name-gradient: "<gradient:#3b0764:#1e1b4b>"
+    lore: "The shadows here move independently of the light."
+    recommended-power: 18500
+    duration-ticks: 18000
+    dust-reward: 1740
+    pet-xp-reward: 1305
+    pet-drop-chance: 0.04
+
+  21:
+    name: "ᴠᴇɴᴏᴍ ɢʀᴏᴠᴇ"
+    name-gradient: "<gradient:#16a34a:#ca8a04>"
+    lore: "The flowers are beautiful; do not touch them."
+    recommended-power: 20000
+    duration-ticks: 19200
+    dust-reward: 1900
+    pet-xp-reward: 1425
+    pet-drop-chance: 0.04
+
+  22:
+    name: "ʙʟɪɢʜᴛᴇᴅ ʜᴏʟʟᴏᴡꜱ"
+    name-gradient: "<gradient:#7c2d12:#78350f>"
+    lore: "Nothing has grown here in a hundred years and nothing will."
+    recommended-power: 21500
+    duration-ticks: 19800
+    dust-reward: 2050
+    pet-xp-reward: 1540
+    pet-drop-chance: 0.04
+
+  23:
+    name: "ꜰʀᴏꜱᴛʙɪᴛᴛᴇɴ ᴘᴀꜱꜱ"
+    name-gradient: "<gradient:#7dd3fc:#bae6fd>"
+    lore: "A mountain pass where even fire struggles to stay lit."
+    recommended-power: 23000
+    duration-ticks: 20400
+    dust-reward: 2200
+    pet-xp-reward: 1650
+    pet-drop-chance: 0.04
+
+  24:
+    name: "ɪʀᴏɴ ʀᴀᴠɪɴᴇ"
+    name-gradient: "<gradient:#3f3f46:#1c1917>"
+    lore: "The canyon walls bleed iron ore after heavy rain."
+    recommended-power: 24000
+    duration-ticks: 21000
+    dust-reward: 2350
+    pet-xp-reward: 1765
+    pet-drop-chance: 0.04
+
+  25:
+    name: "ꜱᴛᴏʀᴍ ɢᴏʀɢᴇ"
+    name-gradient: "<gradient:#1d4ed8:#0369a1>"
+    lore: "Lightning strikes the same spot here every hour on the hour."
+    recommended-power: 25000
+    duration-ticks: 21600
+    dust-reward: 2500
+    pet-xp-reward: 1875
+    pet-drop-chance: 0.04
+
+  # ════════════════════════════════
+  #  MISSIONS 26–50  (Volcanic/Frozen/Ruins)
+  #  Power 30,000–150,000 | 20–45 min
+  # ════════════════════════════════
+
+  26:
+    name: "ʟᴀᴠᴀ ꜰʟᴀᴛꜱ"
+    name-gradient: "<gradient:#dc2626:#ea580c>"
+    lore: "The ground is only crust — anything heavier than a leaf sinks."
+    recommended-power: 30000
+    duration-ticks: 24000
+    dust-reward: 3000
+    pet-xp-reward: 2250
+    pet-drop-chance: 0.04
+
+  27:
+    name: "ꜱᴄᴏʀᴄʜᴇᴅ ᴄᴀɴʏᴏɴ"
+    name-gradient: "<gradient:#c2410c:#92400e>"
+    lore: "The walls are scorched glass from an ancient inferno."
+    recommended-power: 35000
+    duration-ticks: 25200
+    dust-reward: 3700
+    pet-xp-reward: 2775
+    pet-drop-chance: 0.04
+
+  28:
+    name: "ᴅᴇꜱᴇʀᴛ ᴅᴜɴᴇꜱ"
+    name-gradient: "<gradient:#fbbf24:#f59e0b>"
+    lore: "Dunes that shift overnight, erasing all landmarks."
+    recommended-power: 40000
+    duration-ticks: 26400
+    dust-reward: 4400
+    pet-xp-reward: 3300
+    pet-drop-chance: 0.04
+
+  29:
+    name: "ʙᴜʀɴɪɴɢ ʙᴀᴅʟᴀɴᴅꜱ"
+    name-gradient: "<gradient:#ef4444:#b45309>"
+    lore: "Methane vents ignite randomly — stay light on your feet."
+    recommended-power: 45000
+    duration-ticks: 27600
+    dust-reward: 5100
+    pet-xp-reward: 3825
+    pet-drop-chance: 0.04
+
+  30:
+    name: "ᴀꜱʜᴇɴ ᴡᴀꜱᴛᴇꜱ"
+    name-gradient: "<gradient:#57534e:#44403c>"
+    lore: "The remnants of a civilization burned by its own arrogance."
+    recommended-power: 50000
+    duration-ticks: 29000
+    dust-reward: 5800
+    pet-xp-reward: 4350
+    pet-drop-chance: 0.04
+
+  31:
+    name: "ꜰʀᴏᴢᴇɴ ᴛᴜɴᴅʀᴀ"
+    name-gradient: "<gradient:#93c5fd:#dbeafe>"
+    lore: "The cold here is alive and it does not like visitors."
+    recommended-power: 55000
+    duration-ticks: 30000
+    dust-reward: 6550
+    pet-xp-reward: 4913
+    pet-drop-chance: 0.04
+
+  32:
+    name: "ɢʟᴀᴄɪᴀʟ ᴄʜᴀꜱᴍ"
+    name-gradient: "<gradient:#7dd3fc:#bae6fd>"
+    lore: "A crevasse so deep it disappears into silence."
+    recommended-power: 60000
+    duration-ticks: 31500
+    dust-reward: 7250
+    pet-xp-reward: 5438
+    pet-drop-chance: 0.04
+
+  33:
+    name: "ɪᴄᴇ ᴄᴀᴠᴇʀɴꜱ"
+    name-gradient: "<gradient:#e0f2fe:#bae6fd>"
+    lore: "Crystals of ice refract light into impossible rainbows."
+    recommended-power: 65000
+    duration-ticks: 33000
+    dust-reward: 8000
+    pet-xp-reward: 6000
+    pet-drop-chance: 0.04
+
+  34:
+    name: "ʙʟɪᴢᴢᴀʀᴅ ᴘᴇᴀᴋꜱ"
+    name-gradient: "<gradient:#bfdbfe:#eff6ff>"
+    lore: "The summit is never visible — the storm never ends."
+    recommended-power: 70000
+    duration-ticks: 34200
+    dust-reward: 8700
+    pet-xp-reward: 6525
+    pet-drop-chance: 0.04
+
+  35:
+    name: "ᴄʀʏꜱᴛᴀʟ ꜱɴᴏᴡꜰɪᴇʟᴅ"
+    name-gradient: "<gradient:#e0f2fe:#f0f9ff>"
+    lore: "Not snow — the ground is made of powdered crystal."
+    recommended-power: 75000
+    duration-ticks: 35400
+    dust-reward: 9400
+    pet-xp-reward: 7050
+    pet-drop-chance: 0.04
+
+  36:
+    name: "ᴠᴏʟᴄᴀɴɪᴄ ᴄʀᴀᴛᴇʀ"
+    name-gradient: "<gradient:#ef4444:#c2410c>"
+    lore: "The caldera breathes smoke like a sleeping beast."
+    recommended-power: 80000
+    duration-ticks: 36600
+    dust-reward: 10100
+    pet-xp-reward: 7575
+    pet-drop-chance: 0.05
+
+  37:
+    name: "ᴍᴀɢᴍᴀ ᴄʜᴀᴍʙᴇʀ"
+    name-gradient: "<gradient:#dc2626:#7f1d1d>"
+    lore: "The walls pulse with heat; the air tastes of iron."
+    recommended-power: 85000
+    duration-ticks: 38000
+    dust-reward: 10800
+    pet-xp-reward: 8100
+    pet-drop-chance: 0.05
+
+  38:
+    name: "ꜱᴜʟꜰᴜʀ ꜱᴘʀɪɴɢꜱ"
+    name-gradient: "<gradient:#eab308:#ca8a04>"
+    lore: "The yellow springs bubble and hiss with acrid steam."
+    recommended-power: 90000
+    duration-ticks: 39000
+    dust-reward: 11500
+    pet-xp-reward: 8625
+    pet-drop-chance: 0.05
+
+  39:
+    name: "ᴇᴍʙᴇʀ ᴅᴇꜱᴇʀᴛ"
+    name-gradient: "<gradient:#f97316:#c2410c>"
+    lore: "Sand so hot it glows in the dark."
+    recommended-power: 95000
+    duration-ticks: 40200
+    dust-reward: 12200
+    pet-xp-reward: 9150
+    pet-drop-chance: 0.05
+
+  40:
+    name: "ɪɴꜰᴇʀɴᴏ ʀɪᴅɢᴇ"
+    name-gradient: "<gradient:#dc2626:#991b1b>"
+    lore: "The ridge is permanently aflame — the fire feeds on stone."
+    recommended-power: 100000
+    duration-ticks: 41500
+    dust-reward: 12900
+    pet-xp-reward: 9675
+    pet-drop-chance: 0.05
+
+  41:
+    name: "ʀᴜɪɴᴇᴅ ᴄɪᴛᴀᴅᴇʟ"
+    name-gradient: "<gradient:#a16207:#854d0e>"
+    lore: "A fortress that fell in a single night — no one knows how."
+    recommended-power: 105000
+    duration-ticks: 42750
+    dust-reward: 13600
+    pet-xp-reward: 10200
+    pet-drop-chance: 0.05
+
+  42:
+    name: "ꜰᴏʀɢᴏᴛᴛᴇɴ ᴋᴇᴇᴘ"
+    name-gradient: "<gradient:#6b7280:#374151>"
+    lore: "Even its name has been lost to history."
+    recommended-power: 110000
+    duration-ticks: 44000
+    dust-reward: 14350
+    pet-xp-reward: 10763
+    pet-drop-chance: 0.05
+
+  43:
+    name: "ꜱʜᴀᴅᴏᴡᴇᴅ ᴄʀʏᴘᴛ"
+    name-gradient: "<gradient:#4c1d95:#312e81>"
+    lore: "The dead here are restless and very, very loud."
+    recommended-power: 115000
+    duration-ticks: 45250
+    dust-reward: 15050
+    pet-xp-reward: 11288
+    pet-drop-chance: 0.05
+
+  44:
+    name: "ʙᴏɴᴇ ꜰɪᴇʟᴅꜱ"
+    name-gradient: "<gradient:#d4d4d8:#a1a1aa>"
+    lore: "Fields carpeted in the bones of those who came before."
+    recommended-power: 120000
+    duration-ticks: 46500
+    dust-reward: 15800
+    pet-xp-reward: 11850
+    pet-drop-chance: 0.05
+
+  45:
+    name: "ᴅᴇꜱᴏʟᴀᴛᴇ ᴍᴏᴏʀ"
+    name-gradient: "<gradient:#374151:#1c1917>"
+    lore: "Wind-scoured and empty, save for the things that hide."
+    recommended-power: 125000
+    duration-ticks: 47750
+    dust-reward: 16500
+    pet-xp-reward: 12375
+    pet-drop-chance: 0.05
+
+  46:
+    name: "ᴀɴᴄɪᴇɴᴛ ʟᴀʙʏʀɪɴᴛʜ"
+    name-gradient: "<gradient:#ca8a04:#78350f>"
+    lore: "Built to imprison something that still paces its halls."
+    recommended-power: 130000
+    duration-ticks: 49000
+    dust-reward: 17200
+    pet-xp-reward: 12900
+    pet-drop-chance: 0.05
+
+  47:
+    name: "ᴄᴏʟʟᴀᴘꜱᴇᴅ ᴛᴏᴡᴇʀ"
+    name-gradient: "<gradient:#6b7280:#44403c>"
+    lore: "The tower's fall left a crater that still smolders."
+    recommended-power: 135000
+    duration-ticks: 50250
+    dust-reward: 17900
+    pet-xp-reward: 13425
+    pet-drop-chance: 0.05
+
+  48:
+    name: "ꜱʜᴀᴛᴛᴇʀᴇᴅ ᴛʜʀᴏɴᴇ"
+    name-gradient: "<gradient:#7c3aed:#4c1d95>"
+    lore: "A throne crushed by the weight of its own ambition."
+    recommended-power: 140000
+    duration-ticks: 51500
+    dust-reward: 18600
+    pet-xp-reward: 13950
+    pet-drop-chance: 0.05
+
+  49:
+    name: "ᴄᴜʀꜱᴇᴅ ʟᴏᴡʟᴀɴᴅꜱ"
+    name-gradient: "<gradient:#6d28d9:#7c2d12>"
+    lore: "The ground absorbs curses and amplifies them tenfold."
+    recommended-power: 145000
+    duration-ticks: 52750
+    dust-reward: 19300
+    pet-xp-reward: 14475
+    pet-drop-chance: 0.05
+
+  50:
+    name: "ᴛᴡɪʟɪɢʜᴛ ᴍᴀʀꜱʜ"
+    name-gradient: "<gradient:#1e1b4b:#312e81>"
+    lore: "Trapped in eternal dusk, this marsh never sees true night or day."
+    recommended-power: 150000
+    duration-ticks: 54000
+    dust-reward: 20000
+    pet-xp-reward: 15000
+    pet-drop-chance: 0.05
+
+  # ════════════════════════════════
+  #  MISSIONS 51–75  (Sky/Ocean)
+  #  Power 200,000–1,000,000 | 1–1.5 hr
+  # ════════════════════════════════
+
+  51:
+    name: "ꜱᴋʏ ᴀʀᴄʜɪᴘᴇʟᴀɢᴏ"
+    name-gradient: "<gradient:#60a5fa:#bae6fd>"
+    lore: "Islands floating impossibly high above the clouds."
+    recommended-power: 200000
+    duration-ticks: 72000
+    dust-reward: 22000
+    pet-xp-reward: 16500
+    pet-drop-chance: 0.05
+
+  52:
+    name: "ꜰʟᴏᴀᴛɪɴɢ ʀᴜɪɴꜱ"
+    name-gradient: "<gradient:#93c5fd:#c7d2fe>"
+    lore: "Architecture from a civilization that solved gravity."
+    recommended-power: 233000
+    duration-ticks: 73500
+    dust-reward: 26000
+    pet-xp-reward: 19500
+    pet-drop-chance: 0.05
+
+  53:
+    name: "ᴡɪɴᴅ ᴄɪᴛᴀᴅᴇʟ"
+    name-gradient: "<gradient:#e0f2fe:#dbeafe>"
+    lore: "Built from petrified wind — it hums with every gust."
+    recommended-power: 266000
+    duration-ticks: 75000
+    dust-reward: 30000
+    pet-xp-reward: 22500
+    pet-drop-chance: 0.05
+
+  54:
+    name: "ᴄʟᴏᴜᴅ ᴘᴀʟᴀᴄᴇ"
+    name-gradient: "<gradient:#bfdbfe:#f0f9ff>"
+    lore: "A palace woven from living storm-cloud, perpetually drifting."
+    recommended-power: 300000
+    duration-ticks: 76500
+    dust-reward: 34000
+    pet-xp-reward: 25500
+    pet-drop-chance: 0.05
+
+  55:
+    name: "ꜱᴛᴏʀᴍ ꜱᴘɪʀᴇ"
+    name-gradient: "<gradient:#1d4ed8:#7c3aed>"
+    lore: "Lightning births new creatures at the spire's peak every day."
+    recommended-power: 333000
+    duration-ticks: 78000
+    dust-reward: 38500
+    pet-xp-reward: 28875
+    pet-drop-chance: 0.05
+
+  56:
+    name: "ᴛʜᴇ ʜɪɢʜ ɴᴇxᴜꜱ"
+    name-gradient: "<gradient:#7c3aed:#1d4ed8>"
+    lore: "Where ley lines from five continents converge above the clouds."
+    recommended-power: 366000
+    duration-ticks: 79500
+    dust-reward: 42500
+    pet-xp-reward: 31875
+    pet-drop-chance: 0.05
+
+  57:
+    name: "ᴀᴇʀɪᴀʟ ꜰᴏʀᴛʀᴇꜱꜱ"
+    name-gradient: "<gradient:#3b82f6:#8b5cf6>"
+    lore: "Cannons point downward — the threats here come from above."
+    recommended-power: 400000
+    duration-ticks: 81000
+    dust-reward: 46500
+    pet-xp-reward: 34875
+    pet-drop-chance: 0.05
+
+  58:
+    name: "ɢᴀʟᴇ ᴠᴏʀᴛᴇx"
+    name-gradient: "<gradient:#0ea5e9:#6366f1>"
+    lore: "A permanent cyclone that swallows everything drawn too close."
+    recommended-power: 433000
+    duration-ticks: 82500
+    dust-reward: 50500
+    pet-xp-reward: 37875
+    pet-drop-chance: 0.05
+
+  59:
+    name: "ᴛʜᴜɴᴅᴇʀʜᴇᴀᴅ ɪꜱʟᴇ"
+    name-gradient: "<gradient:#1d4ed8:#0f172a>"
+    lore: "An island that exists only inside a permanent thunderstorm."
+    recommended-power: 466000
+    duration-ticks: 84000
+    dust-reward: 55000
+    pet-xp-reward: 41250
+    pet-drop-chance: 0.05
+
+  60:
+    name: "ʟɪɢʜᴛɴɪɴɢ ᴘᴇᴀᴋ"
+    name-gradient: "<gradient:#fbbf24:#f97316>"
+    lore: "The peak has been struck so many times it glows in the dark."
+    recommended-power: 500000
+    duration-ticks: 85500
+    dust-reward: 59000
+    pet-xp-reward: 44250
+    pet-drop-chance: 0.05
+
+  61:
+    name: "ᴀʙʏꜱꜱᴀʟ ᴛʀᴇɴᴄʜ"
+    name-gradient: "<gradient:#0c4a6e:#082f49>"
+    lore: "The deepest point of any ocean — pressure alone should kill you."
+    recommended-power: 533000
+    duration-ticks: 87000
+    dust-reward: 63000
+    pet-xp-reward: 47250
+    pet-drop-chance: 0.06
+
+  62:
+    name: "ꜱᴜɴᴋᴇɴ ᴛᴇᴍᴘʟᴇ"
+    name-gradient: "<gradient:#0369a1:#155e75>"
+    lore: "Its prayers still echo underwater, unanswered for millennia."
+    recommended-power: 566000
+    duration-ticks: 88500
+    dust-reward: 67000
+    pet-xp-reward: 50250
+    pet-drop-chance: 0.06
+
+  63:
+    name: "ᴅᴇᴇᴘ ʀᴇᴇꜰ"
+    name-gradient: "<gradient:#0891b2:#0e7490>"
+    lore: "Beauty beyond imagination, danger beyond comprehension."
+    recommended-power: 600000
+    duration-ticks: 90000
+    dust-reward: 71000
+    pet-xp-reward: 53250
+    pet-drop-chance: 0.06
+
+  64:
+    name: "ʟᴇᴠɪᴀᴛʜᴀɴ ᴛʀᴇɴᴄʜ"
+    name-gradient: "<gradient:#075985:#0c4a6e>"
+    lore: "Named for what lives at the bottom — something is always watching."
+    recommended-power: 633000
+    duration-ticks: 91500
+    dust-reward: 75000
+    pet-xp-reward: 56250
+    pet-drop-chance: 0.06
+
+  65:
+    name: "ᴛʜᴇ ᴅᴀʀᴋ ᴅᴇᴘᴛʜꜱ"
+    name-gradient: "<gradient:#082f49:#0a0a0a>"
+    lore: "Light ceases to exist below a certain depth here."
+    recommended-power: 666000
+    duration-ticks: 93000
+    dust-reward: 79500
+    pet-xp-reward: 59625
+    pet-drop-chance: 0.06
+
+  66:
+    name: "ᴘʀᴇꜱꜱᴜʀᴇ ᴀʙʏꜱꜱ"
+    name-gradient: "<gradient:#1e3a8a:#082f49>"
+    lore: "The pressure here compresses time as well as matter."
+    recommended-power: 700000
+    duration-ticks: 94500
+    dust-reward: 83500
+    pet-xp-reward: 62625
+    pet-drop-chance: 0.06
+
+  67:
+    name: "ᴅʀᴏᴡɴᴇᴅ ᴄɪᴛʏ"
+    name-gradient: "<gradient:#0369a1:#4c1d95>"
+    lore: "The city's bells still toll beneath the waves."
+    recommended-power: 733000
+    duration-ticks: 96000
+    dust-reward: 87500
+    pet-xp-reward: 65625
+    pet-drop-chance: 0.06
+
+  68:
+    name: "ᴠᴏɪᴅ ᴛɪᴅᴇᴘᴏᴏʟ"
+    name-gradient: "<gradient:#0c4a6e:#1e1b4b>"
+    lore: "The tide reveals pools that connect to somewhere outside reality."
+    recommended-power: 766000
+    duration-ticks: 97500
+    dust-reward: 91500
+    pet-xp-reward: 68625
+    pet-drop-chance: 0.06
+
+  69:
+    name: "ᴅᴇᴇᴘ ᴛɪᴛᴀɴ'ꜱ ᴅᴏᴍᴀɪɴ"
+    name-gradient: "<gradient:#1e3a8a:#312e81>"
+    lore: "The titan sleeps here — every tremor is a snore."
+    recommended-power: 800000
+    duration-ticks: 99000
+    dust-reward: 95500
+    pet-xp-reward: 71625
+    pet-drop-chance: 0.06
+
+  70:
+    name: "ꜱᴜʙᴍᴇʀɢᴇᴅ ᴄᴀᴛʜᴇᴅʀᴀʟ"
+    name-gradient: "<gradient:#0284c7:#1d4ed8>"
+    lore: "Its stained glass still filters the abyssal water into colored light."
+    recommended-power: 833000
+    duration-ticks: 100500
+    dust-reward: 100000
+    pet-xp-reward: 75000
+    pet-drop-chance: 0.06
+
+  71:
+    name: "ᴄᴜʀꜱᴇᴅ ᴇᴍᴘɪʀᴇ"
+    name-gradient: "<gradient:#6d28d9:#4c1d95>"
+    lore: "An empire that conquered the world and was then forgotten overnight."
+    recommended-power: 866000
+    duration-ticks: 102000
+    dust-reward: 104000
+    pet-xp-reward: 78000
+    pet-drop-chance: 0.06
+
+  72:
+    name: "ʙʟɪɢʜᴛᴇᴅ ꜱᴀɴᴄᴛᴜᴍ"
+    name-gradient: "<gradient:#7c2d12:#4c1d95>"
+    lore: "Hallowed ground corrupted so thoroughly even demons avoid it."
+    recommended-power: 900000
+    duration-ticks: 103500
+    dust-reward: 108000
+    pet-xp-reward: 81000
+    pet-drop-chance: 0.06
+
+  73:
+    name: "ᴘʟᴀɢᴜᴇ ɴᴇxᴜꜱ"
+    name-gradient: "<gradient:#166534:#854d0e>"
+    lore: "The sickness here predates every medicine ever invented."
+    recommended-power: 933000
+    duration-ticks: 105000
+    dust-reward: 112000
+    pet-xp-reward: 84000
+    pet-drop-chance: 0.06
+
+  74:
+    name: "ʀᴇᴀʟᴍ ᴏꜰ ᴛʜᴇ ꜰᴀʟʟᴇɴ"
+    name-gradient: "<gradient:#1c1917:#3b0764>"
+    lore: "Where the greatest heroes came to die and stayed."
+    recommended-power: 966000
+    duration-ticks: 106500
+    dust-reward: 116000
+    pet-xp-reward: 87000
+    pet-drop-chance: 0.06
+
+  75:
+    name: "ꜱᴏᴜʟ ꜱʜʀᴇᴅᴅᴇʀ'ꜱ ᴅᴏᴍᴀɪɴ"
+    name-gradient: "<gradient:#6d28d9:#7c2d12>"
+    lore: "Whatever lives here collects souls the way others collect coins."
+    recommended-power: 1000000
+    duration-ticks: 108000
+    dust-reward: 120000
+    pet-xp-reward: 90000
+    pet-drop-chance: 0.06
+
+  # ════════════════════════════════
+  #  MISSIONS 76–90  (Ancient/Astral)
+  #  Power 1.2M–5M | 2–2.5 hr
+  # ════════════════════════════════
+
+  76:
+    name: "ɴɪɢʜᴛᴍᴀʀᴇ ᴇxᴘᴀɴꜱᴇ"
+    name-gradient: "<gradient:#4c1d95:#1c1917>"
+    lore: "A plane made entirely of crystallised fear."
+    recommended-power: 1200000
+    duration-ticks: 144000
+    dust-reward: 140000
+    pet-xp-reward: 105000
+    pet-drop-chance: 0.06
+
+  77:
+    name: "ᴛʜᴇ ᴜɴᴇɴᴅɪɴɢ ᴍᴀᴢᴇ"
+    name-gradient: "<gradient:#374151:#1c1917>"
+    lore: "Architects who mapped this maze lost their minds first."
+    recommended-power: 1470000
+    duration-ticks: 147000
+    dust-reward: 166000
+    pet-xp-reward: 124500
+    pet-drop-chance: 0.06
+
+  78:
+    name: "ᴡʀᴀɪᴛʜᴡᴏᴏᴅ"
+    name-gradient: "<gradient:#1e1b4b:#1c1917>"
+    lore: "The trees are made of petrified wraiths; they still whisper."
+    recommended-power: 1750000
+    duration-ticks: 150000
+    dust-reward: 192000
+    pet-xp-reward: 144000
+    pet-drop-chance: 0.06
+
+  79:
+    name: "ꜰᴏʀꜱᴀᴋᴇɴ ᴡᴀꜱᴛᴇʟᴀɴᴅ"
+    name-gradient: "<gradient:#292524:#3b0764>"
+    lore: "Not even gods bother with this place anymore."
+    recommended-power: 2000000
+    duration-ticks: 151800
+    dust-reward: 218000
+    pet-xp-reward: 163500
+    pet-drop-chance: 0.06
+
+  80:
+    name: "ᴀɴᴄɪᴇɴᴛ ᴅᴇᴍᴏɴ ꜱʜʀɪɴᴇ"
+    name-gradient: "<gradient:#7c3aed:#7c2d12>"
+    lore: "The demon it was built for never left — it merely went quiet."
+    recommended-power: 2280000
+    duration-ticks: 154200
+    dust-reward: 243000
+    pet-xp-reward: 182250
+    pet-drop-chance: 0.06
+
+  81:
+    name: "ᴇᴛʜᴇʀᴇᴀʟ ᴘʟᴀɴᴇ"
+    name-gradient: "<gradient:#a855f7:#6366f1>"
+    lore: "A dimension where light and sound swap properties."
+    recommended-power: 2560000
+    duration-ticks: 156600
+    dust-reward: 269000
+    pet-xp-reward: 201750
+    pet-drop-chance: 0.07
+
+  82:
+    name: "ᴀꜱᴛʀᴀʟ ɪɴᴛᴇʀꜱᴇᴄᴛɪᴏɴ"
+    name-gradient: "<gradient:#8b5cf6:#60a5fa>"
+    lore: "Where seventeen astral pathways cross — and sometimes collide."
+    recommended-power: 2830000
+    duration-ticks: 159000
+    dust-reward: 294000
+    pet-xp-reward: 220500
+    pet-drop-chance: 0.07
+
+  83:
+    name: "ᴛʜᴇ ᴡᴇᴀᴠᴇ ᴏꜰ ᴡᴏʀʟᴅꜱ"
+    name-gradient: "<gradient:#c084fc:#818cf8>"
+    lore: "The fabric of reality is visible here — frayed at the edges."
+    recommended-power: 3100000
+    duration-ticks: 162000
+    dust-reward: 320000
+    pet-xp-reward: 240000
+    pet-drop-chance: 0.07
+
+  84:
+    name: "ᴄʜʀᴏɴᴏ ꜰʀᴀᴄᴛᴜʀᴇ"
+    name-gradient: "<gradient:#fbbf24:#8b5cf6>"
+    lore: "Time is cracked here; different eras occupy the same space."
+    recommended-power: 3370000
+    duration-ticks: 165000
+    dust-reward: 346000
+    pet-xp-reward: 259500
+    pet-drop-chance: 0.07
+
+  85:
+    name: "ᴅɪᴍᴇɴꜱɪᴏɴᴀʟ ʀɪꜰᴛ"
+    name-gradient: "<gradient:#7c3aed:#1d4ed8>"
+    lore: "Falling into the rift leads to a different destination every time."
+    recommended-power: 3640000
+    duration-ticks: 168000
+    dust-reward: 372000
+    pet-xp-reward: 279000
+    pet-drop-chance: 0.07
+
+  86:
+    name: "ᴠᴏɪᴅ ʜᴏʟʟᴏᴡ"
+    name-gradient: "<gradient:#1e1b4b:#0f0f23>"
+    lore: "A sphere of pure nothing embedded in the fabric of existence."
+    recommended-power: 3910000
+    duration-ticks: 170400
+    dust-reward: 398000
+    pet-xp-reward: 298500
+    pet-drop-chance: 0.07
+
+  87:
+    name: "ᴛɪᴍᴇʟᴇꜱꜱ ᴇxᴘᴀɴꜱᴇ"
+    name-gradient: "<gradient:#f59e0b:#a855f7>"
+    lore: "Hours pass in seconds and seconds pass in hours — simultaneously."
+    recommended-power: 4180000
+    duration-ticks: 172800
+    dust-reward: 423000
+    pet-xp-reward: 317250
+    pet-drop-chance: 0.07
+
+  88:
+    name: "ᴛʜᴇ ɪɴꜰɪɴɪᴛᴇ ꜱᴛᴀɪʀᴄᴀꜱᴇ"
+    name-gradient: "<gradient:#818cf8:#a78bfa>"
+    lore: "You can climb for a lifetime and still not reach the top."
+    recommended-power: 4450000
+    duration-ticks: 175200
+    dust-reward: 449000
+    pet-xp-reward: 336750
+    pet-drop-chance: 0.07
+
+  89:
+    name: "ꜱᴘᴀᴄᴇ ʙᴇᴛᴡᴇᴇɴ ᴡᴏʀʟᴅꜱ"
+    name-gradient: "<gradient:#6366f1:#4c1d95>"
+    lore: "The liminal gap where unborn realities quietly wait."
+    recommended-power: 4720000
+    duration-ticks: 177600
+    dust-reward: 475000
+    pet-xp-reward: 356250
+    pet-drop-chance: 0.07
+
+  90:
+    name: "ᴛʜᴇ ᴏᴜᴛᴇʀ ᴅᴀʀᴋ"
+    name-gradient: "<gradient:#1e1b4b:#0a0a0a>"
+    lore: "Beyond the edge of all mapped existence — past where even light dares go."
+    recommended-power: 5000000
+    duration-ticks: 180000
+    dust-reward: 500000
+    pet-xp-reward: 375000
+    pet-drop-chance: 0.07
+
+  # ════════════════════════════════
+  #  MISSIONS 91–100  (Cosmic/Divine)
+  #  Power 6M–15M | 2.5–3 hr
+  # ════════════════════════════════
+
+  91:
+    name: "ᴄᴏꜱᴍɪᴄ ɴᴇxᴜꜱ"
+    name-gradient: "<gradient:#a855f7:#fbbf24>"
+    lore: "The point from which all creation radiates — and to which it returns."
+    recommended-power: 6000000
+    duration-ticks: 180000
+    dust-reward: 600000
+    pet-xp-reward: 450000
+    pet-drop-chance: 0.07
+
+  92:
+    name: "ʀᴇᴀʟᴍ ᴏꜰ ᴛʜᴇ ᴀɴᴄɪᴇɴᴛꜱ"
+    name-gradient: "<gradient:#f59e0b:#92400e>"
+    lore: "The oldest beings in existence still pace these halls."
+    recommended-power: 7000000
+    duration-ticks: 184000
+    dust-reward: 811000
+    pet-xp-reward: 608000
+    pet-drop-chance: 0.07
+
+  93:
+    name: "ᴛʜᴇ ɢᴏᴅ ꜰᴏʀɢᴇ"
+    name-gradient: "<gradient:#fbbf24:#ef4444>"
+    lore: "Where divine weapons are hammered from captured starlight."
+    recommended-power: 8000000
+    duration-ticks: 188000
+    dust-reward: 1022000
+    pet-xp-reward: 766500
+    pet-drop-chance: 0.07
+
+  94:
+    name: "ᴛʜᴇ ᴘʀɪᴍᴏʀᴅɪᴀʟ ꜱᴇᴀ"
+    name-gradient: "<gradient:#0c4a6e:#7c3aed>"
+    lore: "The ocean that existed before any continent rose from it."
+    recommended-power: 9000000
+    duration-ticks: 192000
+    dust-reward: 1233000
+    pet-xp-reward: 924750
+    pet-drop-chance: 0.07
+
+  95:
+    name: "ᴛɪᴛᴀɴ'ꜱ ᴄʀᴀᴅʟᴇ"
+    name-gradient: "<gradient:#dc2626:#7c3aed>"
+    lore: "The birthplace of the first titans — something still sleeps here."
+    recommended-power: 10000000
+    duration-ticks: 196000
+    dust-reward: 1444000
+    pet-xp-reward: 1083000
+    pet-drop-chance: 0.08
+
+  96:
+    name: "ᴛʜᴇ ᴇᴛᴇʀɴᴀʟ ʙᴀᴛᴛʟᴇꜰɪᴇʟᴅ"
+    name-gradient: "<gradient:#ef4444:#f59e0b>"
+    lore: "A war so old it has forgotten what it is being fought over."
+    recommended-power: 11000000
+    duration-ticks: 200000
+    dust-reward: 1655000
+    pet-xp-reward: 1241250
+    pet-drop-chance: 0.08
+
+  97:
+    name: "ꜱᴏᴠᴇʀᴇɪɢɴ'ꜱ ᴅᴏᴍᴀɪɴ"
+    name-gradient: "<gradient:#a855f7:#ec4899>"
+    lore: "The sovereign of all divine beings holds court here — uninvited guests don't last."
+    recommended-power: 12000000
+    duration-ticks: 204000
+    dust-reward: 1866000
+    pet-xp-reward: 1399500
+    pet-drop-chance: 0.08
+
+  98:
+    name: "ᴇᴅɢᴇ ᴏꜰ ʀᴇᴀʟɪᴛʏ"
+    name-gradient: "<gradient:#6366f1:#a78bfa>"
+    lore: "One step past this point and existence forgets you were ever here."
+    recommended-power: 13000000
+    duration-ticks: 208000
+    dust-reward: 2077000
+    pet-xp-reward: 1557750
+    pet-drop-chance: 0.08
+
+  99:
+    name: "ᴛʜᴇ ɪɴꜰɪɴɪᴛᴇ ᴠᴏɪᴅ"
+    name-gradient: "<gradient:#1e1b4b:#4c1d95>"
+    lore: "Nothing exists here — and yet, something always manages to survive."
+    recommended-power: 14000000
+    duration-ticks: 212000
+    dust-reward: 2288000
+    pet-xp-reward: 1716000
+    pet-drop-chance: 0.08
+
+  100:
+    name: "ᴛʜᴇ ᴀʙʏꜱꜱ"
+    name-gradient: "<gradient:#0a0a0a:#4c1d95>"
+    lore: "The final destination — and the beginning of everything all over again."
+    recommended-power: 15000000
+    duration-ticks: 216000
+    dust-reward: 2500000
+    pet-xp-reward: 1875000
+    pet-drop-chance: 0.08

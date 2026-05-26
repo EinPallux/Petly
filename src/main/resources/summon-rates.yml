@@ -1,0 +1,65 @@
+# ──────────────────────────────────────────────
+#  Petly — Summon Rates & Pet Luck
+# ──────────────────────────────────────────────
+
+# Base summon weights (must add up to 100).
+rates:
+  N: 50.0
+  R: 30.0
+  SR: 14.0
+  SMR: 5.0
+  UR: 1.0
+
+# Pet Luck (pity system).
+pet-luck:
+  # PetLuck starts at 1.0 and increments by this amount per summon that yields lower than SR.
+  increment: 0.01
+  # PetLuck resets to 1.0 when this rarity or higher is obtained.
+  reset-threshold: SR
+  # Maximum PetLuck value (diminishing returns cap).
+  max: 3.0
+  # For each 0.1 of PetLuck above 1.0, boost SR/SMR/UR weight by this factor.
+  boost-per-0-1: 0.5
+
+# Team power bonus when all 5 active pets share the same rarity (multiplier, e.g. 0.05 = +5%).
+team-rarity-bonus:
+  N: 0.05
+  R: 0.08
+  SR: 0.10
+  SMR: 0.12
+  UR: 0.15
+
+# Dust cost to star up a pet (from current stars → next stars).
+star-costs:
+  0: 500
+  1: 1200
+  2: 2500
+  3: 5000
+  4: 10000
+
+# Dust cost to ascend a pet (from current ascension level → next).
+ascension-costs:
+  0: 15000
+  1: 25000
+  2: 40000
+  3: 60000
+  4: 85000
+  5: 115000
+  6: 150000
+  7: 190000
+  8: 235000
+  9: 285000
+
+# Milestone mission rewards.
+# On completing mission number {key}, a random pet of {rarity} is awarded.
+milestone-rewards:
+  10:
+    rarity: N
+  25:
+    rarity: R
+  50:
+    rarity: SR
+  75:
+    rarity: SMR
+  100:
+    rarity: UR
