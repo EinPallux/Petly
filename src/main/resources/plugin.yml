@@ -1,0 +1,6 @@
+name: Petly
+version: '${version}'
+
+main: com.pallux.petly.Petly
+api-version: '26.1.2'
+load: POSTWORLD
