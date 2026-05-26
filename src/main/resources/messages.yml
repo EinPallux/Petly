@@ -1,0 +1,81 @@
+# ──────────────────────────────────────────────
+#  Petly — Messages
+#  All messages use MiniMessage format.
+#  No <bold> or <italic> anywhere.
+# ──────────────────────────────────────────────
+
+prefix: "<gradient:#a78bfa:#60a5fa>ᴘᴇᴛʟʏ</gradient> <dark_gray>›</dark_gray> "
+
+# --- General ---
+no-permission: "{prefix}<red>You don't have permission to do that."
+player-only: "{prefix}<red>This command can only be used by players."
+invalid-args: "{prefix}<red>Invalid arguments. Usage: <gray>{usage}"
+player-not-found: "{prefix}<red>Player <gray>{player}</gray> not found."
+config-reloaded: "{prefix}<green>Configuration reloaded successfully."
+
+# --- Pet Management ---
+pet-given: "{prefix}<green>Gave <white>{pet}</white> to <aqua>{player}</aqua>."
+pet-taken: "{prefix}<green>Removed <white>{pet}</white> from <aqua>{player}</aqua>."
+pet-not-found-id: "{prefix}<red>No pet with ID <gray>{id}</gray> exists."
+pet-not-owned: "{prefix}<red>That player doesn't own a pet with that ID."
+pet-storage-full: "{prefix}<red>Your pet storage is full!"
+pet-level-set: "{prefix}<green>Set <white>{pet}</white> level to <aqua>{level}</aqua> for <aqua>{player}</aqua>."
+pet-level-added: "{prefix}<green>Added <aqua>{amount}</aqua> levels to <white>{pet}</white> for <aqua>{player}</aqua>."
+pet-stats-set: "{prefix}<green>Updated stats for <white>{pet}</white> belonging to <aqua>{player}</aqua>."
+pet-nickname-set: "{prefix}<green>Nickname set to <white>{nickname}</white>."
+pet-nickname-cleared: "{prefix}<green>Nickname cleared."
+pet-nickname-too-long: "{prefix}<red>Nickname is too long (max 24 characters)."
+pet-abandoned: "{prefix}<gray>You released <white>{pet}</white>. It will remember you fondly."
+pet-abandon-confirm: "{prefix}<yellow>This pet has <white>{stars}★</white> — are you sure? <green>Click again to confirm."
+
+# --- Dust ---
+dust-given: "{prefix}<green>Gave <gold>{amount}</gold> dust to <aqua>{player}</aqua>."
+dust-taken: "{prefix}<green>Removed <gold>{amount}</gold> dust from <aqua>{player}</aqua>."
+not-enough-dust: "{prefix}<red>You need <gold>{needed}</gold> dust but only have <gold>{have}</gold>."
+dust-collected: "{prefix}<gold>+{amount} ✦ Dust collected from the chamber!"
+
+# --- Summon ---
+summon-start: "{prefix}<aqua>Summoning {count} pet(s)..."
+summon-no-dust: "{prefix}<red>You need <gold>{cost}</gold> dust to summon {count}x."
+summon-no-permission-3: "{prefix}<red>You don't have permission for 3-pet summons."
+summon-no-permission-6: "{prefix}<red>You don't have permission for 6-pet summons."
+
+# --- Missions ---
+mission-started: "{prefix}<green>Mission <white>{mission}</white> started! Duration: <aqua>{duration}</aqua>."
+mission-already-active: "{prefix}<red>You already have an active mission. Wait for it to finish."
+mission-success-title: "<gradient:#22c55e:#86efac>ᴍɪꜱꜱɪᴏɴ ᴄᴏᴍᴘʟᴇᴛᴇ!</gradient>"
+mission-success-subtitle: "<gray>+{dust} ✦ Dust · +{xp} Pet XP"
+mission-failure-title: "<gradient:#ef4444:#f97316>ᴍɪꜱꜱɪᴏɴ ꜰᴀɪʟᴇᴅ</gradient>"
+mission-failure-subtitle: "<gray>Better luck next time."
+mission-pet-drop: "{prefix}<gradient:#f59e0b:#fbbf24>✦ A wild <white>{pet}</white> ({rarity}) joined your collection!</gradient>"
+mission-daily-bonus: "{prefix}<yellow>⭐ Daily bonus active — 2× Dust for your first mission today!"
+mission-complete-offline: "{prefix}<gradient:#22c55e:#86efac>ᴍɪꜱꜱɪᴏɴ ʀᴇꜱᴜʟᴛ</gradient> <gray>·</gray> {mission} — <green>Success!</green> <gold>+{dust} ✦</gold> <aqua>+{xp} XP</aqua>"
+mission-failed-offline: "{prefix}<gradient:#ef4444:#f97316>ᴍɪꜱꜱɪᴏɴ ʀᴇꜱᴜʟᴛ</gradient> <gray>·</gray> {mission} — <red>Failed.</red>"
+
+# --- Milestone Rewards ---
+milestone-reached: "{prefix}<gradient:#f59e0b:#fbbf24>🏆 Milestone reached!</gradient> <gray>Mission #{mission} — You received:</gray> <white>{pet}</white> <gray>({rarity})</gray>!"
+
+# --- Star-Up ---
+starup-success: "{prefix}<gradient:#fbbf24:#f59e0b>✦ {pet} reached ★{stars}!</gradient>"
+starup-not-enough-dust: "{prefix}<red>You need <gold>{cost}</gold> dust to star up."
+starup-need-level-100: "{prefix}<red>Your pet must be level 100 to star up."
+starup-need-duplicate: "{prefix}<red>You need a duplicate of this pet to star up."
+starup-max-stars: "{prefix}<red>This pet is already at maximum stars (5★)."
+
+# --- Ascension ---
+ascension-success: "{prefix}<gradient:#a855f7:#818cf8>✦ {pet} ascended to ASC {level}!</gradient>"
+ascension-not-enough-dust: "{prefix}<red>You need <gold>{cost}</gold> dust to ascend."
+ascension-need-level-100: "{prefix}<red>Your pet must be level 100 AND 5★ to ascend."
+ascension-max-level: "{prefix}<red>This pet is at maximum ascension (ASC X)."
+
+# --- Team ---
+team-updated: "{prefix}<green>Team updated. Total Power: <white>{power}</white>."
+team-full: "{prefix}<red>Your team is full (5 slots). Remove a pet first."
+team-already-in: "{prefix}<yellow>That pet is already on your team."
+pet-in-chamber: "{prefix}<red>That pet is in the Dust Chamber. Remove it first."
+
+# --- Chamber ---
+chamber-pet-added: "{prefix}<green>Pet added to the Dust Chamber."
+chamber-pet-removed: "{prefix}<green>Pet removed from the Dust Chamber."
+chamber-full: "{prefix}<red>The Dust Chamber is full (3 slots)."
+chamber-no-pending: "{prefix}<gray>No dust to collect yet."

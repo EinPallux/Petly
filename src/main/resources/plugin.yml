@@ -1,6 +1,61 @@
 name: Petly
-version: '${version}'
-
-main: com.pallux.petly.Petly
+version: '${project.version}'
+main: com.pallux.petly.PetlyPlugin
 api-version: '26.1.2'
+description: A feature-rich pet collection and progression system.
+authors: [ Pallux ]
 load: POSTWORLD
+
+softdepend:
+  - PlaceholderAPI
+  - Vault
+
+commands:
+  petly:
+    description: Admin management command for Petly.
+    usage: /petly <reload|pet|dust|petlevel|setpower>
+    permission: petly.admin
+  pets:
+    description: Open your pet storage.
+    usage: /pets
+    permission: petly.player
+  summon:
+    description: Open the summoning interface.
+    usage: /summon
+    aliases: [ petsummon, gacha ]
+    permission: petly.player
+  missions:
+    description: Open the field missions interface.
+    usage: /missions
+    aliases: [ fieldmissions ]
+    permission: petly.player
+  chamber:
+    description: Open the dust chamber.
+    usage: /chamber
+    aliases: [ dustchamber ]
+    permission: petly.player
+  menu:
+    description: Open the main Petly menu.
+    usage: /menu
+    aliases: [ manager ]
+    permission: petly.player
+  collection:
+    description: Open the pet collection.
+    usage: /collection
+    permission: petly.player
+
+permissions:
+  petly.admin:
+    description: Access to all admin commands.
+    default: op
+    children:
+      petly.player: true
+  petly.player:
+    description: Access to all player features.
+    default: true
+  petly.summon.3:
+    description: Permission to perform 3-pet summons.
+    default: false
+  petly.summon.6:
+    description: Permission to perform 6-pet summons.
+    default: false
