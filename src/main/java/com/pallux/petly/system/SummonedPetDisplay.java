@@ -8,11 +8,11 @@ import com.pallux.petly.data.PlayerData;
 import com.pallux.petly.data.PlayerDataManager;
 import com.pallux.petly.model.OwnedPet;
 import com.pallux.petly.model.Pet;
+import com.pallux.petly.util.TextUtil;
 import net.kyori.adventure.text.Component;
 import org.bukkit.*;
-import org.bukkit.entity.Player;
 import org.bukkit.entity.ArmorStand;
-import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
@@ -23,11 +23,8 @@ public class SummonedPetDisplay {
     private final PetlyPlugin plugin;
     private final ConfigManager config;
     private final PlayerDataManager pdm;
-    // Map: playerUUID -> list of ArmorStand entities (head + label per pet)
     private final Map<UUID, List<ArmorStand>> displayEntities = new HashMap<>();
 
-    // Offsets for up to 5 pets (radians offset from player yaw, left side)
-    // Positions: Left-back, Left, Back, Right, Right-back
     private static final double[] ANGLE_OFFSETS = { 135, 90, 180, 270, 225 };
 
     public SummonedPetDisplay(PetlyPlugin plugin, ConfigManager config, PlayerDataManager pdm) {
@@ -59,10 +56,9 @@ public class SummonedPetDisplay {
             double angle = Math.toRadians(ANGLE_OFFSETS[i]);
             Location loc = getOrbitLocation(player.getLocation(), angle, radius, height);
 
-            // Head ArmorStand
             ArmorStand head = spawnStand(loc);
             head.getEquipment().setHelmet(buildSkullItem(pet, op));
-            head.setCustomName(buildLabel(pet, op));
+            head.customName(buildLabel(pet, op));
             head.setCustomNameVisible(true);
             stands.add(head);
         }
@@ -112,9 +108,8 @@ public class SummonedPetDisplay {
 
     // --- Private helpers ---
 
-    @SuppressWarnings("deprecation")
     private ArmorStand spawnStand(Location loc) {
-        ArmorStand stand = (ArmorStand) loc.getWorld().spawnEntity(loc, EntityType.ARMOR_STAND);
+        ArmorStand stand = loc.getWorld().spawn(loc, ArmorStand.class);
         stand.setGravity(false);
         stand.setVisible(false);
         stand.setSmall(true);
@@ -145,11 +140,10 @@ public class SummonedPetDisplay {
         return skull;
     }
 
-    @SuppressWarnings("deprecation")
-    private String buildLabel(Pet pet, OwnedPet owned) {
+    private Component buildLabel(Pet pet, OwnedPet owned) {
         String stars = "★".repeat(owned.getStars());
         String asc = owned.getAscension() > 0 ? " ASC " + owned.getAscension() : "";
         String name = owned.getNickname() != null ? owned.getNickname() : pet.getDisplayName();
-        return "[" + pet.getRarity().name() + "] " + stars + asc + " | " + name;
+        return TextUtil.parse("[" + pet.getRarity().name() + "] " + stars + asc + " | " + name);
     }
 }
