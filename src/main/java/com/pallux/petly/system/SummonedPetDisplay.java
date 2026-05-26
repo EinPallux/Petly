@@ -10,6 +10,7 @@ import com.pallux.petly.model.OwnedPet;
 import com.pallux.petly.model.Pet;
 import net.kyori.adventure.text.Component;
 import org.bukkit.*;
+import org.bukkit.entity.Player;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.EquipmentSlot;
