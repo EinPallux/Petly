@@ -88,17 +88,23 @@ public class PetDetailGui extends BaseGui {
             long starCost = config.getStarCost(ownedPet.getStars());
             long essenceCost = config.getStarUpEssenceCost(ownedPet.getStars());
             boolean canStar = plugin.getStarUpSystem().canStarUp(data, ownedPet);
-            inventory.setItem(31, new ItemBuilder(canStar ? Material.NETHER_STAR : Material.GRAY_DYE)
+            boolean hasDust = data.hasDust(starCost);
+            boolean hasEssence = data.hasEssence(essenceCost);
+            boolean fullyReady = canStar && hasDust && hasEssence;
+            List<String> starLore = new ArrayList<>();
+            starLore.add("<dark_gray>Requires: Level 100 + 1 duplicate.");
+            starLore.add("");
+            starLore.add("<gray>Cost: " + (hasDust ? "<gold>" : "<red>") + TextUtil.formatNumber(starCost) + " ✦ Dust");
+            starLore.add("<gray>      " + (hasEssence ? "<aqua>" : "<red>") + TextUtil.formatNumber(essenceCost) + " ◆ Essence");
+            starLore.add("<gray>Current: <yellow>" + ownedPet.getStars() + "★ <dark_gray>→ <yellow>" + (ownedPet.getStars() + 1) + "★");
+            starLore.add("");
+            if (!canStar) starLore.add("<red>Requirements not met");
+            else if (fullyReady) starLore.add("<gray>Left-click to star up");
+            else starLore.add("<red>Not enough resources");
+            inventory.setItem(31, new ItemBuilder(fullyReady ? Material.NETHER_STAR : Material.GRAY_DYE)
                     .name("<gradient:#fbbf24:#f97316>ꜱᴛᴀʀ ᴜᴘ ★</gradient>")
-                    .lore(List.of(
-                            "<dark_gray>Requires: Level 100 + 1 duplicate.",
-                            "",
-                            "<gray>Cost: <gold>" + TextUtil.formatNumber(starCost) + " ✦ Dust",
-                            "<gray>      <aqua>" + TextUtil.formatNumber(essenceCost) + " ◆ Essence",
-                            "<gray>Current: <yellow>" + ownedPet.getStars() + "★ <dark_gray>→ <yellow>" + (ownedPet.getStars() + 1) + "★",
-                            "",
-                            canStar ? "<gray>Left-click to star up" : "<red>Requirements not met"
-                    )).build());
+                    .lore(starLore)
+                    .build());
 
             // Ascend button (slot 33)
             long ascCost = config.getAscensionCost(ownedPet.getAscension());

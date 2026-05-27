@@ -29,9 +29,10 @@ pet-abandoned: "{prefix}<gray>You released <white>{pet}</white>. It will remembe
 pet-abandon-confirm: "{prefix}<yellow>This pet has <white>{stars}★</white> — are you sure? <green>Click again to confirm."
 
 # --- Dust ---
-dust-given: "{prefix}<green>Gave <gold>{amount}</gold> dust to <aqua>{player}</aqua>."
-dust-taken: "{prefix}<green>Removed <gold>{amount}</gold> dust from <aqua>{player}</aqua>."
-not-enough-dust: "{prefix}<red>You need <gold>{needed}</gold> dust but only have <gold>{have}</gold>."
+dust-given: "{prefix}<green>Gave <gold>{amount} ✦</gold> Dust to <aqua>{player}</aqua>."
+dust-taken: "{prefix}<green>Removed <gold>{amount} ✦</gold> Dust from <aqua>{player}</aqua>."
+dust-set: "{prefix}<green>Set Dust of <aqua>{player}</aqua> to <gold>{amount} ✦</gold>."
+not-enough-dust: "{prefix}<red>You need <gold>{needed} ✦</gold> Dust but only have <gold>{have} ✦</gold>."
 dust-collected: "{prefix}<gold>+{amount} ✦ Dust collected from the chamber!"
 
 # --- Summon ---
@@ -90,12 +91,12 @@ chamber-full: "{prefix}<red>The Dust Chamber is full (3 slots)."
 chamber-no-pending: "{prefix}<gray>No dust to collect yet."
 
 # --- Stars ---
-stars-given: "{prefix}<green>Gave <yellow>{amount} ✦</yellow> Stars to <aqua>{player}</aqua>."
-stars-taken: "{prefix}<green>Removed <yellow>{amount} ✦</yellow> Stars from <aqua>{player}</aqua>."
-stars-set: "{prefix}<green>Set Stars of <aqua>{player}</aqua> to <yellow>{amount} ✦</yellow>."
+stars-given: "{prefix}<green>Gave <yellow>{amount} ★</yellow> Stars to <aqua>{player}</aqua>."
+stars-taken: "{prefix}<green>Removed <yellow>{amount} ★</yellow> Stars from <aqua>{player}</aqua>."
+stars-set: "{prefix}<green>Set Stars of <aqua>{player}</aqua> to <yellow>{amount} ★</yellow>."
 
 # --- Milestones ---
-milestone-claimed: "{prefix}<gradient:#f59e0b:#fbbf24>✦ Milestone reward claimed!</gradient> <gray>+<yellow>{stars} ✦ Stars</yellow>."
+milestone-claimed: "{prefix}<gradient:#f59e0b:#fbbf24>★ Milestone reward claimed!</gradient> <gray>+<yellow>{stars} ★ Stars</yellow>."
 milestone-none-pending: "{prefix}<gray>No milestones pending. Keep playing to earn more!"
 
 # --- Quests ---
@@ -114,3 +115,5 @@ trading-opened: "{prefix}<gradient:#fbbf24:#f97316>◆ Material Trading is now o
 trading-closed: "{prefix}<gray>◆ Material Trading has closed. <dark_gray>Next window in <yellow>{next}</yellow>."
 trade-success-dust-to-essence: "{prefix}<green>Traded ×{times}</green> <dark_gray>—</dark_gray> <gold>Dust → <aqua>Essence ◆</aqua>."
 trade-success-essence-to-dust: "{prefix}<green>Traded ×{times}</green> <dark_gray>—</dark_gray> <aqua>Essence → <gold>Dust ✦</gold>."
+trading-admin-opened: "{prefix}<green>Material Trading forcibly opened."
+trading-admin-closed: "{prefix}<green>Material Trading forcibly closed."
