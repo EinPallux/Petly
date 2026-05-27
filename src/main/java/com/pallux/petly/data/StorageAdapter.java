@@ -105,9 +105,11 @@ public class StorageAdapter {
             try { chamberIds.add(UUID.fromString(s)); } catch (Exception ignored) {}
         }
 
-        return new PlayerData(uuid, dust, petLuck, sincesr, sincesmr, sinceur,
+        PlayerData pdata = new PlayerData(uuid, dust, petLuck, sincesr, sincesmr, sinceur,
                 pets, teamPetIds, activeMission, lastDay, dailyUsed,
                 missionsDone, log, chamberIds, pendingDust, lastChamberTick);
+        pdata.setHighestTowerFloor(cfg.getInt("tower-floor", 0));
+        return pdata;
     }
 
     public void save(PlayerData data) throws IOException {
@@ -164,6 +166,8 @@ public class StorageAdapter {
 
         List<String> chamber = data.getChamberPetIds().stream().map(UUID::toString).toList();
         cfg.set("chamber", chamber);
+
+        cfg.set("tower-floor", data.getHighestTowerFloor());
 
         cfg.save(file);
     }

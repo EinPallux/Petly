@@ -43,6 +43,10 @@ commands:
     description: Open the pet collection.
     usage: /collection
     permission: petly.player
+  tower:
+    description: Open The Tower.
+    usage: /tower
+    permission: petly.player
 
 permissions:
   petly.admin:

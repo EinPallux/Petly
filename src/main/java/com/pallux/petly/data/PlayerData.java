@@ -23,6 +23,7 @@ public class PlayerData {
     private final List<UUID> chamberPetIds;
     private long pendingDust;
     private long lastChamberTickTimestamp;
+    private int highestTowerFloor;
 
     public PlayerData(UUID uuid) {
         this.uuid = uuid;
@@ -41,6 +42,7 @@ public class PlayerData {
         this.chamberPetIds = new ArrayList<>();
         this.pendingDust = 0;
         this.lastChamberTickTimestamp = System.currentTimeMillis();
+        this.highestTowerFloor = 0;
     }
 
     // Full constructor for deserialization
@@ -67,6 +69,7 @@ public class PlayerData {
         this.chamberPetIds = new ArrayList<>(chamberPetIds);
         this.pendingDust = pendingDust;
         this.lastChamberTickTimestamp = lastChamberTickTimestamp;
+        this.highestTowerFloor = 0;
     }
 
     // --- Getters ---
@@ -171,4 +174,7 @@ public class PlayerData {
 
     public long getLastChamberTickTimestamp() { return lastChamberTickTimestamp; }
     public void setLastChamberTickTimestamp(long ts) { this.lastChamberTickTimestamp = ts; }
+
+    public int getHighestTowerFloor() { return highestTowerFloor; }
+    public void setHighestTowerFloor(int floor) { this.highestTowerFloor = floor; }
 }

@@ -29,6 +29,7 @@ public class PetlyPlugin extends JavaPlugin {
     private DustChamberSystem dustChamberSystem;
     private StarUpSystem starUpSystem;
     private AscensionSystem ascensionSystem;
+    private TowerSystem towerSystem;
     private SummonedPetDisplay summonedPetDisplay;
     private PetlyAPI api;
     private Economy economy;
@@ -51,11 +52,12 @@ public class PetlyPlugin extends JavaPlugin {
         dustChamberSystem = new DustChamberSystem(configManager, playerDataManager);
         starUpSystem = new StarUpSystem(this, configManager);
         ascensionSystem = new AscensionSystem(this, configManager);
+        towerSystem = new TowerSystem(this, configManager, playerDataManager, powerCalc);
         summonedPetDisplay = new SummonedPetDisplay(this, configManager, playerDataManager);
 
         // GUI
         guiManager = new GuiManager(this, configManager, playerDataManager,
-                powerCalc, summonSystem, missionSystem, dustChamberSystem);
+                powerCalc, summonSystem, missionSystem, dustChamberSystem, towerSystem);
 
         // API
         api = new PetlyAPI(this);
@@ -77,6 +79,7 @@ public class PetlyPlugin extends JavaPlugin {
         Objects.requireNonNull(getCommand("chamber")).setExecutor(new DustChamberCommand(this));
         Objects.requireNonNull(getCommand("menu")).setExecutor(new MenuCommand(this));
         Objects.requireNonNull(getCommand("collection")).setExecutor(new CollectionCommand(this));
+        Objects.requireNonNull(getCommand("tower")).setExecutor(new TowerCommand(this));
 
         // PlaceholderAPI
         if (getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
@@ -154,6 +157,7 @@ public class PetlyPlugin extends JavaPlugin {
     public DustChamberSystem getDustChamberSystem() { return dustChamberSystem; }
     public StarUpSystem getStarUpSystem() { return starUpSystem; }
     public AscensionSystem getAscensionSystem() { return ascensionSystem; }
+    public TowerSystem getTowerSystem() { return towerSystem; }
     public SummonedPetDisplay getSummonedPetDisplay() { return summonedPetDisplay; }
     public PetlyAPI getAPI() { return api; }
     public Economy getEconomy() { return economy; }

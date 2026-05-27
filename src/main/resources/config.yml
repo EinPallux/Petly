@@ -55,3 +55,14 @@ pity:
   guaranteed-sr-after: 50
   guaranteed-smr-after: 200
   guaranteed-ur-after: 500
+
+# --- Tower ---
+tower:
+  # Recommended power for Floor 1. Increases linearly by power-per-floor each floor.
+  base-recommended-power: 200
+  power-per-floor: 200
+  # Dust reward for Floor 1. Increases linearly by dust-per-floor each floor.
+  base-dust-reward: 50
+  dust-per-floor: 20
+  # How long each tower battle takes (in ticks). 100 ticks = 5 seconds.
+  battle-duration-ticks: 100

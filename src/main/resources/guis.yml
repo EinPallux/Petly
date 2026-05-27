@@ -91,8 +91,18 @@ main-menu:
       material: PURPLE_STAINED_GLASS_PANE
       display-name: " "
 
+    tower-button:
+      slot: 40
+      material: IRON_SWORD
+      display-name: "<gradient:#ef4444:#f97316>ᴛʜᴇ ᴛᴏᴡᴇʀ</gradient>"
+      lore:
+        - "<dark_gray>Instant 5-second battles."
+        - "<dark_gray>Climb 500 floors for dust."
+        - ""
+        - "<gray>Left-click to open"
+
     filler-dark:
-      slots: [ 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 23, 25, 26, 27, 28, 30, 32, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44 ]
+      slots: [ 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 23, 25, 26, 27, 28, 30, 32, 34, 35, 36, 37, 38, 39, 41, 42, 43, 44 ]
       material: GRAY_STAINED_GLASS_PANE
       display-name: " "
 

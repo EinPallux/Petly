@@ -83,6 +83,7 @@ public class MainMenuGui extends BaseGui {
             case 29 -> gm.openDustChamber(player);
             case 31 -> gm.openCollection(player, 1);
             case 33 -> gm.openTeamSelect(player);
+            case 40 -> gm.openTower(player, 1);
         }
     }
 }
