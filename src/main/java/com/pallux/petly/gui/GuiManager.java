@@ -82,7 +82,14 @@ public class GuiManager {
     public void openTowerBattle(Player player, int floor) {
         TowerBattleGui gui = new TowerBattleGui(player, plugin, towerSystem, floor);
         gui.open();
-        towerSystem.startBattle(player, floor, success ->
-                gui.showResult(success, towerSystem.getFloor(floor).getDustReward()));
+        towerSystem.startBattle(player, floor, success -> {
+            long dustReward = towerSystem.getFloor(floor).getDustReward();
+            int xpReward = success ? config.getTowerPetXpPerFloor() : 0;
+            gui.showResult(success, dustReward, xpReward);
+        });
+    }
+
+    public void openLeaderboard(Player player, LeaderboardGui.Category category) {
+        new LeaderboardGui(player, plugin, config, pdm, powerCalc, category).open();
     }
 }

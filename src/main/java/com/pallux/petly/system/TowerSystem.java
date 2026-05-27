@@ -4,11 +4,14 @@ import com.pallux.petly.PetlyPlugin;
 import com.pallux.petly.config.ConfigManager;
 import com.pallux.petly.data.PlayerData;
 import com.pallux.petly.data.PlayerDataManager;
+import com.pallux.petly.model.OwnedPet;
 import com.pallux.petly.model.TowerFloor;
 import com.pallux.petly.util.MathUtil;
+import com.pallux.petly.util.TextUtil;
 import org.bukkit.entity.Player;
 
 import java.util.Random;
+import java.util.UUID;
 import java.util.function.Consumer;
 
 public class TowerSystem {
@@ -52,9 +55,36 @@ public class TowerSystem {
                     data.setHighestTowerFloor(floor);
                 }
                 data.addDust(tf.getDustReward());
+
+                // Award Pet XP to all team members
+                int xp = config.getTowerPetXpPerFloor();
+                for (UUID petId : data.getTeamPetIds()) {
+                    data.getPetByInstanceId(petId).ifPresent(op -> addXpToPet(data, op, xp));
+                }
+
+                // Milestone broadcast every 10 floors
+                if (floor % 10 == 0) {
+                    String msg = config.getMessage("announce-tower-milestone")
+                            .replace("{player}", player.getName())
+                            .replace("{floor}", String.valueOf(floor));
+                    plugin.getServer().getOnlinePlayers().forEach(p -> p.sendMessage(TextUtil.parse(msg)));
+                }
+
                 pdm.saveAsync(player.getUniqueId());
             }
             callback.accept(success);
         }, durationTicks);
+    }
+
+    private void addXpToPet(PlayerData data, OwnedPet op, int xpAmount) {
+        int maxLevel = config.getMaxLevel();
+        if (op.getLevel() >= maxLevel) return;
+        op.setXp(op.getXp() + xpAmount);
+        while (op.getLevel() < maxLevel) {
+            long required = MathUtil.xpRequiredForLevel(op.getLevel(), config.getLevelXpBase(), config.getLevelXpScaling());
+            if (op.getXp() < required) break;
+            op.setXp(op.getXp() - required);
+            op.setLevel(op.getLevel() + 1);
+        }
     }
 }

@@ -66,3 +66,5 @@ tower:
   dust-per-floor: 20
   # How long each tower battle takes (in ticks). 100 ticks = 5 seconds.
   battle-duration-ticks: 100
+  # Pet XP awarded to each team member on a successful floor clear.
+  pet-xp-per-floor: 50

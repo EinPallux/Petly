@@ -136,6 +136,18 @@ public class MissionSystem {
         data.addDust(dustReward);
         data.incrementMissionsCompleted();
 
+        // Milestone broadcast every 10 missions
+        int totalMissions = data.getMissionsCompleted();
+        if (totalMissions % 10 == 0) {
+            String pName = online != null ? online.getName()
+                    : Optional.ofNullable(plugin.getServer().getOfflinePlayer(data.getUuid()).getName())
+                              .orElse("Unknown");
+            String broadcastMsg = config.getMessage("announce-mission-milestone")
+                    .replace("{player}", pName)
+                    .replace("{count}", String.valueOf(totalMissions));
+            plugin.getServer().getOnlinePlayers().forEach(p -> p.sendMessage(TextUtil.parse(broadcastMsg)));
+        }
+
         // Distribute XP to team pets
         for (UUID petId : active.getTeamPetIds()) {
             data.getPetByInstanceId(petId).ifPresent(op -> addXpToPet(data, op, xpReward));
