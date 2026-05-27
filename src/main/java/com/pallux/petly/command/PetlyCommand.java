@@ -100,6 +100,11 @@ public class PetlyCommand implements CommandExecutor, TabCompleter {
                 handleSetPower(sender, args[1], args[2], args[3], args[4]);
             }
 
+            case "reset" -> {
+                if (args.length < 3) { sender.sendMessage("Usage: /petly reset <player> <all|dust|pets|petxp|petlevel|thetower|fieldmissions>"); return true; }
+                handleReset(sender, args[1], args[2]);
+            }
+
             default -> sendHelp(sender);
         }
         return true;
@@ -279,6 +284,55 @@ public class PetlyCommand implements CommandExecutor, TabCompleter {
         }
     }
 
+    private void handleReset(CommandSender sender, String playerName, String type) {
+        Player target = Bukkit.getPlayerExact(playerName);
+        if (target == null) {
+            sender.sendMessage(TextUtil.parse(plugin.getConfigManager().getMessage("player-not-found")
+                    .replace("{player}", playerName)));
+            return;
+        }
+        PlayerData data = plugin.getPlayerDataManager().get(target.getUniqueId());
+        switch (type.toLowerCase()) {
+            case "all" -> resetAll(data);
+            case "dust" -> data.takeDust(data.getDust());
+            case "pets" -> {
+                data.getPets().clear();
+                data.getTeamPetIds().clear();
+                data.getChamberPetIds().clear();
+            }
+            case "petxp" -> data.getPets().forEach(op -> op.setXp(0));
+            case "petlevel" -> data.getPets().forEach(op -> { op.setLevel(1); op.setXp(0); });
+            case "thetower" -> data.setHighestTowerFloor(0);
+            case "fieldmissions" -> {
+                data.setMissionsCompleted(0);
+                data.getMissionLog().clear();
+            }
+            default -> {
+                sender.sendMessage(TextUtil.parse("<red>Unknown type. Valid: all, dust, pets, petxp, petlevel, thetower, fieldmissions"));
+                return;
+            }
+        }
+        plugin.getPlayerDataManager().saveAsync(target.getUniqueId());
+        sender.sendMessage(TextUtil.parse(plugin.getConfigManager().getMessage("reset-success")
+                .replace("{type}", type)
+                .replace("{player}", playerName)));
+    }
+
+    private void resetAll(PlayerData data) {
+        data.takeDust(data.getDust());
+        data.getPets().clear();
+        data.getTeamPetIds().clear();
+        data.getChamberPetIds().clear();
+        data.setPetLuck(1.0);
+        data.setSummonsSinceLastSr(0);
+        data.setSummonsSinceLastSmr(0);
+        data.setSummonsSinceLastUr(0);
+        data.setActiveMission(null);
+        data.setMissionsCompleted(0);
+        data.getMissionLog().clear();
+        data.setHighestTowerFloor(0);
+    }
+
     private void sendHelp(CommandSender sender) {
         sender.sendMessage(TextUtil.parse(
                 "<gradient:#a78bfa:#60a5fa>ᴘᴇᴛʟʏ ᴀᴅᴍɪɴ</gradient> <dark_gray>—</dark_gray>\n" +
@@ -290,7 +344,8 @@ public class PetlyCommand implements CommandExecutor, TabCompleter {
                 "/petly dust take <player> <amount>\n" +
                 "/petly petlevel set <player> <petUUID> <level>\n" +
                 "/petly petlevel add <player> <petUUID> <amount>\n" +
-                "/petly setpower <player> <petUUID> <stars> <asc>"
+                "/petly setpower <player> <petUUID> <stars> <asc>\n" +
+                "/petly reset <player> <all|dust|pets|petxp|petlevel|thetower|fieldmissions>"
         ));
     }
 
@@ -306,7 +361,9 @@ public class PetlyCommand implements CommandExecutor, TabCompleter {
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command,
                                                  @NotNull String label, @NotNull String[] args) {
-        if (args.length == 1) return List.of("reload", "pet", "dust", "petlevel", "setpower");
+        if (args.length == 1) return List.of("reload", "pet", "dust", "petlevel", "setpower", "reset");
+        if (args.length == 2 && args[0].equalsIgnoreCase("reset")) return Bukkit.getOnlinePlayers().stream().map(Player::getName).collect(Collectors.toList());
+        if (args.length == 3 && args[0].equalsIgnoreCase("reset")) return List.of("all", "dust", "pets", "petxp", "petlevel", "thetower", "fieldmissions");
         if (args.length == 2 && args[0].equalsIgnoreCase("pet")) return List.of("give", "take", "nickname");
         if (args.length == 2 && args[0].equalsIgnoreCase("dust")) return List.of("give", "take");
         if (args.length == 2 && args[0].equalsIgnoreCase("petlevel")) return List.of("set", "add");

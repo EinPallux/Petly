@@ -132,4 +132,5 @@ public class ConfigManager {
     public long getTowerBaseDust() { return mainConfig.getLong("tower.base-dust-reward", 50); }
     public long getTowerDustPerFloor() { return mainConfig.getLong("tower.dust-per-floor", 20); }
     public int getTowerBattleDurationTicks() { return mainConfig.getInt("tower.battle-duration-ticks", 100); }
+    public int getTowerPetXpPerFloor() { return mainConfig.getInt("tower.pet-xp-per-floor", 50); }
 }

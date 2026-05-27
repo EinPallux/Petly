@@ -112,6 +112,19 @@ public class StorageAdapter {
         return pdata;
     }
 
+    public List<PlayerData> loadAll() {
+        List<PlayerData> result = new ArrayList<>();
+        File[] files = dataFolder.listFiles((dir, name) -> name.endsWith(".yml"));
+        if (files == null) return result;
+        for (File file : files) {
+            try {
+                UUID uuid = UUID.fromString(file.getName().replace(".yml", ""));
+                result.add(load(uuid));
+            } catch (Exception ignored) {}
+        }
+        return result;
+    }
+
     public void save(PlayerData data) throws IOException {
         File file = new File(dataFolder, data.getUuid() + ".yml");
         YamlConfiguration cfg = new YamlConfiguration();

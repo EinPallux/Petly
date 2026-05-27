@@ -76,4 +76,11 @@ public class PlayerDataManager {
     public Collection<PlayerData> getAll() {
         return cache.values();
     }
+
+    public List<PlayerData> loadAllForLeaderboard() {
+        java.util.Map<UUID, PlayerData> combined = new java.util.LinkedHashMap<>();
+        for (PlayerData d : storage.loadAll()) combined.put(d.getUuid(), d);
+        combined.putAll(cache);
+        return new java.util.ArrayList<>(combined.values());
+    }
 }

@@ -72,7 +72,7 @@ public class TowerBattleGui extends BaseGui {
         }, 0L, 10L);
     }
 
-    public void showResult(boolean success, long dustEarned) {
+    public void showResult(boolean success, long dustEarned, int xpEarned) {
         if (animTask != null) { animTask.cancel(); animTask = null; }
         if (!inventory.equals(player.getOpenInventory().getTopInventory())) return;
 
@@ -90,6 +90,7 @@ public class TowerBattleGui extends BaseGui {
                             "<dark_gray>━━━━━━━━━━━━━━━━━━━━",
                             "<gray>Floor <white>" + floor + " <gray>cleared!",
                             "<gold>+" + TextUtil.formatNumber(dustEarned) + " ✦ <gray>Dust earned",
+                            "<aqua>+" + xpEarned + " <gray>Pet XP earned",
                             "<dark_gray>━━━━━━━━━━━━━━━━━━━━"
                     ))
                     .glow().build());

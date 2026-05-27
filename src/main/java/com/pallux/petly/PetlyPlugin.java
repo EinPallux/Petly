@@ -80,6 +80,7 @@ public class PetlyPlugin extends JavaPlugin {
         Objects.requireNonNull(getCommand("menu")).setExecutor(new MenuCommand(this));
         Objects.requireNonNull(getCommand("collection")).setExecutor(new CollectionCommand(this));
         Objects.requireNonNull(getCommand("tower")).setExecutor(new TowerCommand(this));
+        Objects.requireNonNull(getCommand("leaderboard")).setExecutor(new LeaderboardCommand(this));
 
         // PlaceholderAPI
         if (getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {

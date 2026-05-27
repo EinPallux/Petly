@@ -47,6 +47,11 @@ commands:
     description: Open The Tower.
     usage: /tower
     permission: petly.player
+  leaderboard:
+    description: View the Petly leaderboards.
+    usage: /leaderboard
+    aliases: [ lb ]
+    permission: petly.player
 
 permissions:
   petly.admin:
