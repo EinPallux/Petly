@@ -71,5 +71,3 @@ milestones:
     # Every N total team power = 1 milestone
     interval: 10000
     stars-reward: 50
-
-# Tower settings have moved to towers.yml
