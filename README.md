@@ -37,7 +37,24 @@ All configuration lives in `plugins/Petly/`. **Never edit files while the server
 | `missions.yml` | All 100 field missions — power requirements, duration, rewards |
 | `guis.yml` | GUI layout: slot positions, titles, filler materials |
 | `summon-rates.yml` | Gacha rates, pity counters, star/ascension costs, milestone rewards |
+| `towers.yml` | The Tower settings: floor scaling formula, max floors, Pet XP per floor, battle duration |
 | `playerdata/` | One YAML file per player UUID — do not edit manually |
+
+### Key `towers.yml` values
+
+```yaml
+formula:
+  base-recommended-power: 200   # Recommended power for Floor 1
+  power-per-floor: 200          # Power increase per floor
+  base-dust-reward: 50          # Dust reward for Floor 1
+  dust-per-floor: 20            # Dust increase per floor
+
+max-floors: 500                 # Total number of floors in the tower
+pet-xp-per-floor: 50           # Pet XP awarded to each team member per cleared floor
+battle-duration-ticks: 100     # How long the battle animation runs (100 = 5 seconds)
+```
+
+Floor N formula: `recommended-power = base-recommended-power + (N − 1) × power-per-floor`
 
 ### Key `config.yml` values
 
@@ -106,12 +123,14 @@ Replace `skin-texture` with a real base64-encoded Minecraft skull texture value.
 
 | Permission | Default | Description |
 |---|---|---|
-| `petly.admin` | OP | Full access to all admin commands. Inherits `petly.player`. |
+| `petly.admin` | OP | Full access to all admin commands. Inherits `petly.player`, `petly.summon.3`, and `petly.summon.6`. |
 | `petly.player` | Everyone | Access to all player-facing commands and GUIs. |
 | `petly.summon.3` | false | Unlocks the ×3 summon button in the summon GUI. |
 | `petly.summon.6` | false | Unlocks the ×6 summon button in the summon GUI. |
 
-Grant summon permissions to ranks using your permissions plugin:
+`petly.admin` (i.e. OPs) automatically has all summon tiers — no extra grants needed.
+
+Grant summon permissions to non-admin ranks via your permissions plugin:
 
 ```
 /lp group vip permission set petly.summon.3 true
@@ -132,6 +151,8 @@ Grant summon permissions to ranks using your permissions plugin:
 | `/missions` | `/fieldmissions` | Opens the field missions screen. |
 | `/chamber` | `/dustchamber` | Opens the dust chamber. |
 | `/collection` | — | Opens the full pet collection (shows all pets, owned or not). |
+| `/tower` | — | Opens The Tower — 500-floor battle progression system. |
+| `/leaderboard` | `/lb` | Opens the Leaderboard GUI (5 categories). |
 
 ### Admin Command — `/petly`
 
@@ -148,9 +169,23 @@ Permission: `petly.admin`
 | `petlevel set` | `/petly petlevel set <player> <petUUID> <level>` | Sets a specific pet's level. |
 | `petlevel add` | `/petly petlevel add <player> <petUUID> <amount>` | Adds levels to a specific pet. |
 | `setpower` | `/petly setpower <player> <petUUID> <stars> <asc>` | Force-sets a pet's star and ascension values. |
+| `reset` | `/petly reset <player> <type>` | Resets part of or all data for an online player. |
+
+**Reset types:**
+
+| Type | What it clears |
+|---|---|
+| `all` | Everything — dust, pets, pity counters, missions, tower progress |
+| `dust` | Dust balance only |
+| `pets` | All owned pets, team, and chamber slots |
+| `petxp` | Resets XP to 0 on every pet (levels unchanged) |
+| `petlevel` | Resets every pet to level 1 with 0 XP |
+| `thetower` | Resets highest cleared floor to 0 |
+| `fieldmissions` | Resets missions-completed counter and mission log |
 
 `<petId>` is the key used in `pets.yml` (e.g. `my_dragon`).  
-`<petUUID>` is the unique instance ID of an owned pet (visible in the pet detail GUI or via the API).
+`<petUUID>` is the unique instance ID of an owned pet (visible in the pet detail GUI or via the API).  
+`reset` requires the target player to be online.
 
 ---
 
@@ -177,6 +212,8 @@ Open with `/summon`. Players spend dust to roll for pets:
 | ×1 | 500 ✦ |
 | ×3 | 1,400 ✦ (requires `petly.summon.3`) |
 | ×6 | 2,600 ✦ (requires `petly.summon.6`) |
+
+The summon buttons are **locked during the 5-second animation** — clicking again before the animation ends has no effect.
 
 **Rarity rates** (configurable in `summon-rates.yml`):
 
@@ -226,6 +263,7 @@ Players build a team of up to **5 pets** from their storage. The team's combined
 
 Open with `/missions`. Players send their team on timed missions:
 
+- **Requires at least one pet in the active team** — players with an empty team cannot start a mission.
 - Only **one mission** can be active at a time.
 - Missions complete in real time — even while the player is offline.
 - Success chance is determined by a sigmoid curve based on team power vs. recommended power.  
@@ -235,6 +273,8 @@ Open with `/missions`. Players send their team on timed missions:
 - **Offline resolution:** If a mission finishes while the player is offline, results are shown on their next login.
 
 **Milestone rewards:** At missions 10, 25, 50, 75, and 100, players receive a free pet of increasing rarity as a reward.
+
+**Milestone broadcasts:** Every 10th mission completed (10, 20, 30 …) is announced server-wide.
 
 ---
 
@@ -252,9 +292,64 @@ The cycle timer is configurable (`dust-chamber.interval-ticks` in `config.yml`).
 
 ---
 
+### The Tower
+
+Open with `/tower`. A 500-floor solo battle system where players fight their way up floor by floor:
+
+- **Requires at least one pet in the active team** to start a battle.
+- Floors are unlocked sequentially — a player must clear Floor N before attempting Floor N+1.
+- Each floor has a recommended power and a 5-second instant battle. Success chance follows the same sigmoid curve as Field Missions.
+- **Rewards per cleared floor:** Dust (scales with floor number) + Pet XP awarded to every pet currently in the active team.
+- Floor lore in the GUI shows the exact dust and Pet XP reward before entering.
+
+**Scaling formula** (configurable in `towers.yml`):
+
+```
+Recommended Power = base-recommended-power + (floor − 1) × power-per-floor
+Dust Reward       = base-dust-reward       + (floor − 1) × dust-per-floor
+```
+
+**Milestone broadcasts:** Every 10 floors cleared (10, 20, 30 …) is announced server-wide.
+
+---
+
+### Leaderboard
+
+Open with `/leaderboard` or `/lb`, or via the leaderboard button in `/menu`. Shows the top 9 players across 5 categories:
+
+| Category | Ranked by |
+|---|---|
+| ⚡ Team Power | Total combined power of the active 5-pet team |
+| ⚗ Dust Gen/5min | Passive dust generation from the chamber at current star levels |
+| ✦ Most Dust | Current dust balance |
+| 🗼 Tower Floors | Highest tower floor cleared |
+| 🎯 Field Missions | Total field missions completed |
+
+Clicking a tab switches to that category. The leaderboard reads both online and offline player data so rankings are always complete. Player heads are shown for each entry.
+
+---
+
 ### Collection
 
 Open with `/collection`. Shows every pet defined in `pets.yml`. Pets the player has not yet obtained are shown as `???`. Clicking an owned pet opens its detail view.
+
+---
+
+### Server-wide Broadcasts
+
+Petly automatically announces notable player achievements to all online players. All broadcast messages are configurable in `messages.yml`.
+
+| Event | Trigger |
+|---|---|
+| SMR summon | Player pulls a Super Mega Rare from any summon |
+| UR summon | Player pulls an Ultra Rare from any summon |
+| Mission pet drop | Player receives a bonus pet from a Field Mission |
+| Star-Up | Player raises any pet to a new star level (★1 – ★5) |
+| Ascension | Player ascends any pet to a new ascension level (ASC 1–10) |
+| Tower milestone | Player clears a floor divisible by 10 (Floor 10, 20, 30 …) |
+| Mission milestone | Player reaches a total mission count divisible by 10 (10, 20, 30 …) |
+
+To disable a specific broadcast, set its `announce-*` message in `messages.yml` to an empty string.
 
 ---
 
@@ -304,8 +399,10 @@ List<OwnedPet> pets = api.getPets(playerUUID);
 
 ## Tips for Server Admins
 
-- **Reload without restart:** `/petly reload` reloads all 5 YAML config files at once. Player data in memory is not affected.
+- **Reload without restart:** `/petly reload` reloads all config files at once (including `towers.yml`). Player data in memory is not affected.
 - **Give starter dust:** Run `/petly dust give <player> 2000` on first join via a join script.
 - **Custom pet skins:** Replace `PLACEHOLDER_XXX` values in `pets.yml` with real base64 skull texture strings. Tools like [Minecraft-Heads.com](https://minecraft-heads.com) let you copy the texture value directly.
-- **Balancing:** The recommended-power values in `missions.yml` and stat values in `pets.yml` are the main balancing levers. Increase them to make progression slower; decrease them for faster-paced servers.
+- **Balancing:** The recommended-power values in `missions.yml`, `towers.yml`, and stat values in `pets.yml` are the main balancing levers. Increase them to make progression slower; decrease them for faster-paced servers.
+- **Tower tuning:** Edit `towers.yml` to change the dust/power scaling curve, total floor count, Pet XP per floor, or battle animation duration — no code changes required.
+- **Reset a player's progress:** Use `/petly reset <player> <type>` to selectively wipe dust, pets, tower progress, or missions. The player must be online.
 - **Data backup:** Player data is stored in `plugins/Petly/playerdata/` as individual YAML files. Include this folder in your backup routine.
