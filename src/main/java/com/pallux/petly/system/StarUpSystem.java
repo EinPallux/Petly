@@ -23,8 +23,6 @@ public class StarUpSystem {
     public boolean canStarUp(PlayerData data, OwnedPet pet) {
         if (pet.getLevel() < config.getMaxLevel()) return false;
         if (pet.getStars() >= 5) return false;
-        if (!data.hasDust(config.getStarCost(pet.getStars()))) return false;
-        if (!data.hasEssence(config.getStarUpEssenceCost(pet.getStars()))) return false;
         List<OwnedPet> duplicates = data.getPetsByPetId(pet.getPetId());
         long eligibleDups = duplicates.stream()
                 .filter(op -> !op.getInstanceId().equals(pet.getInstanceId()))

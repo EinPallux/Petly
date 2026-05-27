@@ -42,6 +42,20 @@ public class MaterialTradingSystem {
         if (scheduleTask != null) scheduleTask.cancel();
     }
 
+    public void forceOpen() {
+        if (!open) {
+            open = true;
+            broadcastOpen();
+        }
+    }
+
+    public void forceClose() {
+        if (open) {
+            open = false;
+            broadcastClose();
+        }
+    }
+
     private void checkSchedule() {
         boolean shouldBeOpen = isInActiveWindow();
         if (!open && shouldBeOpen) {

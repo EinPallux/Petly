@@ -52,6 +52,10 @@ public final class TextUtil {
         return formatNumber(essence) + " ◆";
     }
 
+    public static String formatStars(long stars) {
+        return formatNumber(stars) + " ★";
+    }
+
     public static String progressBar(long current, long max, int length) {
         double ratio = max == 0 ? 1.0 : Math.min(1.0, (double) current / max);
         int filled = (int) Math.round(ratio * length);

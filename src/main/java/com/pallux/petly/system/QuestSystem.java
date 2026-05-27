@@ -77,17 +77,13 @@ public class QuestSystem {
 
     public void onTowerFloorBeaten(PlayerData data) {
         List<QuestDefinition> completed = increment(data, QuestType.BEAT_TOWER_FLOORS, 1);
-        refreshThresholdProgress(data, data.getActiveDailyQuests());
-        refreshThresholdProgress(data, data.getActiveWeeklyQuests());
-        completed.addAll(collectNewlyCompleted(data));
+        completed.addAll(refreshAndCollectNewlyCompleted(data));
         notifyCompletions(data, completed);
     }
 
     public void onPetsSummoned(PlayerData data, int count) {
         List<QuestDefinition> completed = increment(data, QuestType.SUMMON_PETS, count);
-        refreshThresholdProgress(data, data.getActiveDailyQuests());
-        refreshThresholdProgress(data, data.getActiveWeeklyQuests());
-        completed.addAll(collectNewlyCompleted(data));
+        completed.addAll(refreshAndCollectNewlyCompleted(data));
         notifyCompletions(data, completed);
     }
 
@@ -161,20 +157,26 @@ public class QuestSystem {
         }
     }
 
-    /** Collects newly-completed (threshold) quests without re-scanning counter quests. */
-    private List<QuestDefinition> collectNewlyCompleted(PlayerData data) {
+    private List<QuestDefinition> refreshAndCollectNewlyCompleted(PlayerData data) {
         List<QuestDefinition> result = new ArrayList<>();
-        collectFromList(data.getActiveDailyQuests(), result);
-        collectFromList(data.getActiveWeeklyQuests(), result);
+        refreshAndCollectList(data, data.getActiveDailyQuests(), result);
+        refreshAndCollectList(data, data.getActiveWeeklyQuests(), result);
         return result;
     }
 
-    private void collectFromList(List<ActiveQuest> list, List<QuestDefinition> out) {
+    private void refreshAndCollectList(PlayerData data, List<ActiveQuest> list, List<QuestDefinition> out) {
         for (ActiveQuest aq : list) {
             if (aq.isClaimed()) continue;
             QuestDefinition def = questConfig.getQuest(aq.getQuestId()).orElse(null);
             if (def == null || !def.getType().isThreshold()) continue;
-            if (aq.isComplete(def.getTarget())) out.add(def);
+            boolean wasComplete = aq.isComplete(def.getTarget());
+            int current = switch (def.getType()) {
+                case REACH_TOWER_FLOOR -> data.getHighestTowerFloor();
+                case OWN_PETS          -> data.getPets().size();
+                default                -> 0;
+            };
+            aq.setProgress(Math.min(current, def.getTarget()));
+            if (!wasComplete && aq.isComplete(def.getTarget())) out.add(def);
         }
     }
 
