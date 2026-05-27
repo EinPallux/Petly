@@ -40,8 +40,10 @@ public class TradingConfig {
         windowStarts = new ArrayList<>();
         for (Map<?, ?> w : cfg.getMapList("schedule.windows")) {
             try {
-                int hour   = ((Number) w.getOrDefault("hour",   8)).intValue();
-                int minute = ((Number) w.getOrDefault("minute", 0)).intValue();
+                Object hObj = w.get("hour");
+                Object mObj = w.get("minute");
+                int hour   = hObj instanceof Number n ? n.intValue() : 8;
+                int minute = mObj instanceof Number n ? n.intValue() : 0;
                 windowStarts.add(LocalTime.of(hour, minute));
             } catch (Exception e) {
                 plugin.getLogger().warning("[Petly] Invalid trading window entry: " + e.getMessage());
