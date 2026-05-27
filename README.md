@@ -329,6 +329,42 @@ Clicking a tab switches to that category. The leaderboard reads both online and 
 
 ---
 
+### My Pets — Sort Function
+
+The **My Pets** storage GUI (opened via `/pets` or the menu) includes a **sort button** at the bottom bar. Click it to cycle through six sort modes:
+
+| Mode | Sort order |
+|---|---|
+| ⚡ Power | Highest power first |
+| 📊 Level | Highest level first |
+| ✨ Stars | Most stars first |
+| 🔺 Ascension | Highest ascension first |
+| 💎 Rarity | UR → SMR → SR → R → N |
+| 🔤 A–Z | Pet display name, alphabetical |
+
+The selected sort mode is preserved when navigating between pages.
+
+---
+
+### Starter Ticket
+
+**Brand-new players** (first-ever join) automatically receive a **Starter Ticket** — a special Paper item placed in the center slot of their hotbar (slot 5).
+
+**Properties:**
+- Cannot be dropped (pressing Q is blocked).
+- Removed from death drops — it cannot be lost.
+- Single-use; consumed when right-clicked.
+
+**Right-clicking the ticket** opens an animated **Starter Team Roll** GUI:
+- Five slots cycle through a slot-machine spin animation (~4 seconds).
+- Slots lock in one by one from left to right, each revealing one of the five rolled pets.
+- **Rarity odds:** 90% ɴ · 10% ʀ.
+- Click **Collect Pets** when all slots are revealed, or simply close the GUI — pets are added to storage and team either way.
+
+All five starter pets are added directly to the player's team so they can participate in missions and the tower immediately.
+
+---
+
 ### Collection
 
 Open with `/collection`. Shows every pet defined in `pets.yml`. Pets the player has not yet obtained are shown as `???`. Clicking an owned pet opens its detail view.
@@ -400,6 +436,7 @@ List<OwnedPet> pets = api.getPets(playerUUID);
 ## Tips for Server Admins
 
 - **Reload without restart:** `/petly reload` reloads all config files at once (including `towers.yml`). Player data in memory is not affected.
+- **Starter Ticket:** Automatically given to brand-new players on first join. No admin action needed — detection is file-based and reliable across server restarts.
 - **Give starter dust:** Run `/petly dust give <player> 2000` on first join via a join script.
 - **Custom pet skins:** Replace `PLACEHOLDER_XXX` values in `pets.yml` with real base64 skull texture strings. Tools like [Minecraft-Heads.com](https://minecraft-heads.com) let you copy the texture value directly.
 - **Balancing:** The recommended-power values in `missions.yml`, `towers.yml`, and stat values in `pets.yml` are the main balancing levers. Increase them to make progression slower; decrease them for faster-paced servers.
