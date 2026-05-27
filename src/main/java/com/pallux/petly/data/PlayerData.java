@@ -138,6 +138,7 @@ public class PlayerData {
 
     public int getMissionsCompleted() { return missionsCompleted; }
     public void incrementMissionsCompleted() { this.missionsCompleted++; }
+    public void setMissionsCompleted(int count) { this.missionsCompleted = count; }
 
     public List<MissionResult> getMissionLog() { return missionLog; }
 

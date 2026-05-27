@@ -101,8 +101,18 @@ main-menu:
         - ""
         - "<gray>Left-click to open"
 
+    leaderboard-button:
+      slot: 38
+      material: WRITABLE_BOOK
+      display-name: "<gradient:#60a5fa:#818cf8>ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ</gradient>"
+      lore:
+        - "<dark_gray>View top players across"
+        - "<dark_gray>Power, Dust, Pets & more."
+        - ""
+        - "<gray>Left-click to open"
+
     filler-dark:
-      slots: [ 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 23, 25, 26, 27, 28, 30, 32, 34, 35, 36, 37, 38, 39, 41, 42, 43, 44 ]
+      slots: [ 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 23, 25, 26, 27, 28, 30, 32, 34, 35, 36, 37, 39, 41, 42, 43, 44 ]
       material: GRAY_STAINED_GLASS_PANE
       display-name: " "
 
