@@ -25,7 +25,8 @@ public class SummonedPetDisplay {
     private final PlayerDataManager pdm;
     private final Map<UUID, List<ArmorStand>> displayEntities = new HashMap<>();
 
-    private static final double[] ANGLE_OFFSETS = { 45, 90, 0, 270, 315 };
+    // Degrees from directly-behind: 0=behind, -45=back-right, 45=back-left, -90=right, 90=left
+    private static final double[] ANGLE_OFFSETS = { 0, -45, 45, -90, 90 };
 
     public SummonedPetDisplay(PetlyPlugin plugin, ConfigManager config, PlayerDataManager pdm) {
         this.plugin = plugin;
@@ -120,9 +121,9 @@ public class SummonedPetDisplay {
     }
 
     private Location getOrbitLocation(Location playerLoc, double angle, double radius, double heightOffset) {
-        double yaw = Math.toRadians(playerLoc.getYaw() + 180);
+        double yaw = Math.toRadians(playerLoc.getYaw());
         double x = playerLoc.getX() + radius * Math.sin(yaw + angle);
-        double z = playerLoc.getZ() + radius * Math.cos(yaw + angle);
+        double z = playerLoc.getZ() - radius * Math.cos(yaw + angle);
         double y = playerLoc.getY() + heightOffset;
         return new Location(playerLoc.getWorld(), x, y, z);
     }
