@@ -10,11 +10,11 @@
 formula:
   base-recommended-power: 200
   power-per-floor: 200
-  base-dust-reward: 50
-  dust-per-floor: 20
+  base-dust-reward: 100
+  dust-per-floor: 10
 
 # Total number of tower floors available.
-max-floors: 500
+max-floors: 1000
 
 # Pet XP awarded to each team member on a successful floor clear.
 pet-xp-per-floor: 50
