@@ -110,18 +110,18 @@ public class PetStorageGui extends BaseGui {
     private List<OwnedPet> sortPets(List<OwnedPet> pets) {
         List<OwnedPet> sorted = new ArrayList<>(pets);
         Comparator<OwnedPet> comparator = switch (sort) {
-            case POWER -> Comparator.comparingLong((OwnedPet op) -> {
+            case POWER -> Comparator.<OwnedPet>comparingLong(op -> {
                 Pet pet = config.getPetConfig().getPet(op.getPetId()).orElse(null);
                 return pet == null ? 0L : powerCalc.calcPetPower(pet, op);
             }).reversed();
-            case LEVEL -> Comparator.comparingInt(OwnedPet::getLevel).reversed();
-            case STARS -> Comparator.comparingInt(OwnedPet::getStars).reversed();
-            case ASCENSION -> Comparator.comparingInt(OwnedPet::getAscension).reversed();
-            case RARITY -> Comparator.comparingInt((OwnedPet op) -> {
+            case LEVEL -> Comparator.<OwnedPet>comparingInt(OwnedPet::getLevel).reversed();
+            case STARS -> Comparator.<OwnedPet>comparingInt(OwnedPet::getStars).reversed();
+            case ASCENSION -> Comparator.<OwnedPet>comparingInt(OwnedPet::getAscension).reversed();
+            case RARITY -> Comparator.<OwnedPet>comparingInt(op -> {
                 Pet pet = config.getPetConfig().getPet(op.getPetId()).orElse(null);
                 return pet == null ? 0 : pet.getRarity().getTier();
             }).reversed();
-            case ALPHABETICAL -> Comparator.comparing((OwnedPet op) -> {
+            case ALPHABETICAL -> Comparator.<OwnedPet, String>comparing(op -> {
                 Pet pet = config.getPetConfig().getPet(op.getPetId()).orElse(null);
                 return op.getNickname() != null ? op.getNickname()
                         : (pet != null ? pet.getDisplayName() : op.getPetId());
