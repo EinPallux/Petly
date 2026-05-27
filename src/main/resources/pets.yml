@@ -22,7 +22,7 @@ pets:
     power-per-star: 400
     ascension-base-bonus: 180
     ascension-scaling-bonus: 12
-    skin-texture: "PLACEHOLDER_LIL_PIGGY"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmE3NDFhZDE4NGU3ZDQyYTY3YmJkY2Y4ZDIwMmE2NGZkNWU1YWY4YjViMmVkNTAwMzQ1YzM4N2EwOTE0ZTM0MiJ9fX0="
     lore: "A tiny pig with surprisingly big dreams."
 
   pebble_turtle:
@@ -33,7 +33,7 @@ pets:
     power-per-star: 400
     ascension-base-bonus: 180
     ascension-scaling-bonus: 12
-    skin-texture: "PLACEHOLDER_PEBBLE_TURTLE"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWZlMDZiYjNlMjEwZGU4YjcyZTU4M2Y1MDczZTIxZGE3M2QwZWQzMDA5MjQwYWFhMjY4Yzg3ZjI3Yjg3Y2VjNiJ9fX0="
     lore: "Carries the weight of the world, one pebble at a time."
 
   fluffy_bun:
@@ -44,7 +44,7 @@ pets:
     power-per-star: 400
     ascension-base-bonus: 180
     ascension-scaling-bonus: 12
-    skin-texture: "PLACEHOLDER_FLUFFY_BUN"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzU4NmUwNDA3YjhlMGMzOTBjMDQ3M2Q4NWMyMTFhYWI4MzY4YWUwMzA2M2NjNTZjMDIyZjQ0NTEzYmY5ZjE2YyJ9fX0="
     lore: "Soft as a cloud, brave as a knight."
 
   tiny_mole:
@@ -55,7 +55,7 @@ pets:
     power-per-star: 400
     ascension-base-bonus: 180
     ascension-scaling-bonus: 12
-    skin-texture: "PLACEHOLDER_TINY_MOLE"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTY1NjI3NGRjMjM1MGQ1MjdiOWU1ODg2ODk0NmM2MGYwNjcyN2E4MDEzZWY1Y2EzMmVhZGYxZmU3MmQ5ODg2NyJ9fX0="
     lore: "Has never seen the sun and is perfectly fine with that."
 
   dawn_sparrow:
@@ -66,7 +66,7 @@ pets:
     power-per-star: 400
     ascension-base-bonus: 180
     ascension-scaling-bonus: 12
-    skin-texture: "PLACEHOLDER_DAWN_SPARROW"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTA3NDAwODIyYmZkNGViNjQ1ZTg4NjYxOTQwZWNiZGJlMTJmNDExZDQ0YmE3ZTIxNTQ2ZGM2OTFkMGIxNGMwNyJ9fX0="
     lore: "The first song you hear every morning."
 
   mossy_snail:
@@ -77,7 +77,7 @@ pets:
     power-per-star: 400
     ascension-base-bonus: 180
     ascension-scaling-bonus: 12
-    skin-texture: "PLACEHOLDER_MOSSY_SNAIL"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWQyZjg2N2JhY2U1ZTBiYjk4OTg4ZTZlNzcwMThjOGUyYjZiYmMzZTc0NzdlOWViZGE3NjMyMGE5NjEwYzNhZCJ9fX0="
     lore: "Slow, but has never once been in a hurry."
 
   river_frog:
@@ -88,7 +88,7 @@ pets:
     power-per-star: 400
     ascension-base-bonus: 180
     ascension-scaling-bonus: 12
-    skin-texture: "PLACEHOLDER_RIVER_FROG"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzIwMzQ1YzE4M2E4MGZkYThiZTNlZjBiMmVlNjRmYTgxMTVmN2FjZGQ2MTA3MWI5ZWRhOGM5YmFjYmIyYmZmZCJ9fX0="
     lore: "Leaps before it looks, but lands just fine."
 
   cloud_lamb:
@@ -99,7 +99,7 @@ pets:
     power-per-star: 400
     ascension-base-bonus: 180
     ascension-scaling-bonus: 12
-    skin-texture: "PLACEHOLDER_CLOUD_LAMB"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjU5ZTI1YzI1NDNkOTAwMzNhYzJkYWUzNmMwZWJkOGJkODg3ODBlMTdjM2I0YzcyZTU5YjlhODEzOTc5ZmVkNyJ9fX0="
     lore: "A wandering puffball that smells like rain."
 
   dusty_hedgehog:
@@ -110,7 +110,7 @@ pets:
     power-per-star: 400
     ascension-base-bonus: 180
     ascension-scaling-bonus: 12
-    skin-texture: "PLACEHOLDER_DUSTY_HEDGEHOG"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWY1ZTgzNWMxMTZlOGUyMDBlMmUwNmFhNTkzY2FiOGYxYTlmOGM0MGU3ZjAwNWE5Yzc2ZjEyZTI0ZjRjNjM3MCJ9fX0="
     lore: "Rolls up at the first sign of danger — and then peeks."
 
   sunbeam_duck:
@@ -121,7 +121,7 @@ pets:
     power-per-star: 400
     ascension-base-bonus: 180
     ascension-scaling-bonus: 12
-    skin-texture: "PLACEHOLDER_SUNBEAM_DUCK"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTljN2JkNTgyNzJkODhhZWE1M2QwYjljM2M3NWQ4NzY3ZTAxYjIwYjlhODExMWRlNzVkZjlhYTlmMjcyYzk0MiJ9fX0="
     lore: "Glows faintly in the afternoon light."
 
   forest_mouse:
@@ -132,7 +132,7 @@ pets:
     power-per-star: 400
     ascension-base-bonus: 180
     ascension-scaling-bonus: 12
-    skin-texture: "PLACEHOLDER_FOREST_MOUSE"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGU1ZjA3NGFkMTc4ZjFjZjI2ODkzNjY3ZGNkMDM0YmUxMWEzNDY4MzE0YWY1MzlkZjZiMTI1NTY0YTBlMTNlYyJ9fX0="
     lore: "Small enough to go unnoticed, clever enough to survive."
 
   tide_crab:
@@ -143,7 +143,7 @@ pets:
     power-per-star: 400
     ascension-base-bonus: 180
     ascension-scaling-bonus: 12
-    skin-texture: "PLACEHOLDER_TIDE_CRAB"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZThiY2YzMTAzNTJmMDk0OGIwOTk2YjAyZTE4YzQ0ZTY5MTA0N2IyMTU5OTkzYjkzN2IyNzcwYTRjOTNlMDYzOCJ9fX0="
     lore: "Pinches first, asks questions never."
 
   gentle_doe:
@@ -154,7 +154,7 @@ pets:
     power-per-star: 400
     ascension-base-bonus: 180
     ascension-scaling-bonus: 12
-    skin-texture: "PLACEHOLDER_GENTLE_DOE"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzhiNWNjNTNlYzUyZjk1YmI5MjhjZGQ4NjU2NjRjNTA4OGEzYjkzNzg2NWQwMDYwMjIyMmU2YWM0ZTc5YmVhNyJ9fX0="
     lore: "Graceful and quiet, it watches over the forest floor."
 
   stone_beetle:
@@ -165,7 +165,7 @@ pets:
     power-per-star: 400
     ascension-base-bonus: 180
     ascension-scaling-bonus: 12
-    skin-texture: "PLACEHOLDER_STONE_BEETLE"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTAzODE3YzU1NmFiZjI3ZjE0MTAyNTI0ZDRlZWE2NjdkYjkyNTNkNzJhZjFiMzhhMDZiODZiOTNjNDA3MDE1NSJ9fX0="
     lore: "Its shell is tougher than most helmets."
 
   morning_chick:
@@ -176,7 +176,7 @@ pets:
     power-per-star: 400
     ascension-base-bonus: 180
     ascension-scaling-bonus: 12
-    skin-texture: "PLACEHOLDER_MORNING_CHICK"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTM4Y2JiNmJjZmFjNzUwZjczNDU4M2UyMmI4ZWNhMmYzYTcxZWNiNWQ3MjFiMzI2ODIxNmJmNjM5MmQxMjMxOSJ9fX0="
     lore: "Hatched at sunrise, destined for something greater."
 
   # ════════════════════════════════════════
@@ -191,7 +191,7 @@ pets:
     power-per-star: 900
     ascension-base-bonus: 450
     ascension-scaling-bonus: 28
-    skin-texture: "PLACEHOLDER_EMBER_FOX"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWNhY2M1YWY4MWE2MzhmZjUxMWU5NjE0MGMyN2ZhYWI1OTI5MTU1YjI1NGRiZDE5ZGZkYzUwM2E2ZjNhZDc3ZiJ9fX0="
     lore: "Burns brighter with every step."
 
   storm_crab:
@@ -202,7 +202,7 @@ pets:
     power-per-star: 900
     ascension-base-bonus: 450
     ascension-scaling-bonus: 28
-    skin-texture: "PLACEHOLDER_STORM_CRAB"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjFjMjBlYThlODkwY2I3NjUyYjI0ZGQwYmVlYTZkNThkYTFhMzg3OGI5YTM2ZDIwYjgyOTgxNDhkMjA5MGEyYyJ9fX0="
     lore: "Claws forged in the heart of a sea storm."
 
   crystal_slug:
@@ -213,7 +213,7 @@ pets:
     power-per-star: 900
     ascension-base-bonus: 450
     ascension-scaling-bonus: 28
-    skin-texture: "PLACEHOLDER_CRYSTAL_SLUG"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2E3OWQwZmQ2NzdiNTQ1MzA5NjExMTdlZjg0YWRjMjA2ZTJjYzUwNDVjMTM0NGQ2MWQ3NzZiZjhhYzJmZTFiYSJ9fX0="
     lore: "Leaves a trail of sparkling minerals wherever it goes."
 
   moss_golem:
@@ -224,7 +224,7 @@ pets:
     power-per-star: 900
     ascension-base-bonus: 450
     ascension-scaling-bonus: 28
-    skin-texture: "PLACEHOLDER_MOSS_GOLEM"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzUzYTEzYzNkNWEyYjI3YzljYWRkZjg2NGI1NzExYzM1ZTJhN2E4MDM1NTE4MGU4NWQ4ODYyMGQ0ZTkwZmNiZCJ9fX0="
     lore: "Ancient stone wrapped in a thousand years of growth."
 
   magma_lizard:
@@ -235,7 +235,7 @@ pets:
     power-per-star: 900
     ascension-base-bonus: 450
     ascension-scaling-bonus: 28
-    skin-texture: "PLACEHOLDER_MAGMA_LIZARD"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzc1YzM4NzJmZTQ2YWM5OTU5ZmMyNjgyNDIyZDdjNjc0MTAzMzRlMTllMTFkNjNmMWVlMjhlN2EzYWJkMjNjNyJ9fX0="
     lore: "Sunbathes directly on lava flows."
 
   thunder_cat:
@@ -246,7 +246,7 @@ pets:
     power-per-star: 900
     ascension-base-bonus: 450
     ascension-scaling-bonus: 28
-    skin-texture: "PLACEHOLDER_THUNDER_CAT"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTBmODczNmQzZmUyMmY2ZmJiMmMxYjE0ZThhOGM2NDkwZjIxN2JkYzIwYzhmZTJkNmNkOThjODNmMDYwNTA1OSJ9fX0="
     lore: "Its purring sounds exactly like distant thunder."
 
   ice_ferret:
@@ -257,7 +257,7 @@ pets:
     power-per-star: 900
     ascension-base-bonus: 450
     ascension-scaling-bonus: 28
-    skin-texture: "PLACEHOLDER_ICE_FERRET"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2YzYTAxZWI5MDJjOWI1ZmU0MDA3YjU2OTJjYWQ1YjljZjk5ZWM5MjFlNTg1NWM3ODI5ZDVmZTJjZGExMDJmNiJ9fX0="
     lore: "Dances across frozen lakes without leaving a crack."
 
   shadow_wolf:
@@ -268,7 +268,7 @@ pets:
     power-per-star: 900
     ascension-base-bonus: 450
     ascension-scaling-bonus: 28
-    skin-texture: "PLACEHOLDER_SHADOW_WOLF"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjZmNTYzNmU5ZWI3MmNjNTNkNWZlZDRkMDIzNzBjY2QwNzkwYWQwMWU5ZDhkN2VkYWYyMjAxMGNhMTAzZDc3NCJ9fX0="
     lore: "Hunts only by moonlight, leaving no tracks."
 
   coral_sprite:
@@ -279,7 +279,7 @@ pets:
     power-per-star: 900
     ascension-base-bonus: 450
     ascension-scaling-bonus: 28
-    skin-texture: "PLACEHOLDER_CORAL_SPRITE"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmVjOWI3MjA3OWYyZDU4OGIxYmQ2YzU4NmJiYWRmZmJmZGIzNmE3MTIxODE1NDk4YjZmOTI5MjlmYWUzN2NkIn19fQ=="
     lore: "A tiny guardian of the deep reef."
 
   vine_raptor:
@@ -290,7 +290,7 @@ pets:
     power-per-star: 900
     ascension-base-bonus: 450
     ascension-scaling-bonus: 28
-    skin-texture: "PLACEHOLDER_VINE_RAPTOR"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTBkZjM5NjNhMjg0MWFiYjU3NjlkNmM2OTZhMjI5OWNjMzBlMTM1MGJiMzAxNmJkNGU3OTJmZjNjOTc1NWQ3OSJ9fX0="
     lore: "Sprints through the jungle faster than thought."
 
   wind_hawk:
@@ -301,7 +301,7 @@ pets:
     power-per-star: 900
     ascension-base-bonus: 450
     ascension-scaling-bonus: 28
-    skin-texture: "PLACEHOLDER_WIND_HAWK"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGM1NGM4ZWI5MmRkZmRmZDE0MzZmMDY4NmU2NGM0ZTRmNjMwMDNiNjRiNTcwNjY1ZTMwMDJiNzg1NjViYWRkZiJ9fX0="
     lore: "Rides thermals so high the stars feel close."
 
   deep_angler:
@@ -312,7 +312,7 @@ pets:
     power-per-star: 900
     ascension-base-bonus: 450
     ascension-scaling-bonus: 28
-    skin-texture: "PLACEHOLDER_DEEP_ANGLER"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTNkMDc5MWIwYWFmZTE4MTM0ODYwY2VhZmFmNjBmMGZkNjYwMzIwYmU3OWEzYTlkMmZhZWM5ODA2NjM1MGZkYSJ9fX0="
     lore: "Its bioluminescent lure has lured many a brave soul."
 
   iron_boar:
@@ -323,7 +323,7 @@ pets:
     power-per-star: 900
     ascension-base-bonus: 450
     ascension-scaling-bonus: 28
-    skin-texture: "PLACEHOLDER_IRON_BOAR"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmZlNDFjNjkwMThjYzVlMDkxMDJiZjkzZmYxZWQ0ZGZhZjkxZjk1Y2ZmMWE5MmZjZjdmN2NiMWFjMTFiZTc5MiJ9fX0="
     lore: "Its hide has deflected arrows, axes, and bad decisions."
 
   swamp_basilisk:
@@ -334,7 +334,7 @@ pets:
     power-per-star: 900
     ascension-base-bonus: 450
     ascension-scaling-bonus: 28
-    skin-texture: "PLACEHOLDER_SWAMP_BASILISK"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTlmZWI4NDE2MTZmY2U4NjY0OTFmZTY0NjZmMWU3YTA5ZWNjMDJjNzYwNTQyNzMwZDEzNzZlOTY2ZjE2NzZlIn19fQ=="
     lore: "Do not meet its gaze — or so they say."
 
   dusk_panther:
@@ -345,7 +345,7 @@ pets:
     power-per-star: 900
     ascension-base-bonus: 450
     ascension-scaling-bonus: 28
-    skin-texture: "PLACEHOLDER_DUSK_PANTHER"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmJhZTdiNzIzNWM3ZDkyOWQ2MmY3ZDVhYjhhNTFkOWQyM2EzNjc1Y2M0M2E3ZDEzNzNhOTgwNDZiZGFkMzdkYSJ9fX0="
     lore: "Appears only at twilight, vanishes by midnight."
 
   # ════════════════════════════════════════
@@ -360,7 +360,7 @@ pets:
     power-per-star: 2500
     ascension-base-bonus: 1200
     ascension-scaling-bonus: 75
-    skin-texture: "PLACEHOLDER_THUNDER_LYNX"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDUwN2YwMDAzYTBjNDMyMzZjOTgyNDJmMmRhMGMyZmY3YjA4NGY2YjQ1ZjQ1MjIwMWNjNzQ5ZjljYTIxYmRiNyJ9fX0="
     lore: "Each footstep echoes like a thunderclap."
 
   frost_phoenix:
@@ -371,7 +371,7 @@ pets:
     power-per-star: 2500
     ascension-base-bonus: 1200
     ascension-scaling-bonus: 75
-    skin-texture: "PLACEHOLDER_FROST_PHOENIX"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmRmZTU4ZGNhNDQ2ODg4MDlhNDRjMjczNjdmY2MyODgwODk3NzkyYWY4ODM4ZjkzZjJiNTg1YWZjYmU4ZjEzNyJ9fX0="
     lore: "Reborn from ice rather than flame."
 
   void_serpent:
@@ -382,7 +382,7 @@ pets:
     power-per-star: 2500
     ascension-base-bonus: 1200
     ascension-scaling-bonus: 75
-    skin-texture: "PLACEHOLDER_VOID_SERPENT"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGY5YWVhZjA2ZDAyMjUwYWY3OTNmYjczMDAyNzQxZDM0MmVhNWQzMThhM2I0ZWEzMjg1ZTJhNTc5NzAxOWNmOCJ9fX0="
     lore: "Slithers between dimensions without effort."
 
   storm_guardian:
@@ -393,7 +393,7 @@ pets:
     power-per-star: 2500
     ascension-base-bonus: 1200
     ascension-scaling-bonus: 75
-    skin-texture: "PLACEHOLDER_STORM_GUARDIAN"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGMwZjZiNWFkNjBiMDNmZmZmY2MzOTE1Njg5MGU0NDdlOTlkYjQ5MDRlNDU2ZmJmODA3ZjFjODBjNzFlZmMzMyJ9fX0="
     lore: "Summoned by the sky itself to protect what matters."
 
   earth_titan:
@@ -404,7 +404,7 @@ pets:
     power-per-star: 2500
     ascension-base-bonus: 1200
     ascension-scaling-bonus: 75
-    skin-texture: "PLACEHOLDER_EARTH_TITAN"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjBlZDU5ZmI3ZjI3Y2YwMzEzOTE5Yzk2NDYzZDYwODEwMDE4YzNiY2RiN2NiM2E0ODA4M2ZlZGU1MjhjNzExMCJ9fX0="
     lore: "Mountains bow to its presence."
 
   solar_gryphon:
@@ -415,7 +415,7 @@ pets:
     power-per-star: 2500
     ascension-base-bonus: 1200
     ascension-scaling-bonus: 75
-    skin-texture: "PLACEHOLDER_SOLAR_GRYPHON"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjMzNzQyY2ZhYmEzZDQ4YjBiM2Q5YmNhOGNlYjE2OTFiNTc3OWVlMzhkMzJiMDAxNGQ4YzNmZmZjM2FkMjgzMSJ9fX0="
     lore: "Feathers that catch fire at high noon."
 
   lunar_kirin:
@@ -426,7 +426,7 @@ pets:
     power-per-star: 2500
     ascension-base-bonus: 1200
     ascension-scaling-bonus: 75
-    skin-texture: "PLACEHOLDER_LUNAR_KIRIN"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWE0OTk2MDEyMWJlYmE1NjdmZTlkOTA1Y2VjOWI0ZTE0YjI5MTAyYmYwMWI5ODcwZDlmODAxM2MwNjU3NDcyZSJ9fX0="
     lore: "Its steps leave flowers where the moonlight falls."
 
   rune_leviathan:
@@ -437,7 +437,7 @@ pets:
     power-per-star: 2500
     ascension-base-bonus: 1200
     ascension-scaling-bonus: 75
-    skin-texture: "PLACEHOLDER_RUNE_LEVIATHAN"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDIzOGYxYzM0OGQ4ZDNlOTJiYTk5YmM4NTUxNDVmOWZkODM3ZWVlN2E0NjA1OWYxYThjNjE1Mjk0Mjg5YzkzMiJ9fX0="
     lore: "Ancient runes glow along its colossal body."
 
   ember_wyvern:
@@ -448,7 +448,7 @@ pets:
     power-per-star: 2500
     ascension-base-bonus: 1200
     ascension-scaling-bonus: 75
-    skin-texture: "PLACEHOLDER_EMBER_WYVERN"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDIwMGIxNjFlMTg0ZDk1ZDYzNDE1YWE4N2M2Y2U4YzgwNDRiZTY0YmUxMTUzY2E3MjAwNjE2NDg0MWM1M2IxIn19fQ=="
     lore: "Breathes not fire, but living embers that never die."
 
   crystal_golem:
@@ -459,7 +459,7 @@ pets:
     power-per-star: 2500
     ascension-base-bonus: 1200
     ascension-scaling-bonus: 75
-    skin-texture: "PLACEHOLDER_CRYSTAL_GOLEM"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDY3M2IxNjZhNTU2YmE2Mjc5ZWVjNTI0NzU0NGY2ZmY5ZDg2OGQ5NGVkOWExY2YwNjFjZDQ0MTBjOWI0ZWYzMyJ9fX0="
     lore: "Carved from a single flawless gemstone aeons ago."
 
   # ════════════════════════════════════════
@@ -474,7 +474,7 @@ pets:
     power-per-star: 7000
     ascension-base-bonus: 3500
     ascension-scaling-bonus: 200
-    skin-texture: "PLACEHOLDER_CELESTIAL_DRAGON"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWNjZTI5ODA3ZGJkMmUyMGNkNDgxODFlNjg2YWJjYjA3NGZlM2U1ODlhMjgxMGRlMTZhZDk5NTc5ZGM1Y2QyOSJ9fX0="
     lore: "Descended from the stars to grace the mortal realm."
 
   chrono_wolf:
@@ -485,7 +485,7 @@ pets:
     power-per-star: 7000
     ascension-base-bonus: 3500
     ascension-scaling-bonus: 200
-    skin-texture: "PLACEHOLDER_CHRONO_WOLF"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmIwMmIxZDhjYTFkN2MxMjcxMzU5YmZkMWRlMmVjODQ3YTU2MWNlM2Y3OTZmNDgxMGIwMTgzZmYwMTQyNDVjYyJ9fX0="
     lore: "Time bends around its howl."
 
   astral_phoenix:
@@ -496,7 +496,7 @@ pets:
     power-per-star: 7000
     ascension-base-bonus: 3500
     ascension-scaling-bonus: 200
-    skin-texture: "PLACEHOLDER_ASTRAL_PHOENIX"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzVkNzA1NWUxZWZmM2E0YzE3YTZkODM1NjNhMjhmOTA4Mzc1MWNjZDc1OWM0ZDRhMGJjMjZiN2RiY2E2OTRhIn19fQ=="
     lore: "Burns with the light of a thousand stars."
 
   shadow_titan:
@@ -507,7 +507,7 @@ pets:
     power-per-star: 7000
     ascension-base-bonus: 3500
     ascension-scaling-bonus: 200
-    skin-texture: "PLACEHOLDER_SHADOW_TITAN"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzhlMmYyYzA5OTliOTIxYjhhZTA1OWVmYTJlMzJlNjc1NTZlNGNlMmJmZmRjNjE0YjE4YTllMjg4NDAwNjQ4OSJ9fX0="
     lore: "A titan that was swallowed by the void and returned changed."
 
   storm_emperor:
@@ -518,7 +518,7 @@ pets:
     power-per-star: 7000
     ascension-base-bonus: 3500
     ascension-scaling-bonus: 200
-    skin-texture: "PLACEHOLDER_STORM_EMPEROR"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTliMWQ3MThlMjRhOGNkZDUyMjUyMTAyY2M3YzdhOTRjNzNhMTVkM2ZhZjNiYzNhODMxNWRhYTJiOTQ3YzUzOSJ9fX0="
     lore: "Commands every tempest on every sea."
 
   nature_sovereign:
@@ -529,7 +529,7 @@ pets:
     power-per-star: 7000
     ascension-base-bonus: 3500
     ascension-scaling-bonus: 200
-    skin-texture: "PLACEHOLDER_NATURE_SOVEREIGN"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWUzNzI4MjQ4MzQ3N2YzMmVhNjc1NWNhMzhkMzA3MGY5YjkxMjllYjc5NmI1OTA5OTA4YTRmMjZkNzZiMjcyMiJ9fX0="
     lore: "Every living thing in the forest answers to its call."
 
   void_reaper:
@@ -540,7 +540,7 @@ pets:
     power-per-star: 7000
     ascension-base-bonus: 3500
     ascension-scaling-bonus: 200
-    skin-texture: "PLACEHOLDER_VOID_REAPER"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWQyOTdkODJmMjZjOWZjMGQ5ZjBjZjc4MjllNDE0ZmEzOWUxMjIyNjM0YTM2NTg2NGQ4NGNjNTg0ZWNhMmIyOSJ9fX0="
     lore: "Harvests the echoes of things that never existed."
 
   # ════════════════════════════════════════
@@ -555,7 +555,7 @@ pets:
     power-per-star: 18000
     ascension-base-bonus: 9000
     ascension-scaling-bonus: 500
-    skin-texture: "PLACEHOLDER_ABYSS_TITAN"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzJlNWE5ODRjMzZlZTczMjE3Y2I0YjAzMmQyMTM2MDk2YWZiMWQ3NjEwNDU1OWExNTM5OWI5YzBjNGQyN2NmNiJ9fX0="
     lore: "Older than the abyss itself; it remembers when darkness was born."
 
   eternal_phoenix:
@@ -566,7 +566,7 @@ pets:
     power-per-star: 18000
     ascension-base-bonus: 9000
     ascension-scaling-bonus: 500
-    skin-texture: "PLACEHOLDER_ETERNAL_PHOENIX"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODM5ODQ1MWJjYTQxOTJkNTgxMTc0NTViZGZjMTU5YjgxOGNjM2MwMDZhN2E2NzY3NTFiMzg3YTRiY2U4ZDNkNSJ9fX0="
     lore: "Has died and been reborn more times than history can record."
 
   primordial_dragon:
@@ -577,5 +577,5 @@ pets:
     power-per-star: 18000
     ascension-base-bonus: 9000
     ascension-scaling-bonus: 500
-    skin-texture: "PLACEHOLDER_PRIMORDIAL_DRAGON"
+    skin-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzIxNTY4OTVhODZhNWEwNmVkMGM4YWQ5YzlhNGQ4OGE3ZTMwYmZlYzE1ZmZiMzMwYzlhNjM0YzU5MTBiODQyZCJ9fX0="
     lore: "The first dragon. All others are pale imitations."
