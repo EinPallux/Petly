@@ -128,10 +128,10 @@ public class TowerBattleGui extends BaseGui {
         if (slot == 38) {
             if (wasSuccess) {
                 int nextFloor = floor + 1;
-                if (nextFloor <= TowerSystem.MAX_FLOORS) {
+                if (nextFloor <= towerSystem.getMaxFloors()) {
                     gm.openTowerBattle(player, nextFloor);
                 } else {
-                    gm.openTower(player, (TowerSystem.MAX_FLOORS - 1) / 45 + 1);
+                    gm.openTower(player, (towerSystem.getMaxFloors() - 1) / 45 + 1);
                 }
             } else {
                 gm.openTowerBattle(player, floor);

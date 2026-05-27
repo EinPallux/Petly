@@ -72,6 +72,11 @@ public final class ItemBuilder {
         return this;
     }
 
+    public ItemBuilder glow(boolean condition) {
+        if (condition) return glow();
+        return this;
+    }
+
     public ItemBuilder flags(ItemFlag... flags) {
         meta.addItemFlags(flags);
         return this;
