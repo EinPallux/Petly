@@ -54,7 +54,8 @@ public class MainMenuGui extends BaseGui {
                 .name("<gradient:#a78bfa:#60a5fa>" + player.getName() + "</gradient>")
                 .lore(List.of(
                         "<dark_gray>━━━━━━━━━━━━━━━━━━━━",
-                        "<gray>✦ Dust  <gold>" + TextUtil.formatDust(data.getDust()),
+                        "<gray>✦ Dust     <gold>" + TextUtil.formatDust(data.getDust()),
+                        "<gray>◆ Essence  <aqua>" + TextUtil.formatEssence(data.getEssence()),
                         "<gray>⚡ Team Power  <white>" + TextUtil.formatPower(teamPower),
                         "<gray>🐾 Pets Owned  <aqua>" + data.getPets().size(),
                         "<gray>🎯 Active Mission  <green>" + finalMission,
@@ -77,6 +78,8 @@ public class MainMenuGui extends BaseGui {
         GuiManager gm = plugin.getGuiManager();
 
         switch (slot) {
+            case 11 -> gm.openQuests(player);
+            case 15 -> gm.openMaterialTrading(player);
             case 20 -> gm.openPetStorage(player, 1);
             case 22 -> gm.openSummon(player);
             case 24 -> gm.openFieldMissions(player, 1);

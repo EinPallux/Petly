@@ -121,8 +121,28 @@ main-menu:
         - ""
         - "<gray>Left-click to open"
 
+    quests-button:
+      slot: 11
+      material: WRITABLE_BOOK
+      display-name: "<gradient:#86efac:#22c55e>ǫᴜᴇꜱᴛꜱ</gradient>"
+      lore:
+        - "<dark_gray>Complete daily & weekly quests"
+        - "<dark_gray>to earn Dust, Essence and Stars."
+        - ""
+        - "<gray>Left-click to open"
+
+    trading-button:
+      slot: 15
+      material: AMETHYST_SHARD
+      display-name: "<gradient:#fbbf24:#f97316>ᴍᴀᴛᴇʀɪᴀʟ ᴛʀᴀᴅɪɴɢ</gradient>"
+      lore:
+        - "<dark_gray>Trade Dust ⇄ Essence."
+        - "<dark_gray>Open 4× per day for 1 hour."
+        - ""
+        - "<gray>Left-click to open"
+
     filler-dark:
-      slots: [ 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 23, 25, 26, 27, 28, 30, 32, 34, 35, 36, 37, 39, 41, 43, 44 ]
+      slots: [ 9, 10, 12, 13, 14, 16, 17, 18, 19, 21, 23, 25, 26, 27, 28, 30, 32, 34, 35, 36, 37, 39, 41, 43, 44 ]
       material: GRAY_STAINED_GLASS_PANE
       display-name: " "
 

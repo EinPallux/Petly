@@ -29,6 +29,14 @@ team-rarity-bonus:
   SMR: 0.12
   UR: 0.15
 
+# Essence cost to star up a pet (from current stars → next stars).
+star-up-essence-costs:
+  0: 50
+  1: 100
+  2: 200
+  3: 400
+  4: 800
+
 # Dust cost to star up a pet (from current stars → next stars).
 star-costs:
   0: 500

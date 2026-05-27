@@ -32,6 +32,8 @@ public class PetlyPlugin extends JavaPlugin {
     private AscensionSystem ascensionSystem;
     private TowerSystem towerSystem;
     private MilestoneSystem milestoneSystem;
+    private QuestSystem questSystem;
+    private MaterialTradingSystem materialTradingSystem;
     private SummonedPetDisplay summonedPetDisplay;
     private PetlyAPI api;
     private Economy economy;
@@ -56,11 +58,14 @@ public class PetlyPlugin extends JavaPlugin {
         ascensionSystem = new AscensionSystem(this, configManager);
         towerSystem = new TowerSystem(this, configManager, playerDataManager, powerCalc);
         milestoneSystem = new MilestoneSystem(configManager, powerCalc);
+        questSystem = new QuestSystem(this, configManager, configManager.getQuestConfig(), playerDataManager);
+        materialTradingSystem = new MaterialTradingSystem(this, configManager, configManager.getTradingConfig());
         summonedPetDisplay = new SummonedPetDisplay(this, configManager, playerDataManager);
 
         // GUI
         guiManager = new GuiManager(this, configManager, playerDataManager,
-                powerCalc, summonSystem, missionSystem, dustChamberSystem, towerSystem, milestoneSystem);
+                powerCalc, summonSystem, missionSystem, dustChamberSystem, towerSystem, milestoneSystem,
+                questSystem, materialTradingSystem);
 
         // API
         api = new PetlyAPI(this);
@@ -86,6 +91,8 @@ public class PetlyPlugin extends JavaPlugin {
         Objects.requireNonNull(getCommand("tower")).setExecutor(new TowerCommand(this));
         Objects.requireNonNull(getCommand("leaderboard")).setExecutor(new LeaderboardCommand(this));
         Objects.requireNonNull(getCommand("milestones")).setExecutor(new MilestonesCommand(this));
+        Objects.requireNonNull(getCommand("quests")).setExecutor(new QuestsCommand(this));
+        Objects.requireNonNull(getCommand("trade")).setExecutor(new MaterialTradingCommand(this));
 
         // PlaceholderAPI
         if (getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
@@ -106,6 +113,8 @@ public class PetlyPlugin extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        materialTradingSystem.stop();
+
         // Remove all floating pet entities
         summonedPetDisplay.removeAll();
 
@@ -146,6 +155,17 @@ public class PetlyPlugin extends JavaPlugin {
             }
         }, displayTicks, displayTicks);
 
+        // Quest daily/weekly reset check every 60 seconds
+        getServer().getScheduler().runTaskTimer(this, () -> {
+            for (var player : getServer().getOnlinePlayers()) {
+                var data = playerDataManager.get(player.getUniqueId());
+                questSystem.checkAndRefreshQuests(data);
+            }
+        }, 1200L, 1200L);
+
+        // Start material trading schedule
+        materialTradingSystem.start();
+
         // Auto-save every 5 minutes
         getServer().getScheduler().runTaskTimerAsynchronously(this, playerDataManager::saveAll,
                 6000L, 6000L);
@@ -165,6 +185,8 @@ public class PetlyPlugin extends JavaPlugin {
     public AscensionSystem getAscensionSystem() { return ascensionSystem; }
     public TowerSystem getTowerSystem() { return towerSystem; }
     public MilestoneSystem getMilestoneSystem() { return milestoneSystem; }
+    public QuestSystem getQuestSystem() { return questSystem; }
+    public MaterialTradingSystem getMaterialTradingSystem() { return materialTradingSystem; }
     public SummonedPetDisplay getSummonedPetDisplay() { return summonedPetDisplay; }
     public PetlyAPI getAPI() { return api; }
     public Economy getEconomy() { return economy; }

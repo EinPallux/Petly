@@ -17,11 +17,14 @@ public class GuiManager {
     private final DustChamberSystem chamberSystem;
     private final TowerSystem towerSystem;
     private final MilestoneSystem milestoneSystem;
+    private final QuestSystem questSystem;
+    private final MaterialTradingSystem tradingSystem;
 
     public GuiManager(PetlyPlugin plugin, ConfigManager config, PlayerDataManager pdm,
                        PowerCalculator powerCalc, SummonSystem summonSystem,
                        MissionSystem missionSystem, DustChamberSystem chamberSystem,
-                       TowerSystem towerSystem, MilestoneSystem milestoneSystem) {
+                       TowerSystem towerSystem, MilestoneSystem milestoneSystem,
+                       QuestSystem questSystem, MaterialTradingSystem tradingSystem) {
         this.plugin = plugin;
         this.config = config;
         this.pdm = pdm;
@@ -31,6 +34,8 @@ public class GuiManager {
         this.chamberSystem = chamberSystem;
         this.towerSystem = towerSystem;
         this.milestoneSystem = milestoneSystem;
+        this.questSystem = questSystem;
+        this.tradingSystem = tradingSystem;
     }
 
     public void openMainMenu(Player player) {
@@ -101,6 +106,14 @@ public class GuiManager {
 
     public void openMilestones(Player player) {
         new MilestonesGui(player, plugin, config, pdm, milestoneSystem).open();
+    }
+
+    public void openQuests(Player player) {
+        new QuestsGui(player, plugin, config, pdm, questSystem).open();
+    }
+
+    public void openMaterialTrading(Player player) {
+        new MaterialTradingGui(player, plugin, config, pdm, tradingSystem).open();
     }
 
     public void openLeaderboard(Player player, LeaderboardGui.Category category) {

@@ -135,6 +135,7 @@ public class MissionSystem {
 
         data.addDust(dustReward);
         data.incrementMissionsCompleted();
+        plugin.getQuestSystem().onMissionCompleted(data);
 
         // Milestone broadcast every 10 missions
         int totalMissions = data.getMissionsCompleted();

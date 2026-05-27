@@ -66,6 +66,9 @@ public class SummonSystem {
             });
         }
 
+        if (!results.isEmpty()) {
+            plugin.getQuestSystem().onPetsSummoned(data, results.size());
+        }
         pdm.saveAsync(player.getUniqueId());
         return results;
     }

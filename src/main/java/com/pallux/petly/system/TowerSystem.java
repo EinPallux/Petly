@@ -75,6 +75,7 @@ public class TowerSystem {
                     plugin.getServer().getOnlinePlayers().forEach(p -> p.sendMessage(TextUtil.parse(msg)));
                 }
 
+                plugin.getQuestSystem().onTowerFloorBeaten(data);
                 pdm.saveAsync(player.getUniqueId());
             }
             callback.accept(success);

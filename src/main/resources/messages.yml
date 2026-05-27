@@ -97,3 +97,20 @@ stars-set: "{prefix}<green>Set Stars of <aqua>{player}</aqua> to <yellow>{amount
 # --- Milestones ---
 milestone-claimed: "{prefix}<gradient:#f59e0b:#fbbf24>✦ Milestone reward claimed!</gradient> <gray>+<yellow>{stars} ✦ Stars</yellow>."
 milestone-none-pending: "{prefix}<gray>No milestones pending. Keep playing to earn more!"
+
+# --- Quests ---
+quest-completed: "{prefix}<gradient:#86efac:#22c55e>✦ Quest complete!</gradient> <gray>Claim your reward in <green>/quests</green>: <white>{quest}</white>."
+quest-claimed: "{prefix}<gradient:#86efac:#22c55e>✦ Quest reward claimed!</gradient>"
+
+# --- Essence ---
+essence-given: "{prefix}<green>Gave <aqua>{amount} ◆</aqua> Essence to <aqua>{player}</aqua>."
+essence-taken: "{prefix}<green>Removed <aqua>{amount} ◆</aqua> Essence from <aqua>{player}</aqua>."
+essence-set: "{prefix}<green>Set Essence of <aqua>{player}</aqua> to <aqua>{amount} ◆</aqua>."
+not-enough-essence: "{prefix}<red>You need <aqua>{needed} ◆</aqua> Essence but only have <aqua>{have} ◆</aqua>."
+starup-not-enough-essence: "{prefix}<red>You need <aqua>{cost} ◆</aqua> Essence to star up."
+
+# --- Material Trading ---
+trading-opened: "{prefix}<gradient:#fbbf24:#f97316>◆ Material Trading is now open!</gradient> <gray>Duration: <yellow>{duration} minutes</yellow>."
+trading-closed: "{prefix}<gray>◆ Material Trading has closed. <dark_gray>Next window in <yellow>{next}</yellow>."
+trade-success-dust-to-essence: "{prefix}<green>Traded ×{times}</green> <dark_gray>—</dark_gray> <gold>Dust → <aqua>Essence ◆</aqua>."
+trade-success-essence-to-dust: "{prefix}<green>Traded ×{times}</green> <dark_gray>—</dark_gray> <aqua>Essence → <gold>Dust ✦</gold>."

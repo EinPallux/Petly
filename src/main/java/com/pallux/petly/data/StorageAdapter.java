@@ -2,6 +2,7 @@ package com.pallux.petly.data;
 
 import com.pallux.petly.PetlyPlugin;
 import com.pallux.petly.model.ActiveMission;
+import com.pallux.petly.model.ActiveQuest;
 import com.pallux.petly.model.MissionResult;
 import com.pallux.petly.model.OwnedPet;
 import org.bukkit.configuration.ConfigurationSection;
@@ -113,7 +114,29 @@ public class StorageAdapter {
         pdata.setClaimedTowerMilestones(cfg.getInt("claimed-tower-milestones", 0));
         pdata.setClaimedMissionMilestones(cfg.getInt("claimed-mission-milestones", 0));
         pdata.setClaimedPowerMilestones(cfg.getInt("claimed-power-milestones", 0));
+        pdata.setEssence(cfg.getLong("essence", 0));
+        pdata.setLastDailyQuestReset(cfg.getLong("last-daily-quest-reset", -1));
+        pdata.setLastWeeklyQuestReset(cfg.getLong("last-weekly-quest-reset", -1));
+        loadQuestList(cfg.getConfigurationSection("daily-quests"), pdata.getActiveDailyQuests());
+        loadQuestList(cfg.getConfigurationSection("weekly-quests"), pdata.getActiveWeeklyQuests());
         return pdata;
+    }
+
+    private void loadQuestList(org.bukkit.configuration.ConfigurationSection section, List<ActiveQuest> target) {
+        if (section == null) return;
+        for (String key : section.getKeys(false)) {
+            org.bukkit.configuration.ConfigurationSection q = section.getConfigurationSection(key);
+            if (q == null) continue;
+            target.add(new ActiveQuest(key, q.getInt("progress", 0), q.getBoolean("claimed", false)));
+        }
+    }
+
+    private void saveQuestList(org.bukkit.configuration.file.YamlConfiguration cfg,
+                                String path, List<ActiveQuest> quests) {
+        for (ActiveQuest aq : quests) {
+            cfg.set(path + "." + aq.getQuestId() + ".progress", aq.getProgress());
+            cfg.set(path + "." + aq.getQuestId() + ".claimed",  aq.isClaimed());
+        }
     }
 
     public List<PlayerData> loadAll() {
@@ -189,6 +212,11 @@ public class StorageAdapter {
         cfg.set("claimed-tower-milestones", data.getClaimedTowerMilestones());
         cfg.set("claimed-mission-milestones", data.getClaimedMissionMilestones());
         cfg.set("claimed-power-milestones", data.getClaimedPowerMilestones());
+        cfg.set("essence", data.getEssence());
+        cfg.set("last-daily-quest-reset", data.getLastDailyQuestReset());
+        cfg.set("last-weekly-quest-reset", data.getLastWeeklyQuestReset());
+        saveQuestList(cfg, "daily-quests", data.getActiveDailyQuests());
+        saveQuestList(cfg, "weekly-quests", data.getActiveWeeklyQuests());
 
         cfg.save(file);
     }
