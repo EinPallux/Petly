@@ -3,6 +3,7 @@ package com.pallux.petly.util;
 import com.destroystokyo.paper.profile.PlayerProfile;
 import com.destroystokyo.paper.profile.ProfileProperty;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -12,7 +13,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -31,35 +31,33 @@ public final class ItemBuilder {
     }
 
     public ItemBuilder name(String miniMessage) {
-        meta.displayName(TextUtil.parse(miniMessage));
+        meta.displayName(item(miniMessage));
         return this;
     }
 
     public ItemBuilder name(Component component) {
-        meta.displayName(component);
+        meta.displayName(noItalic(component));
         return this;
     }
 
     public ItemBuilder lore(String... lines) {
         List<Component> loreList = new ArrayList<>();
-        for (String line : lines) {
-            loreList.add(TextUtil.parse(line));
-        }
+        for (String line : lines) loreList.add(item(line));
         meta.lore(loreList);
         return this;
     }
 
     public ItemBuilder lore(List<String> lines) {
         List<Component> loreList = new ArrayList<>();
-        for (String line : lines) {
-            loreList.add(TextUtil.parse(line));
-        }
+        for (String line : lines) loreList.add(item(line));
         meta.lore(loreList);
         return this;
     }
 
     public ItemBuilder loreComponents(List<Component> lines) {
-        meta.lore(lines);
+        List<Component> wrapped = new ArrayList<>();
+        for (Component c : lines) wrapped.add(noItalic(c));
+        meta.lore(wrapped);
         return this;
     }
 
@@ -101,25 +99,29 @@ public final class ItemBuilder {
             skullMeta.setPlayerProfile(profile);
         }
 
-        skullMeta.displayName(TextUtil.parse(displayName));
+        skullMeta.displayName(item(displayName));
 
         List<Component> loreComponents = new ArrayList<>();
-        for (String line : lore) {
-            loreComponents.add(TextUtil.parse(line));
-        }
+        for (String line : lore) loreComponents.add(item(line));
         skullMeta.lore(loreComponents);
         skull.setItemMeta(skullMeta);
         return skull;
     }
 
     public static ItemStack filler(Material material) {
-        return new ItemBuilder(material)
-                .name(" ")
-                .hideAll()
-                .build();
+        return new ItemBuilder(material).name(" ").hideAll().build();
     }
 
     public static ItemStack named(Material material, String name) {
         return new ItemBuilder(material).name(name).build();
+    }
+
+    // Parses MiniMessage and strips the default italic Minecraft applies to custom item text
+    private static Component item(String miniMessage) {
+        return noItalic(TextUtil.parse(miniMessage));
+    }
+
+    private static Component noItalic(Component component) {
+        return component.decoration(TextDecoration.ITALIC, false);
     }
 }
