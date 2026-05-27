@@ -45,11 +45,11 @@ public class TowerGui extends BaseGui {
 
         PlayerData data = pdm.get(player.getUniqueId());
         long teamPower = powerCalc.calcTeamPower(data);
-        int maxPages = (int) Math.ceil(TowerSystem.MAX_FLOORS / (double) PER_PAGE);
+        int maxPages = (int) Math.ceil(towerSystem.getMaxFloors() / (double) PER_PAGE);
         int currentPage = MathUtil.clamp(page, 1, maxPages);
 
         int startFloor = (currentPage - 1) * PER_PAGE + 1;
-        int endFloor = Math.min(startFloor + PER_PAGE - 1, TowerSystem.MAX_FLOORS);
+        int endFloor = Math.min(startFloor + PER_PAGE - 1, towerSystem.getMaxFloors());
 
         for (int floor = startFloor; floor <= endFloor; floor++) {
             inventory.setItem(floor - startFloor, buildFloorItem(floor, data, teamPower));
@@ -95,6 +95,7 @@ public class TowerGui extends BaseGui {
         lore.add("<gray>🎯 Success Chance:    <" + chanceColor + ">" + pct + "%");
         lore.add("<dark_gray>━━━━━━━━━━━━━━━━━━━━");
         lore.add("<gray>🏆 Dust Reward: <gold>+" + TextUtil.formatNumber(tf.getDustReward()) + " ✦");
+        lore.add("<gray>⭐ Pet XP:       <aqua>+" + config.getTowerPetXpPerFloor() + " XP");
         lore.add("<dark_gray>━━━━━━━━━━━━━━━━━━━━");
         lore.add("<gray>Click to Battle!");
 
@@ -107,7 +108,7 @@ public class TowerGui extends BaseGui {
         event.setCancelled(true);
         int slot = event.getRawSlot();
         GuiManager gm = plugin.getGuiManager();
-        int maxPages = (int) Math.ceil(TowerSystem.MAX_FLOORS / (double) PER_PAGE);
+        int maxPages = (int) Math.ceil(towerSystem.getMaxFloors() / (double) PER_PAGE);
         int currentPage = MathUtil.clamp(page, 1, maxPages);
 
         if (slot == 45) { if (currentPage > 1) gm.openTower(player, currentPage - 1); return; }
@@ -116,7 +117,7 @@ public class TowerGui extends BaseGui {
 
         if (slot >= 0 && slot < PER_PAGE) {
             int floor = (currentPage - 1) * PER_PAGE + slot + 1;
-            if (floor > TowerSystem.MAX_FLOORS) return;
+            if (floor > towerSystem.getMaxFloors()) return;
 
             PlayerData data = pdm.get(player.getUniqueId());
             if (floor != data.getHighestTowerFloor() + 1) return; // only available floor is clickable

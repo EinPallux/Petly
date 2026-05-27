@@ -15,6 +15,7 @@ import java.util.UUID;
 import java.util.function.Consumer;
 
 public class TowerSystem {
+    /** @deprecated Use {@link #getMaxFloors()} to respect towers.yml config */
     public static final int MAX_FLOORS = 500;
 
     private final PetlyPlugin plugin;
@@ -34,6 +35,10 @@ public class TowerSystem {
         long power = config.getTowerBasePower() + (long)(floor - 1) * config.getTowerPowerPerFloor();
         long dust  = config.getTowerBaseDust()  + (long)(floor - 1) * config.getTowerDustPerFloor();
         return new TowerFloor(floor, power, dust);
+    }
+
+    public int getMaxFloors() {
+        return config.getTowerMaxFloors();
     }
 
     // Returns the next floor the player can attempt (highestCleared + 1)

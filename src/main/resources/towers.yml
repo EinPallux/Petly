@@ -1,0 +1,23 @@
+# ──────────────────────────────────────────────
+#  Petly — Tower Configuration
+#  Configure The Tower's floor scaling, rewards,
+#  battle timing, and total floor count here.
+# ──────────────────────────────────────────────
+
+# --- Floor Scaling Formula ---
+# Floor N recommended power  = base-recommended-power + (N - 1) * power-per-floor
+# Floor N dust reward        = base-dust-reward       + (N - 1) * dust-per-floor
+formula:
+  base-recommended-power: 200
+  power-per-floor: 200
+  base-dust-reward: 50
+  dust-per-floor: 20
+
+# Total number of tower floors available.
+max-floors: 500
+
+# Pet XP awarded to each team member on a successful floor clear.
+pet-xp-per-floor: 50
+
+# How long each tower battle animation runs (ticks). 100 ticks = 5 seconds.
+battle-duration-ticks: 100
