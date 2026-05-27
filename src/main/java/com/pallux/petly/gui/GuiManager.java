@@ -15,10 +15,12 @@ public class GuiManager {
     private final SummonSystem summonSystem;
     private final MissionSystem missionSystem;
     private final DustChamberSystem chamberSystem;
+    private final TowerSystem towerSystem;
 
     public GuiManager(PetlyPlugin plugin, ConfigManager config, PlayerDataManager pdm,
                        PowerCalculator powerCalc, SummonSystem summonSystem,
-                       MissionSystem missionSystem, DustChamberSystem chamberSystem) {
+                       MissionSystem missionSystem, DustChamberSystem chamberSystem,
+                       TowerSystem towerSystem) {
         this.plugin = plugin;
         this.config = config;
         this.pdm = pdm;
@@ -26,6 +28,7 @@ public class GuiManager {
         this.summonSystem = summonSystem;
         this.missionSystem = missionSystem;
         this.chamberSystem = chamberSystem;
+        this.towerSystem = towerSystem;
     }
 
     public void openMainMenu(Player player) {
@@ -70,5 +73,16 @@ public class GuiManager {
 
     public void openAbandonConfirm(Player player, OwnedPet pet) {
         new AbandonConfirmGui(player, plugin, config, pdm, pet).open();
+    }
+
+    public void openTower(Player player, int page) {
+        new TowerGui(player, plugin, config, pdm, towerSystem, powerCalc, page).open();
+    }
+
+    public void openTowerBattle(Player player, int floor) {
+        TowerBattleGui gui = new TowerBattleGui(player, plugin, towerSystem, floor);
+        gui.open();
+        towerSystem.startBattle(player, floor, success ->
+                gui.showResult(success, towerSystem.getFloor(floor).getDustReward()));
     }
 }

@@ -124,4 +124,12 @@ public class ConfigManager {
     public String getMilestoneRarity(int missionNumber) {
         return summonRatesConfig.getString("milestone-rewards." + missionNumber + ".rarity", null);
     }
+
+    // --- Tower ---
+
+    public long getTowerBasePower() { return mainConfig.getLong("tower.base-recommended-power", 200); }
+    public long getTowerPowerPerFloor() { return mainConfig.getLong("tower.power-per-floor", 200); }
+    public long getTowerBaseDust() { return mainConfig.getLong("tower.base-dust-reward", 50); }
+    public long getTowerDustPerFloor() { return mainConfig.getLong("tower.dust-per-floor", 20); }
+    public int getTowerBattleDurationTicks() { return mainConfig.getInt("tower.battle-duration-ticks", 100); }
 }
