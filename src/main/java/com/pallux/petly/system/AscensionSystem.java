@@ -1,5 +1,6 @@
 package com.pallux.petly.system;
 
+import com.pallux.petly.PetlyPlugin;
 import com.pallux.petly.config.ConfigManager;
 import com.pallux.petly.data.PlayerData;
 import com.pallux.petly.model.OwnedPet;
@@ -11,9 +12,11 @@ import java.util.Optional;
 
 public class AscensionSystem {
     private static final int MAX_ASCENSION = 10;
+    private final PetlyPlugin plugin;
     private final ConfigManager config;
 
-    public AscensionSystem(ConfigManager config) {
+    public AscensionSystem(PetlyPlugin plugin, ConfigManager config) {
+        this.plugin = plugin;
         this.config = config;
     }
 
@@ -51,6 +54,12 @@ public class AscensionSystem {
         player.sendMessage(TextUtil.parse(config.getMessage("ascension-success")
                 .replace("{pet}", petName)
                 .replace("{level}", ascRoman(pet.getAscension()))));
+
+        String broadcastMsg = config.getMessage("announce-ascension")
+                .replace("{player}", player.getName())
+                .replace("{pet}", petName)
+                .replace("{level}", ascRoman(pet.getAscension()));
+        plugin.getServer().getOnlinePlayers().forEach(p -> p.sendMessage(TextUtil.parse(broadcastMsg)));
         return true;
     }
 

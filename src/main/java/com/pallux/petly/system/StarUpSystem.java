@@ -1,5 +1,6 @@
 package com.pallux.petly.system;
 
+import com.pallux.petly.PetlyPlugin;
 import com.pallux.petly.config.ConfigManager;
 import com.pallux.petly.data.PlayerData;
 import com.pallux.petly.model.OwnedPet;
@@ -11,9 +12,11 @@ import java.util.List;
 import java.util.Optional;
 
 public class StarUpSystem {
+    private final PetlyPlugin plugin;
     private final ConfigManager config;
 
-    public StarUpSystem(ConfigManager config) {
+    public StarUpSystem(PetlyPlugin plugin, ConfigManager config) {
+        this.plugin = plugin;
         this.config = config;
     }
 
@@ -68,6 +71,12 @@ public class StarUpSystem {
         player.sendMessage(TextUtil.parse(config.getMessage("starup-success")
                 .replace("{pet}", petName)
                 .replace("{stars}", String.valueOf(pet.getStars()))));
+
+        String broadcastMsg = config.getMessage("announce-starup")
+                .replace("{player}", player.getName())
+                .replace("{pet}", petName)
+                .replace("{stars}", String.valueOf(pet.getStars()));
+        plugin.getServer().getOnlinePlayers().forEach(p -> p.sendMessage(TextUtil.parse(broadcastMsg)));
         return true;
     }
 }

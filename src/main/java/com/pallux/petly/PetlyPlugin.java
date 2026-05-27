@@ -49,8 +49,8 @@ public class PetlyPlugin extends JavaPlugin {
         summonSystem = new SummonSystem(this, configManager, playerDataManager);
         missionSystem = new MissionSystem(this, configManager, playerDataManager, powerCalc, summonSystem);
         dustChamberSystem = new DustChamberSystem(configManager, playerDataManager);
-        starUpSystem = new StarUpSystem(configManager);
-        ascensionSystem = new AscensionSystem(configManager);
+        starUpSystem = new StarUpSystem(this, configManager);
+        ascensionSystem = new AscensionSystem(this, configManager);
         summonedPetDisplay = new SummonedPetDisplay(this, configManager, playerDataManager);
 
         // GUI
