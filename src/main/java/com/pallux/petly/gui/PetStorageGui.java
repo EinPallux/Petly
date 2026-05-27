@@ -17,25 +17,59 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class PetStorageGui extends BaseGui {
     private static final int PER_PAGE = 45;
+
+    public enum SortMode {
+        POWER("⚡ Power", Material.BLAZE_POWDER),
+        LEVEL("📊 Level", Material.EXPERIENCE_BOTTLE),
+        STARS("✨ Stars", Material.NETHER_STAR),
+        ASCENSION("🔺 Ascension", Material.TOTEM_OF_UNDYING),
+        RARITY("💎 Rarity", Material.HEART_OF_THE_SEA),
+        ALPHABETICAL("🔤 A–Z", Material.BOOK);
+
+        private final String label;
+        private final Material icon;
+
+        SortMode(String label, Material icon) {
+            this.label = label;
+            this.icon = icon;
+        }
+
+        public String getLabel() { return label; }
+        public Material getIcon() { return icon; }
+
+        public SortMode next() {
+            SortMode[] values = SortMode.values();
+            return values[(ordinal() + 1) % values.length];
+        }
+    }
+
     private final PetlyPlugin plugin;
     private final ConfigManager config;
     private final PlayerDataManager pdm;
     private final PowerCalculator powerCalc;
     private final int page;
+    private final SortMode sort;
     private List<OwnedPet> pagePets;
 
     public PetStorageGui(Player player, PetlyPlugin plugin, ConfigManager config,
                           PlayerDataManager pdm, PowerCalculator powerCalc, int page) {
+        this(player, plugin, config, pdm, powerCalc, page, SortMode.POWER);
+    }
+
+    public PetStorageGui(Player player, PetlyPlugin plugin, ConfigManager config,
+                          PlayerDataManager pdm, PowerCalculator powerCalc, int page, SortMode sort) {
         super(player);
         this.plugin = plugin;
         this.config = config;
         this.pdm = pdm;
         this.powerCalc = powerCalc;
         this.page = page;
+        this.sort = sort;
     }
 
     @Override
@@ -44,7 +78,7 @@ public class PetStorageGui extends BaseGui {
         inventory = createInventory(54, title);
 
         PlayerData data = pdm.get(player.getUniqueId());
-        List<OwnedPet> allPets = data.getPets();
+        List<OwnedPet> allPets = sortPets(data.getPets());
         int maxPages = Math.max(1, (int) Math.ceil((double) allPets.size() / PER_PAGE));
         int currentPage = MathUtil.clamp(page, 1, maxPages);
 
@@ -61,16 +95,54 @@ public class PetStorageGui extends BaseGui {
 
         applyGuiItems(config.getGuiConfig(), "pet-storage");
 
-        // Update navigation lore
         String pageStr = currentPage + " / " + maxPages;
         inventory.setItem(45, new ItemBuilder(Material.ARROW)
                 .name("<gray>◀ ᴘʀᴇᴠɪᴏᴜꜱ")
                 .lore(List.of("<dark_gray>Page " + pageStr))
                 .build());
+        inventory.setItem(47, buildSortButton());
         inventory.setItem(53, new ItemBuilder(Material.ARROW)
                 .name("<gray>ɴᴇxᴛ ▶")
                 .lore(List.of("<dark_gray>Page " + pageStr))
                 .build());
+    }
+
+    private List<OwnedPet> sortPets(List<OwnedPet> pets) {
+        List<OwnedPet> sorted = new ArrayList<>(pets);
+        Comparator<OwnedPet> comparator = switch (sort) {
+            case POWER -> Comparator.comparingLong((OwnedPet op) -> {
+                Pet pet = config.getPetConfig().getPet(op.getPetId()).orElse(null);
+                return pet == null ? 0L : powerCalc.calcPetPower(pet, op);
+            }).reversed();
+            case LEVEL -> Comparator.comparingInt(OwnedPet::getLevel).reversed();
+            case STARS -> Comparator.comparingInt(OwnedPet::getStars).reversed();
+            case ASCENSION -> Comparator.comparingInt(OwnedPet::getAscension).reversed();
+            case RARITY -> Comparator.comparingInt((OwnedPet op) -> {
+                Pet pet = config.getPetConfig().getPet(op.getPetId()).orElse(null);
+                return pet == null ? 0 : pet.getRarity().getTier();
+            }).reversed();
+            case ALPHABETICAL -> Comparator.comparing((OwnedPet op) -> {
+                Pet pet = config.getPetConfig().getPet(op.getPetId()).orElse(null);
+                return op.getNickname() != null ? op.getNickname()
+                        : (pet != null ? pet.getDisplayName() : op.getPetId());
+            });
+        };
+        sorted.sort(comparator);
+        return sorted;
+    }
+
+    private ItemStack buildSortButton() {
+        List<String> lore = new ArrayList<>();
+        lore.add("<dark_gray>━━━━━━━━━━━━━━━━━━━━");
+        for (SortMode m : SortMode.values()) {
+            lore.add(m == sort ? "<yellow>▶ " + m.getLabel() : "<dark_gray>  " + m.getLabel());
+        }
+        lore.add("<dark_gray>━━━━━━━━━━━━━━━━━━━━");
+        lore.add("<gray>Click to cycle sort mode.");
+        return new ItemBuilder(sort.getIcon())
+                .name("<white>⇄ ꜱᴏʀᴛ  <yellow>" + sort.getLabel())
+                .lore(lore)
+                .build();
     }
 
     private ItemStack buildPetItem(Pet pet, OwnedPet op, PlayerData data) {
@@ -109,11 +181,15 @@ public class PetStorageGui extends BaseGui {
         PlayerData data = pdm.get(player.getUniqueId());
 
         if (slot == 45) {
-            if (page > 1) gm.openPetStorage(player, page - 1);
+            if (page > 1) gm.openPetStorage(player, page - 1, sort);
+            return;
+        }
+        if (slot == 47) {
+            gm.openPetStorage(player, page, sort.next());
             return;
         }
         if (slot == 49) { gm.openMainMenu(player); return; }
-        if (slot == 53) { gm.openPetStorage(player, page + 1); return; }
+        if (slot == 53) { gm.openPetStorage(player, page + 1, sort); return; }
 
         if (slot >= 0 && slot < pagePets.size()) {
             OwnedPet op = pagePets.get(slot);
@@ -139,7 +215,7 @@ public class PetStorageGui extends BaseGui {
                     }
                 }
                 pdm.saveAsync(player.getUniqueId());
-                gm.openPetStorage(player, page);
+                gm.openPetStorage(player, page, sort);
             } else if (click == ClickType.SHIFT_LEFT || click == ClickType.SHIFT_RIGHT) {
                 if (op.isInChamber()) {
                     plugin.getDustChamberSystem().removePetFromChamber(data, op.getInstanceId());
@@ -154,7 +230,7 @@ public class PetStorageGui extends BaseGui {
                     }
                 }
                 pdm.saveAsync(player.getUniqueId());
-                gm.openPetStorage(player, page);
+                gm.openPetStorage(player, page, sort);
             }
         }
     }

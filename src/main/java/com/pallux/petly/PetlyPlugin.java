@@ -8,6 +8,7 @@ import com.pallux.petly.gui.GuiManager;
 import com.pallux.petly.listener.GuiClickListener;
 import com.pallux.petly.listener.PlayerJoinListener;
 import com.pallux.petly.listener.PlayerQuitListener;
+import com.pallux.petly.listener.StarterTicketListener;
 import com.pallux.petly.placeholder.PetlyPlaceholderExpansion;
 import com.pallux.petly.system.*;
 import net.milkbowl.vault.economy.Economy;
@@ -69,6 +70,7 @@ public class PetlyPlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new GuiClickListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
         getServer().getPluginManager().registerEvents(new PlayerQuitListener(this), this);
+        getServer().getPluginManager().registerEvents(new StarterTicketListener(this), this);
 
         // Commands
         Objects.requireNonNull(getCommand("petly")).setExecutor(new PetlyCommand(this));

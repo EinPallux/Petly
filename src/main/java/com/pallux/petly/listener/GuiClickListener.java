@@ -1,6 +1,7 @@
 package com.pallux.petly.listener;
 
 import com.pallux.petly.gui.BaseGui;
+import com.pallux.petly.gui.StarterTicketGui;
 import com.pallux.petly.gui.TowerBattleGui;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -30,6 +31,10 @@ public class GuiClickListener implements Listener {
     public void onClose(InventoryCloseEvent event) {
         if (event.getInventory().getHolder() instanceof TowerBattleGui gui) {
             gui.cleanup();
+        }
+        if (event.getInventory().getHolder() instanceof StarterTicketGui gui) {
+            gui.cleanup();
+            gui.givePets();
         }
     }
 }
