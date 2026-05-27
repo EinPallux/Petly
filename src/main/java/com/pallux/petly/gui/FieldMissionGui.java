@@ -146,6 +146,11 @@ public class FieldMissionGui extends BaseGui {
             FieldMission mission = pageMissions.get(slot);
             PlayerData data = pdm.get(player.getUniqueId());
 
+            if (data.getTeamPetIds().isEmpty()) {
+                player.sendMessage(TextUtil.parse(config.getMessage("no-team")));
+                return;
+            }
+
             if (data.hasActiveMission()) {
                 player.sendMessage(TextUtil.parse(config.getMessage("mission-already-active")));
                 return;

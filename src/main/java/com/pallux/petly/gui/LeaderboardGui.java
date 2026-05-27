@@ -24,7 +24,6 @@ public class LeaderboardGui extends BaseGui {
         POWER("⚡ Team Power", Material.NETHER_STAR),
         DUST_GEN("⚗ Dust Gen/5min", Material.BLAZE_POWDER),
         DUST("✦ Most Dust", Material.GOLD_NUGGET),
-        PETS("🐾 Most Pets", Material.BONE),
         TOWER("🗼 Tower Floors", Material.SANDSTONE_STAIRS),
         MISSIONS("🎯 Field Missions", Material.MAP);
 
@@ -37,8 +36,9 @@ public class LeaderboardGui extends BaseGui {
         }
     }
 
+    // 5 tabs centred in the 9-slot top row: slots 2, 3, 4, 5, 6
     private static final Category[] CATEGORIES = Category.values();
-    private static final int[] TAB_SLOTS = {0, 1, 2, 3, 4, 5};
+    private static final int[] TAB_SLOTS = {2, 3, 4, 5, 6};
     private static final int[] ENTRY_SLOTS = {9, 10, 11, 12, 13, 14, 15, 16, 17};
 
     private final PetlyPlugin plugin;
@@ -130,7 +130,6 @@ public class LeaderboardGui extends BaseGui {
             case POWER -> Comparator.comparingLong(d -> -powerCalc.calcTeamPower(d));
             case DUST_GEN -> Comparator.comparingDouble(d -> -calcDustGen(d));
             case DUST -> Comparator.comparingLong(d -> -d.getDust());
-            case PETS -> Comparator.comparingInt(d -> -d.getPets().size());
             case TOWER -> Comparator.comparingInt(d -> -d.getHighestTowerFloor());
             case MISSIONS -> Comparator.comparingInt(d -> -d.getMissionsCompleted());
         };
@@ -153,7 +152,6 @@ public class LeaderboardGui extends BaseGui {
             case POWER -> TextUtil.formatPower(powerCalc.calcTeamPower(data));
             case DUST_GEN -> String.format("%.1f ✦/5min", calcDustGen(data) * (6000.0 / config.getChamberIntervalTicks()));
             case DUST -> TextUtil.formatDust(data.getDust());
-            case PETS -> String.valueOf(data.getPets().size());
             case TOWER -> "Floor " + data.getHighestTowerFloor();
             case MISSIONS -> String.valueOf(data.getMissionsCompleted());
         };
