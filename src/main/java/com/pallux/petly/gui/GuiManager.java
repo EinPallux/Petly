@@ -36,7 +36,15 @@ public class GuiManager {
     }
 
     public void openPetStorage(Player player, int page) {
-        new PetStorageGui(player, plugin, config, pdm, powerCalc, page).open();
+        new PetStorageGui(player, plugin, config, pdm, powerCalc, page, PetStorageGui.SortMode.POWER).open();
+    }
+
+    public void openPetStorage(Player player, int page, PetStorageGui.SortMode sort) {
+        new PetStorageGui(player, plugin, config, pdm, powerCalc, page, sort).open();
+    }
+
+    public void openStarterTicketGui(Player player) {
+        new StarterTicketGui(player, plugin, config, pdm).open();
     }
 
     public void openPetDetail(Player player, OwnedPet pet) {
