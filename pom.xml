@@ -6,11 +6,11 @@
 
     <groupId>com.pallux</groupId>
     <artifactId>Petly</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
     <name>Petly</name>
-    <description>A feature-rich pet system plugin for Paper 26.1.2</description>
+    <description>A never before seen new Minecraft Gamemode by. Pallux</description>
 
     <properties>
         <java.version>25</java.version>
