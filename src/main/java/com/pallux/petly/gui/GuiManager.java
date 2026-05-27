@@ -16,11 +16,12 @@ public class GuiManager {
     private final MissionSystem missionSystem;
     private final DustChamberSystem chamberSystem;
     private final TowerSystem towerSystem;
+    private final MilestoneSystem milestoneSystem;
 
     public GuiManager(PetlyPlugin plugin, ConfigManager config, PlayerDataManager pdm,
                        PowerCalculator powerCalc, SummonSystem summonSystem,
                        MissionSystem missionSystem, DustChamberSystem chamberSystem,
-                       TowerSystem towerSystem) {
+                       TowerSystem towerSystem, MilestoneSystem milestoneSystem) {
         this.plugin = plugin;
         this.config = config;
         this.pdm = pdm;
@@ -29,6 +30,7 @@ public class GuiManager {
         this.missionSystem = missionSystem;
         this.chamberSystem = chamberSystem;
         this.towerSystem = towerSystem;
+        this.milestoneSystem = milestoneSystem;
     }
 
     public void openMainMenu(Player player) {
@@ -95,6 +97,10 @@ public class GuiManager {
             int xpReward = success ? config.getTowerPetXpPerFloor() : 0;
             gui.showResult(success, dustReward, xpReward);
         });
+    }
+
+    public void openMilestones(Player player) {
+        new MilestonesGui(player, plugin, config, pdm, milestoneSystem).open();
     }
 
     public void openLeaderboard(Player player, LeaderboardGui.Category category) {

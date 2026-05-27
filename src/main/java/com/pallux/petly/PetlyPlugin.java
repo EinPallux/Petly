@@ -31,6 +31,7 @@ public class PetlyPlugin extends JavaPlugin {
     private StarUpSystem starUpSystem;
     private AscensionSystem ascensionSystem;
     private TowerSystem towerSystem;
+    private MilestoneSystem milestoneSystem;
     private SummonedPetDisplay summonedPetDisplay;
     private PetlyAPI api;
     private Economy economy;
@@ -54,11 +55,12 @@ public class PetlyPlugin extends JavaPlugin {
         starUpSystem = new StarUpSystem(this, configManager);
         ascensionSystem = new AscensionSystem(this, configManager);
         towerSystem = new TowerSystem(this, configManager, playerDataManager, powerCalc);
+        milestoneSystem = new MilestoneSystem(configManager, powerCalc);
         summonedPetDisplay = new SummonedPetDisplay(this, configManager, playerDataManager);
 
         // GUI
         guiManager = new GuiManager(this, configManager, playerDataManager,
-                powerCalc, summonSystem, missionSystem, dustChamberSystem, towerSystem);
+                powerCalc, summonSystem, missionSystem, dustChamberSystem, towerSystem, milestoneSystem);
 
         // API
         api = new PetlyAPI(this);
@@ -83,6 +85,7 @@ public class PetlyPlugin extends JavaPlugin {
         Objects.requireNonNull(getCommand("collection")).setExecutor(new CollectionCommand(this));
         Objects.requireNonNull(getCommand("tower")).setExecutor(new TowerCommand(this));
         Objects.requireNonNull(getCommand("leaderboard")).setExecutor(new LeaderboardCommand(this));
+        Objects.requireNonNull(getCommand("milestones")).setExecutor(new MilestonesCommand(this));
 
         // PlaceholderAPI
         if (getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
@@ -161,6 +164,7 @@ public class PetlyPlugin extends JavaPlugin {
     public StarUpSystem getStarUpSystem() { return starUpSystem; }
     public AscensionSystem getAscensionSystem() { return ascensionSystem; }
     public TowerSystem getTowerSystem() { return towerSystem; }
+    public MilestoneSystem getMilestoneSystem() { return milestoneSystem; }
     public SummonedPetDisplay getSummonedPetDisplay() { return summonedPetDisplay; }
     public PetlyAPI getAPI() { return api; }
     public Economy getEconomy() { return economy; }

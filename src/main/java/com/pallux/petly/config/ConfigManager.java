@@ -129,6 +129,15 @@ public class ConfigManager {
         return summonRatesConfig.getString("milestone-rewards." + missionNumber + ".rarity", null);
     }
 
+    // --- Milestones ---
+
+    public int getMilestoneTowerInterval()   { return mainConfig.getInt("milestones.tower.interval", 20); }
+    public long getMilestoneTowerStars()     { return mainConfig.getLong("milestones.tower.stars-reward", 10); }
+    public int getMilestoneMissionInterval() { return mainConfig.getInt("milestones.missions.interval", 5); }
+    public long getMilestoneMissionStars()   { return mainConfig.getLong("milestones.missions.stars-reward", 15); }
+    public long getMilestonePowerInterval()  { return mainConfig.getLong("milestones.power.interval", 10000); }
+    public long getMilestonePowerStars()     { return mainConfig.getLong("milestones.power.stars-reward", 50); }
+
     // --- Tower (delegated to towers.yml via TowerConfig) ---
 
     public long getTowerBasePower()          { return towerConfig.getBasePower(); }

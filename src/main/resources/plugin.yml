@@ -52,6 +52,11 @@ commands:
     usage: /leaderboard
     aliases: [ lb ]
     permission: petly.player
+  milestones:
+    description: Open the milestones menu.
+    usage: /milestones
+    aliases: [ ms ]
+    permission: petly.player
 
 permissions:
   petly.admin:

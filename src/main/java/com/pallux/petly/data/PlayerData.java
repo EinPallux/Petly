@@ -24,6 +24,10 @@ public class PlayerData {
     private long pendingDust;
     private long lastChamberTickTimestamp;
     private int highestTowerFloor;
+    private long stars;
+    private int claimedTowerMilestones;
+    private int claimedMissionMilestones;
+    private int claimedPowerMilestones;
 
     public PlayerData(UUID uuid) {
         this.uuid = uuid;
@@ -43,6 +47,10 @@ public class PlayerData {
         this.pendingDust = 0;
         this.lastChamberTickTimestamp = System.currentTimeMillis();
         this.highestTowerFloor = 0;
+        this.stars = 0;
+        this.claimedTowerMilestones = 0;
+        this.claimedMissionMilestones = 0;
+        this.claimedPowerMilestones = 0;
     }
 
     // Full constructor for deserialization
@@ -70,6 +78,10 @@ public class PlayerData {
         this.pendingDust = pendingDust;
         this.lastChamberTickTimestamp = lastChamberTickTimestamp;
         this.highestTowerFloor = 0;
+        this.stars = 0;
+        this.claimedTowerMilestones = 0;
+        this.claimedMissionMilestones = 0;
+        this.claimedPowerMilestones = 0;
     }
 
     // --- Getters ---
@@ -178,4 +190,26 @@ public class PlayerData {
 
     public int getHighestTowerFloor() { return highestTowerFloor; }
     public void setHighestTowerFloor(int floor) { this.highestTowerFloor = floor; }
+
+    public long getStars() { return stars; }
+    public void setStars(long amount) { this.stars = Math.max(0, amount); }
+    public void addStars(long amount) { this.stars += amount; }
+    public void takeStars(long amount) { this.stars = Math.max(0, this.stars - amount); }
+    public boolean hasStars(long amount) { return stars >= amount; }
+
+    public int getClaimedTowerMilestones() { return claimedTowerMilestones; }
+    public void setClaimedTowerMilestones(int n) { this.claimedTowerMilestones = n; }
+
+    public int getClaimedMissionMilestones() { return claimedMissionMilestones; }
+    public void setClaimedMissionMilestones(int n) { this.claimedMissionMilestones = n; }
+
+    public int getClaimedPowerMilestones() { return claimedPowerMilestones; }
+    public void setClaimedPowerMilestones(int n) { this.claimedPowerMilestones = n; }
+
+    public void resetMilestones() {
+        claimedTowerMilestones = 0;
+        claimedMissionMilestones = 0;
+        claimedPowerMilestones = 0;
+        stars = 0;
+    }
 }

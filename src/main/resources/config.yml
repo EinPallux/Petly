@@ -56,4 +56,20 @@ pity:
   guaranteed-smr-after: 200
   guaranteed-ur-after: 500
 
+# --- Milestones ---
+milestones:
+  tower:
+    # Every N floors cleared = 1 milestone
+    interval: 20
+    # Stars awarded per milestone claimed
+    stars-reward: 10
+  missions:
+    # Every N missions completed = 1 milestone
+    interval: 5
+    stars-reward: 15
+  power:
+    # Every N total team power = 1 milestone
+    interval: 10000
+    stars-reward: 50
+
 # Tower settings have moved to towers.yml
