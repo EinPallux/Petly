@@ -4,11 +4,11 @@
 
 # Base summon weights (must add up to 100).
 rates:
-  N: 50.0
-  R: 30.0
-  SR: 14.0
-  SMR: 5.0
-  UR: 1.0
+  N: 88.75
+  R: 10.5
+  SR: 0.45
+  SMR: 0.2
+  UR: 0.1
 
 # Pet Luck (pity system).
 pet-luck:
