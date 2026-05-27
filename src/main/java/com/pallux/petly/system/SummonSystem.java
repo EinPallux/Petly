@@ -53,6 +53,19 @@ public class SummonSystem {
             }
         }
 
+        // Broadcast high-rarity pull announcements
+        for (OwnedPet op : results) {
+            config.getPetConfig().getPet(op.getPetId()).ifPresent(pet -> {
+                Rarity rarity = pet.getRarity();
+                if (rarity != Rarity.SMR && rarity != Rarity.UR) return;
+                String key = rarity == Rarity.UR ? "announce-summon-ur" : "announce-summon-smr";
+                String msg = config.getMessage(key)
+                        .replace("{player}", player.getName())
+                        .replace("{pet}", pet.getDisplayName());
+                plugin.getServer().getOnlinePlayers().forEach(p -> p.sendMessage(TextUtil.parse(msg)));
+            });
+        }
+
         pdm.saveAsync(player.getUniqueId());
         return results;
     }

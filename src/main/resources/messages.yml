@@ -74,7 +74,10 @@ team-full: "{prefix}<red>Your team is full (5 slots). Remove a pet first."
 team-already-in: "{prefix}<yellow>That pet is already on your team."
 pet-in-chamber: "{prefix}<red>That pet is in the Dust Chamber. Remove it first."
 
-# --- Chamber ---
+# --- Announcements (broadcast to all players) ---
+announce-summon-smr: "<dark_gray>[<light_purple>ꜱᴜᴍᴍᴏɴ</light_purple>] <white>{player}</white> <gray>summoned a</gray> <light_purple>ꜱᴜᴘᴇʀ ᴍᴇɢᴀ ʀᴀʀᴇ</light_purple> <dark_gray>—</dark_gray> <white>{pet}</white><gray>!"
+announce-summon-ur: "<dark_gray>[<gold>ꜱᴜᴍᴍᴏɴ</gold>] <white>{player}</white> <gray>summoned an</gray> <gold>ᴜʟᴛʀᴀ ʀᴀʀᴇ</gold> <dark_gray>—</dark_gray> <white>{pet}</white><gray>! <gold>✦"
+announce-mission-pet-drop: "<dark_gray>[<gradient:#f59e0b:#fbbf24>ᴍɪꜱꜱɪᴏɴ</gradient>] <white>{player}</white> <gray>received a</gray> {rarity} <white>{pet}</white> <gray>from a Field Mission!"
 chamber-pet-added: "{prefix}<green>Pet added to the Dust Chamber."
 chamber-pet-removed: "{prefix}<green>Pet removed from the Dust Chamber."
 chamber-full: "{prefix}<red>The Dust Chamber is full (3 slots)."
