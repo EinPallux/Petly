@@ -1,0 +1,129 @@
+# ──────────────────────────────────────────────
+#  Petly — Quest Definitions
+#  3 random daily quests are assigned each day.
+#  3 random weekly quests are assigned each week.
+#  Quest types: COMPLETE_MISSIONS, SUMMON_PETS,
+#               BEAT_TOWER_FLOORS, REACH_TOWER_FLOOR, OWN_PETS
+# ──────────────────────────────────────────────
+
+daily:
+  daily_missions_2:
+    display-name: "On Duty"
+    description: "Complete {target} Field Missions."
+    type: COMPLETE_MISSIONS
+    target: 2
+    dust-reward: 300
+    essence-reward: 5
+
+  daily_missions_3:
+    display-name: "Field Veteran"
+    description: "Complete {target} Field Missions."
+    type: COMPLETE_MISSIONS
+    target: 3
+    dust-reward: 450
+    essence-reward: 7
+
+  daily_summon_1:
+    display-name: "Fortune Seeker"
+    description: "Summon {target} pet(s)."
+    type: SUMMON_PETS
+    target: 1
+    dust-reward: 200
+    essence-reward: 3
+
+  daily_summon_2:
+    display-name: "Lucky Draw"
+    description: "Summon {target} pet(s)."
+    type: SUMMON_PETS
+    target: 2
+    dust-reward: 350
+    essence-reward: 5
+
+  daily_tower_3:
+    display-name: "Floor Clearer"
+    description: "Beat {target} Tower floors."
+    type: BEAT_TOWER_FLOORS
+    target: 3
+    dust-reward: 200
+    essence-reward: 3
+
+  daily_tower_5:
+    display-name: "Tower Challenger"
+    description: "Beat {target} Tower floors."
+    type: BEAT_TOWER_FLOORS
+    target: 5
+    dust-reward: 300
+    essence-reward: 5
+
+  daily_own_5:
+    display-name: "Collector"
+    description: "Own at least {target} pets."
+    type: OWN_PETS
+    target: 5
+    dust-reward: 400
+    essence-reward: 5
+
+  daily_reach_floor_10:
+    display-name: "Tower Explorer"
+    description: "Reach Tower floor {target}."
+    type: REACH_TOWER_FLOOR
+    target: 10
+    dust-reward: 350
+    essence-reward: 5
+
+weekly:
+  weekly_missions_10:
+    display-name: "Dedicated Commander"
+    description: "Complete {target} Field Missions."
+    type: COMPLETE_MISSIONS
+    target: 10
+    dust-reward: 1700
+    essence-reward: 25
+
+  weekly_missions_12:
+    display-name: "Mission Master"
+    description: "Complete {target} Field Missions."
+    type: COMPLETE_MISSIONS
+    target: 12
+    dust-reward: 2000
+    essence-reward: 30
+
+  weekly_summon_8:
+    display-name: "Gacha Enthusiast"
+    description: "Summon {target} pets."
+    type: SUMMON_PETS
+    target: 8
+    dust-reward: 1800
+    essence-reward: 25
+
+  weekly_tower_20:
+    display-name: "Tower Conqueror"
+    description: "Beat {target} Tower floors."
+    type: BEAT_TOWER_FLOORS
+    target: 20
+    dust-reward: 1500
+    essence-reward: 22
+
+  weekly_reach_floor_25:
+    display-name: "Rising Champion"
+    description: "Reach Tower floor {target}."
+    type: REACH_TOWER_FLOOR
+    target: 25
+    dust-reward: 2000
+    essence-reward: 30
+
+  weekly_reach_floor_50:
+    display-name: "Tower Legend"
+    description: "Reach Tower floor {target}."
+    type: REACH_TOWER_FLOOR
+    target: 50
+    dust-reward: 3000
+    essence-reward: 40
+
+  weekly_own_10:
+    display-name: "Pet Hoarder"
+    description: "Own at least {target} pets."
+    type: OWN_PETS
+    target: 10
+    dust-reward: 1500
+    essence-reward: 22

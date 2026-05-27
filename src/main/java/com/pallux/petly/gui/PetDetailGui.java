@@ -86,6 +86,7 @@ public class PetDetailGui extends BaseGui {
 
             // Star Up button (slot 31)
             long starCost = config.getStarCost(ownedPet.getStars());
+            long essenceCost = config.getStarUpEssenceCost(ownedPet.getStars());
             boolean canStar = plugin.getStarUpSystem().canStarUp(data, ownedPet);
             inventory.setItem(31, new ItemBuilder(canStar ? Material.NETHER_STAR : Material.GRAY_DYE)
                     .name("<gradient:#fbbf24:#f97316>ꜱᴛᴀʀ ᴜᴘ ★</gradient>")
@@ -93,6 +94,7 @@ public class PetDetailGui extends BaseGui {
                             "<dark_gray>Requires: Level 100 + 1 duplicate.",
                             "",
                             "<gray>Cost: <gold>" + TextUtil.formatNumber(starCost) + " ✦ Dust",
+                            "<gray>      <aqua>" + TextUtil.formatNumber(essenceCost) + " ◆ Essence",
                             "<gray>Current: <yellow>" + ownedPet.getStars() + "★ <dark_gray>→ <yellow>" + (ownedPet.getStars() + 1) + "★",
                             "",
                             canStar ? "<gray>Left-click to star up" : "<red>Requirements not met"

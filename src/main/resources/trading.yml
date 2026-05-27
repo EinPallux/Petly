@@ -1,0 +1,29 @@
+# ──────────────────────────────────────────────
+#  Petly — Material Trading Configuration
+# ──────────────────────────────────────────────
+
+schedule:
+  # IANA timezone identifier (e.g. UTC, Europe/Berlin, America/New_York)
+  timezone: "UTC"
+  # Daily windows when trading is accessible (24-hour format)
+  windows:
+    - hour: 8
+      minute: 0
+    - hour: 12
+      minute: 0
+    - hour: 18
+      minute: 0
+    - hour: 22
+      minute: 0
+  # How long each window stays open, in minutes
+  duration-minutes: 60
+
+rates:
+  # Dust → Essence: spend 'dust-cost' dust to receive 'essence-reward' essence per trade
+  dust-to-essence:
+    dust-cost: 1000
+    essence-reward: 1
+  # Essence → Dust: spend 'essence-cost' essence to receive 'dust-reward' dust per trade
+  essence-to-dust:
+    essence-cost: 10
+    dust-reward: 1000

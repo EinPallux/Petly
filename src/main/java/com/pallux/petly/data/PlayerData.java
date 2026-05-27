@@ -1,6 +1,7 @@
 package com.pallux.petly.data;
 
 import com.pallux.petly.model.ActiveMission;
+import com.pallux.petly.model.ActiveQuest;
 import com.pallux.petly.model.MissionResult;
 import com.pallux.petly.model.OwnedPet;
 
@@ -28,6 +29,11 @@ public class PlayerData {
     private int claimedTowerMilestones;
     private int claimedMissionMilestones;
     private int claimedPowerMilestones;
+    private long essence;
+    private final List<ActiveQuest> activeDailyQuests = new ArrayList<>();
+    private final List<ActiveQuest> activeWeeklyQuests = new ArrayList<>();
+    private long lastDailyQuestReset;   // epoch day of last daily reset
+    private long lastWeeklyQuestReset;  // epoch day of last Monday of last weekly reset
 
     public PlayerData(UUID uuid) {
         this.uuid = uuid;
@@ -51,6 +57,9 @@ public class PlayerData {
         this.claimedTowerMilestones = 0;
         this.claimedMissionMilestones = 0;
         this.claimedPowerMilestones = 0;
+        this.essence = 0;
+        this.lastDailyQuestReset = -1;
+        this.lastWeeklyQuestReset = -1;
     }
 
     // Full constructor for deserialization
@@ -82,6 +91,9 @@ public class PlayerData {
         this.claimedTowerMilestones = 0;
         this.claimedMissionMilestones = 0;
         this.claimedPowerMilestones = 0;
+        this.essence = 0;
+        this.lastDailyQuestReset = -1;
+        this.lastWeeklyQuestReset = -1;
     }
 
     // --- Getters ---
@@ -212,4 +224,18 @@ public class PlayerData {
         claimedPowerMilestones = 0;
         stars = 0;
     }
+
+    public long getEssence()                    { return essence; }
+    public void setEssence(long amount)         { this.essence = Math.max(0, amount); }
+    public void addEssence(long amount)         { this.essence += amount; }
+    public void takeEssence(long amount)        { this.essence = Math.max(0, this.essence - amount); }
+    public boolean hasEssence(long amount)      { return essence >= amount; }
+
+    public List<ActiveQuest> getActiveDailyQuests()     { return activeDailyQuests; }
+    public List<ActiveQuest> getActiveWeeklyQuests()    { return activeWeeklyQuests; }
+
+    public long getLastDailyQuestReset()                { return lastDailyQuestReset; }
+    public void setLastDailyQuestReset(long day)        { this.lastDailyQuestReset = day; }
+    public long getLastWeeklyQuestReset()               { return lastWeeklyQuestReset; }
+    public void setLastWeeklyQuestReset(long epochDay)  { this.lastWeeklyQuestReset = epochDay; }
 }

@@ -34,6 +34,9 @@ public class PlayerJoinListener implements Listener {
             // Spawn floating pet displays
             plugin.getSummonedPetDisplay().spawnForPlayer(player.getUniqueId());
 
+            // Check and refresh quests (daily/weekly reset detection)
+            plugin.getQuestSystem().checkAndRefreshQuests(data);
+
             // Check for offline mission results
             if (data.hasActiveMission() && data.getActiveMission().isComplete()) {
                 plugin.getMissionSystem().checkAndResolveAll();

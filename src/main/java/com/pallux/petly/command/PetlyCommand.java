@@ -99,6 +99,25 @@ public class PetlyCommand implements CommandExecutor, TabCompleter {
                 }
             }
 
+            case "essence" -> {
+                if (args.length < 2) { sendHelp(sender); return true; }
+                switch (args[1].toLowerCase()) {
+                    case "give" -> {
+                        if (args.length < 4) { sender.sendMessage("Usage: /petly essence give <player> <amount>"); return true; }
+                        handleEssenceGive(sender, args[2], args[3]);
+                    }
+                    case "take" -> {
+                        if (args.length < 4) { sender.sendMessage("Usage: /petly essence take <player> <amount>"); return true; }
+                        handleEssenceTake(sender, args[2], args[3]);
+                    }
+                    case "set" -> {
+                        if (args.length < 4) { sender.sendMessage("Usage: /petly essence set <player> <amount>"); return true; }
+                        handleEssenceSet(sender, args[2], args[3]);
+                    }
+                    default -> sendHelp(sender);
+                }
+            }
+
             case "petlevel" -> {
                 if (args.length < 2) { sendHelp(sender); return true; }
                 switch (args[1].toLowerCase()) {
@@ -253,6 +272,63 @@ public class PetlyCommand implements CommandExecutor, TabCompleter {
         plugin.getPlayerDataManager().get(target.getUniqueId()).takeStars(amount);
         plugin.getPlayerDataManager().saveAsync(target.getUniqueId());
         sender.sendMessage(TextUtil.parse(plugin.getConfigManager().getMessage("stars-taken")
+                .replace("{amount}", TextUtil.formatNumber(amount))
+                .replace("{player}", playerName)));
+    }
+
+    private void handleEssenceGive(CommandSender sender, String playerName, String amountStr) {
+        Player target = Bukkit.getPlayerExact(playerName);
+        if (target == null) {
+            sender.sendMessage(TextUtil.parse(plugin.getConfigManager().getMessage("player-not-found")
+                    .replace("{player}", playerName)));
+            return;
+        }
+        long amount;
+        try { amount = Long.parseLong(amountStr); } catch (NumberFormatException e) {
+            sender.sendMessage(TextUtil.parse("<red>Invalid amount."));
+            return;
+        }
+        plugin.getPlayerDataManager().get(target.getUniqueId()).addEssence(amount);
+        plugin.getPlayerDataManager().saveAsync(target.getUniqueId());
+        sender.sendMessage(TextUtil.parse(plugin.getConfigManager().getMessage("essence-given")
+                .replace("{amount}", TextUtil.formatNumber(amount))
+                .replace("{player}", playerName)));
+    }
+
+    private void handleEssenceTake(CommandSender sender, String playerName, String amountStr) {
+        Player target = Bukkit.getPlayerExact(playerName);
+        if (target == null) {
+            sender.sendMessage(TextUtil.parse(plugin.getConfigManager().getMessage("player-not-found")
+                    .replace("{player}", playerName)));
+            return;
+        }
+        long amount;
+        try { amount = Long.parseLong(amountStr); } catch (NumberFormatException e) {
+            sender.sendMessage(TextUtil.parse("<red>Invalid amount."));
+            return;
+        }
+        plugin.getPlayerDataManager().get(target.getUniqueId()).takeEssence(amount);
+        plugin.getPlayerDataManager().saveAsync(target.getUniqueId());
+        sender.sendMessage(TextUtil.parse(plugin.getConfigManager().getMessage("essence-taken")
+                .replace("{amount}", TextUtil.formatNumber(amount))
+                .replace("{player}", playerName)));
+    }
+
+    private void handleEssenceSet(CommandSender sender, String playerName, String amountStr) {
+        Player target = Bukkit.getPlayerExact(playerName);
+        if (target == null) {
+            sender.sendMessage(TextUtil.parse(plugin.getConfigManager().getMessage("player-not-found")
+                    .replace("{player}", playerName)));
+            return;
+        }
+        long amount;
+        try { amount = Long.parseLong(amountStr); } catch (NumberFormatException e) {
+            sender.sendMessage(TextUtil.parse("<red>Invalid amount."));
+            return;
+        }
+        plugin.getPlayerDataManager().get(target.getUniqueId()).setEssence(amount);
+        plugin.getPlayerDataManager().saveAsync(target.getUniqueId());
+        sender.sendMessage(TextUtil.parse(plugin.getConfigManager().getMessage("essence-set")
                 .replace("{amount}", TextUtil.formatNumber(amount))
                 .replace("{player}", playerName)));
     }
@@ -420,6 +496,9 @@ public class PetlyCommand implements CommandExecutor, TabCompleter {
                 "/petly pet nickname <petUUID> <name|clear>\n" +
                 "/petly dust give <player> <amount>\n" +
                 "/petly dust take <player> <amount>\n" +
+                "/petly essence give <player> <amount>\n" +
+                "/petly essence take <player> <amount>\n" +
+                "/petly essence set <player> <amount>\n" +
                 "/petly stars give <player> <amount>\n" +
                 "/petly stars take <player> <amount>\n" +
                 "/petly stars set <player> <amount>\n" +
@@ -442,16 +521,17 @@ public class PetlyCommand implements CommandExecutor, TabCompleter {
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command,
                                                  @NotNull String label, @NotNull String[] args) {
-        if (args.length == 1) return List.of("reload", "pet", "dust", "stars", "petlevel", "setpower", "reset");
+        if (args.length == 1) return List.of("reload", "pet", "dust", "essence", "stars", "petlevel", "setpower", "reset");
         if (args.length == 2 && args[0].equalsIgnoreCase("reset")) return Bukkit.getOnlinePlayers().stream().map(Player::getName).collect(Collectors.toList());
         if (args.length == 3 && args[0].equalsIgnoreCase("reset")) return List.of("all", "dust", "pets", "petxp", "petlevel", "thetower", "fieldmissions", "milestones");
         if (args.length == 2 && args[0].equalsIgnoreCase("pet")) return List.of("give", "take", "nickname");
         if (args.length == 2 && args[0].equalsIgnoreCase("dust")) return List.of("give", "take");
+        if (args.length == 2 && args[0].equalsIgnoreCase("essence")) return List.of("give", "take", "set");
         if (args.length == 2 && args[0].equalsIgnoreCase("stars")) return List.of("give", "take", "set");
         if (args.length == 2 && args[0].equalsIgnoreCase("petlevel")) return List.of("set", "add");
         if ((args.length == 3) && (args[0].equalsIgnoreCase("pet") || args[0].equalsIgnoreCase("dust")
-                || args[0].equalsIgnoreCase("stars") || args[0].equalsIgnoreCase("petlevel")
-                || args[0].equalsIgnoreCase("setpower"))) {
+                || args[0].equalsIgnoreCase("essence") || args[0].equalsIgnoreCase("stars")
+                || args[0].equalsIgnoreCase("petlevel") || args[0].equalsIgnoreCase("setpower"))) {
             return Bukkit.getOnlinePlayers().stream().map(Player::getName).collect(Collectors.toList());
         }
         if (args.length == 4 && (args[0].equalsIgnoreCase("pet") && args[1].equalsIgnoreCase("give"))) {

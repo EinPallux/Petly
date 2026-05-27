@@ -57,6 +57,16 @@ commands:
     usage: /milestones
     aliases: [ ms ]
     permission: petly.player
+  quests:
+    description: Open the quests menu.
+    usage: /quests
+    aliases: [ q, dailyquests ]
+    permission: petly.player
+  trade:
+    description: Open the Material Trading menu.
+    usage: /trade
+    aliases: [ trading, market ]
+    permission: petly.player
 
 permissions:
   petly.admin:

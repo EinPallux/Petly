@@ -12,6 +12,8 @@ public class ConfigManager {
     private final MissionConfig missionConfig;
     private final GuiConfig guiConfig;
     private final TowerConfig towerConfig;
+    private final QuestConfig questConfig;
+    private final TradingConfig tradingConfig;
 
     private FileConfiguration mainConfig;
     private FileConfiguration messagesConfig;
@@ -23,6 +25,8 @@ public class ConfigManager {
         this.missionConfig = new MissionConfig(plugin);
         this.guiConfig = new GuiConfig(plugin);
         this.towerConfig = new TowerConfig(plugin);
+        this.questConfig = new QuestConfig(plugin);
+        this.tradingConfig = new TradingConfig(plugin);
         loadAll();
     }
 
@@ -36,6 +40,8 @@ public class ConfigManager {
         saveDefault("missions.yml");
         saveDefault("guis.yml");
         saveDefault("summon-rates.yml");
+        saveDefault("quests.yml");
+        saveDefault("trading.yml");
 
         messagesConfig = loadExternal("messages.yml");
         summonRatesConfig = loadExternal("summon-rates.yml");
@@ -44,6 +50,8 @@ public class ConfigManager {
         missionConfig.load();
         guiConfig.load();
         towerConfig.load();
+        questConfig.load();
+        tradingConfig.load();
     }
 
     private void saveDefault(String resource) {
@@ -62,6 +70,8 @@ public class ConfigManager {
     public MissionConfig getMissionConfig() { return missionConfig; }
     public GuiConfig getGuiConfig() { return guiConfig; }
     public TowerConfig getTowerConfig() { return towerConfig; }
+    public QuestConfig getQuestConfig() { return questConfig; }
+    public TradingConfig getTradingConfig() { return tradingConfig; }
     public FileConfiguration getMain() { return mainConfig; }
     public FileConfiguration getMessages() { return messagesConfig; }
     public FileConfiguration getSummonRates() { return summonRatesConfig; }
@@ -119,6 +129,10 @@ public class ConfigManager {
 
     public long getAscensionCost(int currentAsc) {
         return summonRatesConfig.getLong("ascension-costs." + currentAsc, 50000);
+    }
+
+    public long getStarUpEssenceCost(int currentStars) {
+        return summonRatesConfig.getLong("star-up-essence-costs." + currentStars, 50);
     }
 
     public double getTeamRarityBonus(String rarity) {

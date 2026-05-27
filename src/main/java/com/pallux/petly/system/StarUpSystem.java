@@ -23,6 +23,8 @@ public class StarUpSystem {
     public boolean canStarUp(PlayerData data, OwnedPet pet) {
         if (pet.getLevel() < config.getMaxLevel()) return false;
         if (pet.getStars() >= 5) return false;
+        if (!data.hasDust(config.getStarCost(pet.getStars()))) return false;
+        if (!data.hasEssence(config.getStarUpEssenceCost(pet.getStars()))) return false;
         List<OwnedPet> duplicates = data.getPetsByPetId(pet.getPetId());
         long eligibleDups = duplicates.stream()
                 .filter(op -> !op.getInstanceId().equals(pet.getInstanceId()))
@@ -47,6 +49,13 @@ public class StarUpSystem {
             return false;
         }
 
+        long essenceCost = config.getStarUpEssenceCost(pet.getStars());
+        if (!data.hasEssence(essenceCost)) {
+            player.sendMessage(TextUtil.parse(config.getMessage("starup-not-enough-essence")
+                    .replace("{cost}", TextUtil.formatNumber(essenceCost))));
+            return false;
+        }
+
         List<OwnedPet> duplicates = data.getPetsByPetId(pet.getPetId());
         Optional<OwnedPet> dupOpt = duplicates.stream()
                 .filter(op -> !op.getInstanceId().equals(pet.getInstanceId()))
@@ -62,6 +71,7 @@ public class StarUpSystem {
 
         // Apply star-up: increment stars, reset to level 1
         data.takeDust(cost);
+        data.takeEssence(config.getStarUpEssenceCost(pet.getStars()));
         pet.setStars(pet.getStars() + 1);
         pet.setLevel(1);
         pet.setXp(0);
