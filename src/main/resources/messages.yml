@@ -72,6 +72,7 @@ ascension-max-level: "{prefix}<red>This pet is at maximum ascension (ASC X)."
 team-updated: "{prefix}<green>Team updated. Total Power: <white>{power}</white>."
 team-full: "{prefix}<red>Your team is full (5 slots). Remove a pet first."
 team-already-in: "{prefix}<yellow>That pet is already on your team."
+no-team: "{prefix}<red>You need at least one pet in your active team to do this."
 pet-in-chamber: "{prefix}<red>That pet is in the Dust Chamber. Remove it first."
 
 # --- Announcements (broadcast to all players) ---

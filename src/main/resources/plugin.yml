@@ -55,10 +55,12 @@ commands:
 
 permissions:
   petly.admin:
-    description: Access to all admin commands.
+    description: Access to all admin commands and all summon tiers.
     default: op
     children:
       petly.player: true
+      petly.summon.3: true
+      petly.summon.6: true
   petly.player:
     description: Access to all player features.
     default: true

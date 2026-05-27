@@ -122,6 +122,11 @@ public class TowerGui extends BaseGui {
             PlayerData data = pdm.get(player.getUniqueId());
             if (floor != data.getHighestTowerFloor() + 1) return; // only available floor is clickable
 
+            if (data.getTeamPetIds().isEmpty()) {
+                player.sendMessage(TextUtil.parse(config.getMessage("no-team")));
+                return;
+            }
+
             gm.openTowerBattle(player, floor);
         }
     }

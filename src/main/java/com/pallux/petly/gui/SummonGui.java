@@ -26,6 +26,7 @@ public class SummonGui extends BaseGui {
     private final PlayerDataManager pdm;
     private final SummonSystem summonSystem;
     private final Random random = new Random();
+    private boolean summoning = false;
 
     public SummonGui(Player player, PetlyPlugin plugin, ConfigManager config,
                       PlayerDataManager pdm, SummonSystem summonSystem) {
@@ -103,6 +104,7 @@ public class SummonGui extends BaseGui {
     @Override
     public void handleClick(InventoryClickEvent event) {
         event.setCancelled(true);
+        if (summoning) return;
         int slot = event.getRawSlot();
         GuiManager gm = plugin.getGuiManager();
 
@@ -130,6 +132,8 @@ public class SummonGui extends BaseGui {
         List<OwnedPet> results = summonSystem.summon(player, count);
         if (results.isEmpty()) return;
 
+        summoning = true;
+
         final int[] animSlots = switch (count) {
             case 3 -> new int[]{20, 22, 24};
             case 6 -> new int[]{19, 20, 21, 23, 24, 25};
@@ -145,8 +149,8 @@ public class SummonGui extends BaseGui {
 
             @Override
             public void run() {
-                if (!player.isOnline()) { cancel(); return; }
-                if (player.getOpenInventory().getTopInventory().getHolder() != guiRef) { cancel(); return; }
+                if (!player.isOnline()) { summoning = false; cancel(); return; }
+                if (player.getOpenInventory().getTopInventory().getHolder() != guiRef) { summoning = false; cancel(); return; }
 
                 if (tick < animTicks) {
                     for (int animSlot : animSlots) {
@@ -170,6 +174,7 @@ public class SummonGui extends BaseGui {
                     player.playSound(Sound.sound(
                             org.bukkit.Sound.UI_TOAST_CHALLENGE_COMPLETE,
                             Sound.Source.MASTER, 1.0f, 1.0f));
+                    summoning = false;
                     cancel();
                 }
             }
