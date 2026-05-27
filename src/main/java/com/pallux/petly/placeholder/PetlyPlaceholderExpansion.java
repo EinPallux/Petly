@@ -49,8 +49,10 @@ public class PetlyPlaceholderExpansion extends PlaceholderExpansion {
                     ? data.getActiveMission().getFormattedTimeRemaining()
                     : "—";
             case "pet_count"          -> String.valueOf(data.getPets().size());
-            case "missions_completed" -> String.valueOf(data.getMissionsCompleted());
-            default                   -> null;
+            case "missions_completed"  -> String.valueOf(data.getMissionsCompleted());
+            case "stars_raw"           -> String.valueOf(data.getStars());
+            case "stars_formatted"     -> TextUtil.formatNumber(data.getStars()) + " ★";
+            default                    -> null;
         };
     }
 }

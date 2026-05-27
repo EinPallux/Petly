@@ -85,6 +85,7 @@ public class MainMenuGui extends BaseGui {
             case 33 -> gm.openTeamSelect(player);
             case 38 -> gm.openLeaderboard(player, LeaderboardGui.Category.POWER);
             case 40 -> gm.openTower(player, 1);
+            case 42 -> gm.openMilestones(player);
         }
     }
 }

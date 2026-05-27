@@ -109,6 +109,10 @@ public class StorageAdapter {
                 pets, teamPetIds, activeMission, lastDay, dailyUsed,
                 missionsDone, log, chamberIds, pendingDust, lastChamberTick);
         pdata.setHighestTowerFloor(cfg.getInt("tower-floor", 0));
+        pdata.setStars(cfg.getLong("stars", 0));
+        pdata.setClaimedTowerMilestones(cfg.getInt("claimed-tower-milestones", 0));
+        pdata.setClaimedMissionMilestones(cfg.getInt("claimed-mission-milestones", 0));
+        pdata.setClaimedPowerMilestones(cfg.getInt("claimed-power-milestones", 0));
         return pdata;
     }
 
@@ -181,6 +185,10 @@ public class StorageAdapter {
         cfg.set("chamber", chamber);
 
         cfg.set("tower-floor", data.getHighestTowerFloor());
+        cfg.set("stars", data.getStars());
+        cfg.set("claimed-tower-milestones", data.getClaimedTowerMilestones());
+        cfg.set("claimed-mission-milestones", data.getClaimedMissionMilestones());
+        cfg.set("claimed-power-milestones", data.getClaimedPowerMilestones());
 
         cfg.save(file);
     }

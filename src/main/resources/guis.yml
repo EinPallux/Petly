@@ -111,8 +111,18 @@ main-menu:
         - ""
         - "<gray>Left-click to open"
 
+    milestones-button:
+      slot: 42
+      material: NETHER_STAR
+      display-name: "<gradient:#f59e0b:#fbbf24>ᴍɪʟᴇꜱᴛᴏɴᴇꜱ</gradient>"
+      lore:
+        - "<dark_gray>Claim Stars rewards for your"
+        - "<dark_gray>Tower, Mission & Power progress."
+        - ""
+        - "<gray>Left-click to open"
+
     filler-dark:
-      slots: [ 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 23, 25, 26, 27, 28, 30, 32, 34, 35, 36, 37, 39, 41, 42, 43, 44 ]
+      slots: [ 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 23, 25, 26, 27, 28, 30, 32, 34, 35, 36, 37, 39, 41, 43, 44 ]
       material: GRAY_STAINED_GLASS_PANE
       display-name: " "
 

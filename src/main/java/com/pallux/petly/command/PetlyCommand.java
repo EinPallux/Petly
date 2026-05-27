@@ -80,6 +80,25 @@ public class PetlyCommand implements CommandExecutor, TabCompleter {
                 }
             }
 
+            case "stars" -> {
+                if (args.length < 2) { sendHelp(sender); return true; }
+                switch (args[1].toLowerCase()) {
+                    case "give" -> {
+                        if (args.length < 4) { sender.sendMessage("Usage: /petly stars give <player> <amount>"); return true; }
+                        handleStarsGive(sender, args[2], args[3]);
+                    }
+                    case "take" -> {
+                        if (args.length < 4) { sender.sendMessage("Usage: /petly stars take <player> <amount>"); return true; }
+                        handleStarsTake(sender, args[2], args[3]);
+                    }
+                    case "set" -> {
+                        if (args.length < 4) { sender.sendMessage("Usage: /petly stars set <player> <amount>"); return true; }
+                        handleStarsSet(sender, args[2], args[3]);
+                    }
+                    default -> sendHelp(sender);
+                }
+            }
+
             case "petlevel" -> {
                 if (args.length < 2) { sendHelp(sender); return true; }
                 switch (args[1].toLowerCase()) {
@@ -200,6 +219,63 @@ public class PetlyCommand implements CommandExecutor, TabCompleter {
                 .replace("{player}", playerName)));
     }
 
+    private void handleStarsGive(CommandSender sender, String playerName, String amountStr) {
+        Player target = Bukkit.getPlayerExact(playerName);
+        if (target == null) {
+            sender.sendMessage(TextUtil.parse(plugin.getConfigManager().getMessage("player-not-found")
+                    .replace("{player}", playerName)));
+            return;
+        }
+        long amount;
+        try { amount = Long.parseLong(amountStr); } catch (NumberFormatException e) {
+            sender.sendMessage(TextUtil.parse("<red>Invalid amount."));
+            return;
+        }
+        plugin.getPlayerDataManager().get(target.getUniqueId()).addStars(amount);
+        plugin.getPlayerDataManager().saveAsync(target.getUniqueId());
+        sender.sendMessage(TextUtil.parse(plugin.getConfigManager().getMessage("stars-given")
+                .replace("{amount}", TextUtil.formatNumber(amount))
+                .replace("{player}", playerName)));
+    }
+
+    private void handleStarsTake(CommandSender sender, String playerName, String amountStr) {
+        Player target = Bukkit.getPlayerExact(playerName);
+        if (target == null) {
+            sender.sendMessage(TextUtil.parse(plugin.getConfigManager().getMessage("player-not-found")
+                    .replace("{player}", playerName)));
+            return;
+        }
+        long amount;
+        try { amount = Long.parseLong(amountStr); } catch (NumberFormatException e) {
+            sender.sendMessage(TextUtil.parse("<red>Invalid amount."));
+            return;
+        }
+        plugin.getPlayerDataManager().get(target.getUniqueId()).takeStars(amount);
+        plugin.getPlayerDataManager().saveAsync(target.getUniqueId());
+        sender.sendMessage(TextUtil.parse(plugin.getConfigManager().getMessage("stars-taken")
+                .replace("{amount}", TextUtil.formatNumber(amount))
+                .replace("{player}", playerName)));
+    }
+
+    private void handleStarsSet(CommandSender sender, String playerName, String amountStr) {
+        Player target = Bukkit.getPlayerExact(playerName);
+        if (target == null) {
+            sender.sendMessage(TextUtil.parse(plugin.getConfigManager().getMessage("player-not-found")
+                    .replace("{player}", playerName)));
+            return;
+        }
+        long amount;
+        try { amount = Long.parseLong(amountStr); } catch (NumberFormatException e) {
+            sender.sendMessage(TextUtil.parse("<red>Invalid amount."));
+            return;
+        }
+        plugin.getPlayerDataManager().get(target.getUniqueId()).setStars(amount);
+        plugin.getPlayerDataManager().saveAsync(target.getUniqueId());
+        sender.sendMessage(TextUtil.parse(plugin.getConfigManager().getMessage("stars-set")
+                .replace("{amount}", TextUtil.formatNumber(amount))
+                .replace("{player}", playerName)));
+    }
+
     private void handleDustTake(CommandSender sender, String playerName, String amountStr) {
         Player target = Bukkit.getPlayerExact(playerName);
         if (target == null) {
@@ -307,8 +383,9 @@ public class PetlyCommand implements CommandExecutor, TabCompleter {
                 data.setMissionsCompleted(0);
                 data.getMissionLog().clear();
             }
+            case "milestones" -> data.resetMilestones();
             default -> {
-                sender.sendMessage(TextUtil.parse("<red>Unknown type. Valid: all, dust, pets, petxp, petlevel, thetower, fieldmissions"));
+                sender.sendMessage(TextUtil.parse("<red>Unknown type. Valid: all, dust, pets, petxp, petlevel, thetower, fieldmissions, milestones"));
                 return;
             }
         }
@@ -331,6 +408,7 @@ public class PetlyCommand implements CommandExecutor, TabCompleter {
         data.setMissionsCompleted(0);
         data.getMissionLog().clear();
         data.setHighestTowerFloor(0);
+        data.resetMilestones();
     }
 
     private void sendHelp(CommandSender sender) {
@@ -342,10 +420,13 @@ public class PetlyCommand implements CommandExecutor, TabCompleter {
                 "/petly pet nickname <petUUID> <name|clear>\n" +
                 "/petly dust give <player> <amount>\n" +
                 "/petly dust take <player> <amount>\n" +
+                "/petly stars give <player> <amount>\n" +
+                "/petly stars take <player> <amount>\n" +
+                "/petly stars set <player> <amount>\n" +
                 "/petly petlevel set <player> <petUUID> <level>\n" +
                 "/petly petlevel add <player> <petUUID> <amount>\n" +
                 "/petly setpower <player> <petUUID> <stars> <asc>\n" +
-                "/petly reset <player> <all|dust|pets|petxp|petlevel|thetower|fieldmissions>"
+                "/petly reset <player> <all|dust|pets|petxp|petlevel|thetower|fieldmissions|milestones>"
         ));
     }
 
@@ -361,14 +442,16 @@ public class PetlyCommand implements CommandExecutor, TabCompleter {
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command,
                                                  @NotNull String label, @NotNull String[] args) {
-        if (args.length == 1) return List.of("reload", "pet", "dust", "petlevel", "setpower", "reset");
+        if (args.length == 1) return List.of("reload", "pet", "dust", "stars", "petlevel", "setpower", "reset");
         if (args.length == 2 && args[0].equalsIgnoreCase("reset")) return Bukkit.getOnlinePlayers().stream().map(Player::getName).collect(Collectors.toList());
-        if (args.length == 3 && args[0].equalsIgnoreCase("reset")) return List.of("all", "dust", "pets", "petxp", "petlevel", "thetower", "fieldmissions");
+        if (args.length == 3 && args[0].equalsIgnoreCase("reset")) return List.of("all", "dust", "pets", "petxp", "petlevel", "thetower", "fieldmissions", "milestones");
         if (args.length == 2 && args[0].equalsIgnoreCase("pet")) return List.of("give", "take", "nickname");
         if (args.length == 2 && args[0].equalsIgnoreCase("dust")) return List.of("give", "take");
+        if (args.length == 2 && args[0].equalsIgnoreCase("stars")) return List.of("give", "take", "set");
         if (args.length == 2 && args[0].equalsIgnoreCase("petlevel")) return List.of("set", "add");
         if ((args.length == 3) && (args[0].equalsIgnoreCase("pet") || args[0].equalsIgnoreCase("dust")
-                || args[0].equalsIgnoreCase("petlevel") || args[0].equalsIgnoreCase("setpower"))) {
+                || args[0].equalsIgnoreCase("stars") || args[0].equalsIgnoreCase("petlevel")
+                || args[0].equalsIgnoreCase("setpower"))) {
             return Bukkit.getOnlinePlayers().stream().map(Player::getName).collect(Collectors.toList());
         }
         if (args.length == 4 && (args[0].equalsIgnoreCase("pet") && args[1].equalsIgnoreCase("give"))) {

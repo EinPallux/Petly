@@ -88,3 +88,12 @@ chamber-pet-added: "{prefix}<green>Pet added to the Dust Chamber."
 chamber-pet-removed: "{prefix}<green>Pet removed from the Dust Chamber."
 chamber-full: "{prefix}<red>The Dust Chamber is full (3 slots)."
 chamber-no-pending: "{prefix}<gray>No dust to collect yet."
+
+# --- Stars ---
+stars-given: "{prefix}<green>Gave <yellow>{amount} ✦</yellow> Stars to <aqua>{player}</aqua>."
+stars-taken: "{prefix}<green>Removed <yellow>{amount} ✦</yellow> Stars from <aqua>{player}</aqua>."
+stars-set: "{prefix}<green>Set Stars of <aqua>{player}</aqua> to <yellow>{amount} ✦</yellow>."
+
+# --- Milestones ---
+milestone-claimed: "{prefix}<gradient:#f59e0b:#fbbf24>✦ Milestone reward claimed!</gradient> <gray>+<yellow>{stars} ✦ Stars</yellow>."
+milestone-none-pending: "{prefix}<gray>No milestones pending. Keep playing to earn more!"
