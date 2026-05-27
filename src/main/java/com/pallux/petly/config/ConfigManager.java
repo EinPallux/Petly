@@ -11,6 +11,7 @@ public class ConfigManager {
     private final PetConfig petConfig;
     private final MissionConfig missionConfig;
     private final GuiConfig guiConfig;
+    private final TowerConfig towerConfig;
 
     private FileConfiguration mainConfig;
     private FileConfiguration messagesConfig;
@@ -21,6 +22,7 @@ public class ConfigManager {
         this.petConfig = new PetConfig(plugin);
         this.missionConfig = new MissionConfig(plugin);
         this.guiConfig = new GuiConfig(plugin);
+        this.towerConfig = new TowerConfig(plugin);
         loadAll();
     }
 
@@ -41,6 +43,7 @@ public class ConfigManager {
         petConfig.load();
         missionConfig.load();
         guiConfig.load();
+        towerConfig.load();
     }
 
     private void saveDefault(String resource) {
@@ -58,6 +61,7 @@ public class ConfigManager {
     public PetConfig getPetConfig() { return petConfig; }
     public MissionConfig getMissionConfig() { return missionConfig; }
     public GuiConfig getGuiConfig() { return guiConfig; }
+    public TowerConfig getTowerConfig() { return towerConfig; }
     public FileConfiguration getMain() { return mainConfig; }
     public FileConfiguration getMessages() { return messagesConfig; }
     public FileConfiguration getSummonRates() { return summonRatesConfig; }
@@ -125,12 +129,13 @@ public class ConfigManager {
         return summonRatesConfig.getString("milestone-rewards." + missionNumber + ".rarity", null);
     }
 
-    // --- Tower ---
+    // --- Tower (delegated to towers.yml via TowerConfig) ---
 
-    public long getTowerBasePower() { return mainConfig.getLong("tower.base-recommended-power", 200); }
-    public long getTowerPowerPerFloor() { return mainConfig.getLong("tower.power-per-floor", 200); }
-    public long getTowerBaseDust() { return mainConfig.getLong("tower.base-dust-reward", 50); }
-    public long getTowerDustPerFloor() { return mainConfig.getLong("tower.dust-per-floor", 20); }
-    public int getTowerBattleDurationTicks() { return mainConfig.getInt("tower.battle-duration-ticks", 100); }
-    public int getTowerPetXpPerFloor() { return mainConfig.getInt("tower.pet-xp-per-floor", 50); }
+    public long getTowerBasePower()          { return towerConfig.getBasePower(); }
+    public long getTowerPowerPerFloor()      { return towerConfig.getPowerPerFloor(); }
+    public long getTowerBaseDust()           { return towerConfig.getBaseDust(); }
+    public long getTowerDustPerFloor()       { return towerConfig.getDustPerFloor(); }
+    public int  getTowerBattleDurationTicks(){ return towerConfig.getBattleDurationTicks(); }
+    public int  getTowerPetXpPerFloor()      { return towerConfig.getPetXpPerFloor(); }
+    public int  getTowerMaxFloors()          { return towerConfig.getMaxFloors(); }
 }

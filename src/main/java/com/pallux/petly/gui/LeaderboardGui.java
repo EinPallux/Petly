@@ -93,7 +93,6 @@ public class LeaderboardGui extends BaseGui {
                 case 3 -> "<#cd7f32>";
                 default -> "<dark_gray>";
             };
-            String rankPrefix = rankColor + "#" + rank + "</gradient>";
 
             String valueStr = getValueStr(data, category);
             String playerName = getPlayerName(data.getUuid());
