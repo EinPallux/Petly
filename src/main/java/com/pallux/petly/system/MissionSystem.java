@@ -147,6 +147,16 @@ public class MissionSystem {
             OwnedPet droppedPet = summonSystem.summonSingleForMission(data);
             if (droppedPet != null) {
                 petDrop = droppedPet.getPetId();
+                String pName = online != null ? online.getName()
+                        : Optional.ofNullable(plugin.getServer().getOfflinePlayer(data.getUuid()).getName())
+                                  .orElse("Unknown");
+                config.getPetConfig().getPet(droppedPet.getPetId()).ifPresent(pet -> {
+                    String msg = config.getMessage("announce-mission-pet-drop")
+                            .replace("{player}", pName)
+                            .replace("{pet}", pet.getDisplayName())
+                            .replace("{rarity}", pet.getRarity().name());
+                    plugin.getServer().getOnlinePlayers().forEach(p -> p.sendMessage(TextUtil.parse(msg)));
+                });
             }
         }
 
