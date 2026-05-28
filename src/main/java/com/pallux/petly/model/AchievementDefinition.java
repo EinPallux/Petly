@@ -10,12 +10,12 @@ public class AchievementDefinition {
     private final int target;
     private final long dustReward;
     private final long essenceReward;
-    private final long creditsReward;
+    private final long starsReward;
     private final List<String> commands;
 
     public AchievementDefinition(String id, String displayName, String description,
                                   AchievementType type, int target,
-                                  long dustReward, long essenceReward, long creditsReward,
+                                  long dustReward, long essenceReward, long starsReward,
                                   List<String> commands) {
         this.id = id;
         this.displayName = displayName;
@@ -24,7 +24,7 @@ public class AchievementDefinition {
         this.target = target;
         this.dustReward = dustReward;
         this.essenceReward = essenceReward;
-        this.creditsReward = creditsReward;
+        this.starsReward = starsReward;
         this.commands = commands;
     }
 
@@ -35,6 +35,6 @@ public class AchievementDefinition {
     public int getTarget() { return target; }
     public long getDustReward() { return dustReward; }
     public long getEssenceReward() { return essenceReward; }
-    public long getCreditsReward() { return creditsReward; }
+    public long getStarsReward() { return starsReward; }
     public List<String> getCommands() { return commands; }
 }

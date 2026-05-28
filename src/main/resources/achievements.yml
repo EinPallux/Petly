@@ -2,7 +2,6 @@
 #  Petly — Achievements
 #  One-time milestones players can complete and claim for permanent rewards.
 #  'commands' are dispatched from console with {player} replaced by the player's name.
-#  Credits are a premium currency — keep rewards appropriately rare.
 # ──────────────────────────────────────────────
 
 achievements:
@@ -16,7 +15,7 @@ achievements:
     target: 1
     dust-reward: 300
     essence-reward: 3
-    credits-reward: 0
+    stars-reward: 0
     commands: []
 
   pets_10:
@@ -26,7 +25,7 @@ achievements:
     target: 10
     dust-reward: 1500
     essence-reward: 15
-    credits-reward: 0
+    stars-reward: 0
     commands: []
 
   pets_25:
@@ -36,7 +35,7 @@ achievements:
     target: 25
     dust-reward: 4000
     essence-reward: 40
-    credits-reward: 1
+    stars-reward: 1
     commands: []
 
   pets_50:
@@ -46,7 +45,7 @@ achievements:
     target: 50
     dust-reward: 10000
     essence-reward: 100
-    credits-reward: 3
+    stars-reward: 3
     commands: []
 
   pets_100:
@@ -56,7 +55,7 @@ achievements:
     target: 100
     dust-reward: 30000
     essence-reward: 300
-    credits-reward: 8
+    stars-reward: 8
     commands: []
 
   # ── Rarity ──────────────────────────────────
@@ -68,7 +67,7 @@ achievements:
     target: 1
     dust-reward: 2000
     essence-reward: 25
-    credits-reward: 1
+    stars-reward: 1
     commands: []
 
   first_ur:
@@ -78,7 +77,7 @@ achievements:
     target: 1
     dust-reward: 8000
     essence-reward: 80
-    credits-reward: 5
+    stars-reward: 5
     commands: []
 
   # ── The Tower ───────────────────────────────
@@ -90,7 +89,7 @@ achievements:
     target: 50
     dust-reward: 1500
     essence-reward: 15
-    credits-reward: 0
+    stars-reward: 0
     commands: []
 
   tower_floor_100:
@@ -100,7 +99,7 @@ achievements:
     target: 100
     dust-reward: 4000
     essence-reward: 40
-    credits-reward: 1
+    stars-reward: 1
     commands: []
 
   tower_floor_200:
@@ -110,7 +109,7 @@ achievements:
     target: 200
     dust-reward: 10000
     essence-reward: 100
-    credits-reward: 3
+    stars-reward: 3
     commands: []
 
   tower_floor_300:
@@ -120,7 +119,7 @@ achievements:
     target: 300
     dust-reward: 20000
     essence-reward: 200
-    credits-reward: 5
+    stars-reward: 5
     commands: []
 
   tower_floor_500:
@@ -130,7 +129,7 @@ achievements:
     target: 500
     dust-reward: 50000
     essence-reward: 500
-    credits-reward: 10
+    stars-reward: 10
     commands: []
 
   tower_floor_1000:
@@ -140,7 +139,7 @@ achievements:
     target: 1000
     dust-reward: 150000
     essence-reward: 1500
-    credits-reward: 25
+    stars-reward: 25
     commands: []
 
   # ── Field Missions ──────────────────────────
@@ -152,7 +151,7 @@ achievements:
     target: 10
     dust-reward: 1000
     essence-reward: 10
-    credits-reward: 0
+    stars-reward: 0
     commands: []
 
   missions_50:
@@ -162,7 +161,7 @@ achievements:
     target: 50
     dust-reward: 5000
     essence-reward: 50
-    credits-reward: 2
+    stars-reward: 2
     commands: []
 
   missions_100:
@@ -172,7 +171,7 @@ achievements:
     target: 100
     dust-reward: 12000
     essence-reward: 120
-    credits-reward: 4
+    stars-reward: 4
     commands: []
 
   missions_250:
@@ -182,7 +181,7 @@ achievements:
     target: 250
     dust-reward: 35000
     essence-reward: 350
-    credits-reward: 10
+    stars-reward: 10
     commands: []
 
   # ── Summons ─────────────────────────────────
@@ -194,7 +193,7 @@ achievements:
     target: 10
     dust-reward: 500
     essence-reward: 5
-    credits-reward: 0
+    stars-reward: 0
     commands: []
 
   summons_50:
@@ -204,7 +203,7 @@ achievements:
     target: 50
     dust-reward: 3000
     essence-reward: 30
-    credits-reward: 1
+    stars-reward: 1
     commands: []
 
   summons_100:
@@ -214,7 +213,7 @@ achievements:
     target: 100
     dust-reward: 7000
     essence-reward: 70
-    credits-reward: 2
+    stars-reward: 2
     commands: []
 
   summons_500:
@@ -224,7 +223,7 @@ achievements:
     target: 500
     dust-reward: 50000
     essence-reward: 500
-    credits-reward: 10
+    stars-reward: 10
     commands: []
 
   # ── Dust Chamber ────────────────────────────
@@ -236,7 +235,7 @@ achievements:
     target: 50
     dust-reward: 1000
     essence-reward: 10
-    credits-reward: 0
+    stars-reward: 0
     commands: []
 
   chamber_rate_200:
@@ -246,7 +245,7 @@ achievements:
     target: 200
     dust-reward: 5000
     essence-reward: 50
-    credits-reward: 2
+    stars-reward: 2
     commands: []
 
   chamber_rate_500:
@@ -256,7 +255,7 @@ achievements:
     target: 500
     dust-reward: 15000
     essence-reward: 150
-    credits-reward: 5
+    stars-reward: 5
     commands: []
 
   # ── Star-Up ─────────────────────────────────
@@ -268,7 +267,7 @@ achievements:
     target: 1
     dust-reward: 2000
     essence-reward: 20
-    credits-reward: 1
+    stars-reward: 1
     commands: []
 
   starup_5:
@@ -278,7 +277,7 @@ achievements:
     target: 5
     dust-reward: 8000
     essence-reward: 80
-    credits-reward: 3
+    stars-reward: 3
     commands: []
 
   starup_10:
@@ -288,7 +287,7 @@ achievements:
     target: 10
     dust-reward: 20000
     essence-reward: 200
-    credits-reward: 6
+    stars-reward: 6
     commands: []
 
   # ── Ascension ───────────────────────────────
@@ -300,7 +299,7 @@ achievements:
     target: 1
     dust-reward: 5000
     essence-reward: 50
-    credits-reward: 2
+    stars-reward: 2
     commands: []
 
   ascend_3:
@@ -310,7 +309,7 @@ achievements:
     target: 3
     dust-reward: 15000
     essence-reward: 150
-    credits-reward: 5
+    stars-reward: 5
     commands: []
 
   ascend_5:
@@ -320,5 +319,5 @@ achievements:
     target: 5
     dust-reward: 30000
     essence-reward: 300
-    credits-reward: 10
+    stars-reward: 10
     commands: []

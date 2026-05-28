@@ -37,10 +37,10 @@ public class AchievementConfig {
                 int target = entry.getInt("target", 1);
                 long dust = entry.getLong("dust-reward", 0);
                 long essence = entry.getLong("essence-reward", 0);
-                long credits = entry.getLong("credits-reward", 0);
+                long stars = entry.getLong("stars-reward", 0);
                 List<String> commands = entry.getStringList("commands");
                 achievements.put(id, new AchievementDefinition(
-                        id, displayName, description, type, target, dust, essence, credits, commands));
+                        id, displayName, description, type, target, dust, essence, stars, commands));
             } catch (Exception e) {
                 plugin.getLogger().warning("[Petly] Invalid achievement '" + id + "': " + e.getMessage());
             }
