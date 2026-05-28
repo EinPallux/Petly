@@ -45,8 +45,10 @@ public class SummonGui extends BaseGui {
         applyGuiItems(config.getGuiConfig(), "summon");
 
         PlayerData data = pdm.get(player.getUniqueId());
-        boolean has3 = player.hasPermission("petly.summon.3");
-        boolean has6 = player.hasPermission("petly.summon.6");
+        String perm3 = config.getSummonPermission3();
+        String perm6 = config.getSummonPermission6();
+        boolean has3 = perm3.isEmpty() || player.hasPermission(perm3);
+        boolean has6 = perm6.isEmpty() || player.hasPermission(perm6);
 
         inventory.setItem(29, new ItemBuilder(Material.ENDER_PEARL)
                 .name("<gradient:#a78bfa:#60a5fa>ꜱᴜᴍᴍᴏɴ ×1</gradient>")
@@ -65,7 +67,7 @@ public class SummonGui extends BaseGui {
                         "",
                         "<gray>Cost: <gold>" + TextUtil.formatNumber(config.getSummonCost3()) + " ✦ Dust",
                         "",
-                        has3 ? "<gray>Left-click to summon" : "<red>Requires petly.summon.3"
+                        has3 ? "<gray>Left-click to summon" : ("<red>Requires " + perm3)
                 )).build());
 
         inventory.setItem(33, new ItemBuilder(has6 ? Material.DRAGON_EGG : Material.GRAY_DYE)
@@ -75,7 +77,7 @@ public class SummonGui extends BaseGui {
                         "",
                         "<gray>Cost: <gold>" + TextUtil.formatNumber(config.getSummonCost6()) + " ✦ Dust",
                         "",
-                        has6 ? "<gray>Left-click to summon" : "<red>Requires petly.summon.6"
+                        has6 ? "<gray>Left-click to summon" : ("<red>Requires " + perm6)
                 )).build());
 
         inventory.setItem(13, new ItemBuilder(Material.PAPER)
@@ -111,14 +113,16 @@ public class SummonGui extends BaseGui {
         switch (slot) {
             case 29 -> triggerSummon(1);
             case 31 -> {
-                if (!player.hasPermission("petly.summon.3")) {
+                String p3 = config.getSummonPermission3();
+                if (!p3.isEmpty() && !player.hasPermission(p3)) {
                     player.sendMessage(TextUtil.parse(config.getMessage("summon-no-permission-3")));
                     return;
                 }
                 triggerSummon(3);
             }
             case 33 -> {
-                if (!player.hasPermission("petly.summon.6")) {
+                String p6 = config.getSummonPermission6();
+                if (!p6.isEmpty() && !player.hasPermission(p6)) {
                     player.sendMessage(TextUtil.parse(config.getMessage("summon-no-permission-6")));
                     return;
                 }

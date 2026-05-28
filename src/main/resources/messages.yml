@@ -75,6 +75,8 @@ team-full: "{prefix}<red>Your team is full (5 slots). Remove a pet first."
 team-already-in: "{prefix}<yellow>That pet is already on your team."
 no-team: "{prefix}<red>You need at least one pet in your active team to do this."
 pet-in-chamber: "{prefix}<red>That pet is in the Dust Chamber. Remove it first."
+pet-in-team: "{prefix}<red>That pet is in your active team. Remove it from the team first."
+pet-already-in-chamber: "{prefix}<yellow>That pet is already in the Dust Chamber."
 
 # --- Announcements (broadcast to all players) ---
 announce-summon-smr: "<dark_gray>[<light_purple>ꜱᴜᴍᴍᴏɴ</light_purple>] <white>{player}</white> <gray>summoned a</gray> <light_purple>ꜱᴜᴘᴇʀ ᴍᴇɢᴀ ʀᴀʀᴇ</light_purple> <dark_gray>—</dark_gray> <white>{pet}</white><gray>!"
