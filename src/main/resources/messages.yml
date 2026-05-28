@@ -4,7 +4,7 @@
 #  No <bold> or <italic> anywhere.
 # ──────────────────────────────────────────────
 
-prefix: "<gradient:#a78bfa:#60a5fa>ᴘᴇᴛʟʏ</gradient> <dark_gray>›</dark_gray> "
+prefix: "<gradient:#a78bfa:#60a5fa>ᴘᴇᴛʟʏ</gradient> <dark_gray>»</dark_gray> "
 
 # --- General ---
 no-permission: "{prefix}<red>You don't have permission to do that."
