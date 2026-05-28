@@ -57,7 +57,7 @@ public class AchievementSystem {
         data.getClaimedAchievements().add(achievementId);
         data.addDust(def.getDustReward());
         data.addEssence(def.getEssenceReward());
-        data.addCredits(def.getCreditsReward());
+        data.addStars(def.getStarsReward());
 
         for (String command : def.getCommands()) {
             plugin.getServer().dispatchCommand(
@@ -66,7 +66,9 @@ public class AchievementSystem {
         }
 
         player.sendMessage(TextUtil.parse(config.getMessage("achievement-claimed")
-                .replace("{achievement}", def.getDisplayName())));
+                .replace("{dust}", TextUtil.formatNumber(def.getDustReward()))
+                .replace("{essence}", TextUtil.formatNumber(def.getEssenceReward()))
+                .replace("{stars}", TextUtil.formatNumber(def.getStarsReward()))));
         return true;
     }
 

@@ -155,7 +155,7 @@ first_ur:
   target: 1
   dust-reward: 10000
   essence-reward: 100
-  credits-reward: 10
+  stars-reward: 10
   commands:
     - "give {player} diamond 1"
 ```
@@ -236,9 +236,6 @@ Permission: `petly.admin`
 | `stars give` | `/petly stars give <player> <amount>` | Gives a player Stars (★). |
 | `stars take` | `/petly stars take <player> <amount>` | Removes Stars from a player. |
 | `stars set` | `/petly stars set <player> <amount>` | Sets a player's Stars to an exact amount. |
-| `credits give` | `/petly credits give <player> <amount>` | Gives a player Credits (✪). |
-| `credits take` | `/petly credits take <player> <amount>` | Removes Credits from a player. |
-| `credits set` | `/petly credits set <player> <amount>` | Sets a player's Credits to an exact amount. |
 | `petlevel set` | `/petly petlevel set <player> <petUUID> <level>` | Sets a specific pet's level. |
 | `petlevel add` | `/petly petlevel add <player> <petUUID> <amount>` | Adds levels to a specific pet. |
 | `setpower` | `/petly setpower <player> <petUUID> <stars> <asc>` | Force-sets a pet's star and ascension values. |
@@ -278,8 +275,7 @@ Petly has four currencies, each serving a distinct purpose:
 |---|---|---|---|
 | **Dust** | ✦ | Field missions, dust chamber | Summons, leveling, star-up, ascension |
 | **Essence** | ◆ | Quests, Material Trading, star-up cost | Star-up (alongside Dust), Material Trading |
-| **Stars** | ★ | Quest rewards, milestone rewards | Milestone claim requirement |
-| **Credits** | ✪ | Achievement rewards only | Premium — server rewards; cannot be earned otherwise |
+| **Stars** | ★ | Quest rewards, milestone rewards, achievements | Milestone claim requirement |
 
 ---
 
@@ -442,7 +438,7 @@ Open with `/achievements` or via the Achievements button in `/menu`. Achievement
 **Reward types:**
 - **Dust (✦)** — standard currency
 - **Essence (◆)** — used for star-ups and trading
-- **Credits (✪)** — premium currency; achievements are the primary way to earn it
+- **Stars (★)** — milestone currency; achievements are an additional source beyond quests and milestones
 - **Server commands** — optional console commands executed on claim (e.g. `give {player} diamond 1`)
 
 **Notification:** When a player completes an achievement condition, they receive a chat notification directing them to `/achievements` to claim the reward.
@@ -553,8 +549,6 @@ If PlaceholderAPI is installed, the following placeholders are available:
 | `%petly_stars_formatted%` | Formatted Stars (e.g. `42 ★`) |
 | `%petly_essence_raw%` | Player's Essence balance (number) |
 | `%petly_essence_formatted%` | Formatted Essence (e.g. `1.2K ◆`) |
-| `%petly_credits_raw%` | Player's Credits balance (number) |
-| `%petly_credits_formatted%` | Formatted Credits (e.g. `25 ✪`) |
 
 ---
 
@@ -589,4 +583,3 @@ List<OwnedPet> pets = api.getPets(playerUUID);
 - **Reset a player's progress:** Use `/petly reset <player> <type>` to selectively wipe dust, pets, tower progress, missions, quests, or achievements. The player must be online.
 - **Data backup:** Player data is stored in `plugins/Petly/playerdata/` as individual YAML files. Include this folder in your backup routine.
 - **Achievement commands:** Use `commands` in `achievements.yml` to integrate with other plugins on claim (e.g. give kit items, grant permissions). The `{player}` placeholder is replaced with the player's name.
-- **Credits economy:** Credits (✪) are only earned via achievement rewards by default. Use `/petly credits give` to distribute them manually for events or giveaways.

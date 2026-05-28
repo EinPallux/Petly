@@ -132,8 +132,8 @@ public class AchievementsGui extends BaseGui {
             lore.add("<gray>  <gold>" + TextUtil.formatNumber(def.getDustReward()) + " ✦ Dust");
         if (def.getEssenceReward() > 0)
             lore.add("<gray>  <aqua>" + TextUtil.formatNumber(def.getEssenceReward()) + " ◆ Essence");
-        if (def.getCreditsReward() > 0)
-            lore.add("<gray>  <yellow>" + def.getCreditsReward() + " ✪ Credits");
+        if (def.getStarsReward() > 0)
+            lore.add("<gray>  <yellow>" + def.getStarsReward() + " ★ Stars");
         if (!def.getCommands().isEmpty())
             lore.add("<gray>  <light_purple>+ Server reward");
 

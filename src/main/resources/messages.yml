@@ -110,14 +110,9 @@ essence-set: "{prefix}<green>Set Essence of <aqua>{player}</aqua> to <aqua>{amou
 not-enough-essence: "{prefix}<red>You need <aqua>{needed} ◆</aqua> Essence but only have <aqua>{have} ◆</aqua>."
 starup-not-enough-essence: "{prefix}<red>You need <aqua>{cost} ◆</aqua> Essence to star up."
 
-# --- Credits ---
-credits-given: "{prefix}<green>Gave <yellow>{amount} ✪</yellow> Credits to <aqua>{player}</aqua>."
-credits-taken: "{prefix}<green>Removed <yellow>{amount} ✪</yellow> Credits from <aqua>{player}</aqua>."
-credits-set: "{prefix}<green>Set Credits of <aqua>{player}</aqua> to <yellow>{amount} ✪</yellow>."
-
 # --- Achievements ---
 achievement-unlocked: "{prefix}<gradient:#f59e0b:#fbbf24>🏆 Achievement unlocked!</gradient> <gray>Claim your reward in <yellow>/achievements</yellow>: <white>{achievement}</white>."
-achievement-claimed: "{prefix}<gradient:#f59e0b:#fbbf24>🏆 Achievement claimed!</gradient> <gray><gold>{dust} ✦</gold> · <aqua>{essence} ◆</aqua> · <yellow>{credits} ✪</yellow>"
+achievement-claimed: "{prefix}<gradient:#f59e0b:#fbbf24>🏆 Achievement claimed!</gradient> <gray><gold>{dust} ✦</gold> · <aqua>{essence} ◆</aqua> · <yellow>{stars} ★</yellow>"
 
 # --- Material Trading ---
 trading-opened: "{prefix}<gradient:#fbbf24:#f97316>◆ Material Trading is now open!</gradient> <gray>Duration: <yellow>{duration} minutes</yellow>."

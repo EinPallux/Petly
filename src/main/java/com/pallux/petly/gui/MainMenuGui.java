@@ -56,7 +56,6 @@ public class MainMenuGui extends BaseGui {
                         "<dark_gray>━━━━━━━━━━━━━━━━━━━━",
                         "<gray>✦ Dust     <gold>" + TextUtil.formatDust(data.getDust()),
                         "<gray>◆ Essence  <aqua>" + TextUtil.formatEssence(data.getEssence()),
-                        "<gray>✪ Credits  <yellow>" + TextUtil.formatCredits(data.getCredits()),
                         "<gray>⚡ Team Power  <white>" + TextUtil.formatPower(teamPower),
                         "<gray>🐾 Pets Owned  <aqua>" + data.getPets().size(),
                         "<gray>🎯 Active Mission  <green>" + finalMission,

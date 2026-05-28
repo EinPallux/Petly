@@ -34,7 +34,6 @@ public class PlayerData {
     private final List<ActiveQuest> activeWeeklyQuests = new ArrayList<>();
     private long lastDailyQuestReset;
     private long lastWeeklyQuestReset;
-    private long credits;
     private long totalSummons;
     private int totalStarUps;
     private int totalAscensions;
@@ -66,7 +65,6 @@ public class PlayerData {
         this.essence = 0;
         this.lastDailyQuestReset = -1;
         this.lastWeeklyQuestReset = -1;
-        this.credits = 0;
         this.totalSummons = 0;
         this.totalStarUps = 0;
         this.totalAscensions = 0;
@@ -104,7 +102,6 @@ public class PlayerData {
         this.essence = 0;
         this.lastDailyQuestReset = -1;
         this.lastWeeklyQuestReset = -1;
-        this.credits = 0;
         this.totalSummons = 0;
         this.totalStarUps = 0;
         this.totalAscensions = 0;
@@ -252,12 +249,6 @@ public class PlayerData {
     public void setLastDailyQuestReset(long day)        { this.lastDailyQuestReset = day; }
     public long getLastWeeklyQuestReset()               { return lastWeeklyQuestReset; }
     public void setLastWeeklyQuestReset(long epochDay)  { this.lastWeeklyQuestReset = epochDay; }
-
-    public long getCredits()                  { return credits; }
-    public void setCredits(long amount)       { this.credits = Math.max(0, amount); }
-    public void addCredits(long amount)       { this.credits += amount; }
-    public void takeCredits(long amount)      { this.credits = Math.max(0, this.credits - amount); }
-    public boolean hasCredits(long amount)    { return credits >= amount; }
 
     public long getTotalSummons()             { return totalSummons; }
     public void setTotalSummons(long n)       { this.totalSummons = n; }
