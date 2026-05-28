@@ -48,6 +48,8 @@ public class AscensionSystem {
         pet.setLevel(1);
         pet.setStars(0);
         pet.setXp(0);
+        data.incrementTotalAscensions();
+        plugin.getAchievementSystem().checkAll(data);
 
         Optional<Pet> petDef = config.getPetConfig().getPet(pet.getPetId());
         String petName = petDef.map(Pet::getDisplayName).orElse(pet.getPetId());

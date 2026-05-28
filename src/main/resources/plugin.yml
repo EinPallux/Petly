@@ -67,6 +67,11 @@ commands:
     usage: /trade
     aliases: [ trading, market ]
     permission: petly.player
+  achievements:
+    description: Open the Achievements menu.
+    usage: /achievements
+    aliases: [ achieve, ach ]
+    permission: petly.player
 
 permissions:
   petly.admin:

@@ -141,8 +141,18 @@ main-menu:
         - ""
         - "<gray>Left-click to open"
 
+    achievements-button:
+      slot: 36
+      material: GOLDEN_APPLE
+      display-name: "<gradient:#f59e0b:#fbbf24>ᴀᴄʜɪᴇᴠᴇᴍᴇɴᴛꜱ</gradient>"
+      lore:
+        - "<dark_gray>Complete one-time challenges"
+        - "<dark_gray>to earn Dust, Essence & Credits."
+        - ""
+        - "<gray>Left-click to open"
+
     filler-dark:
-      slots: [ 9, 10, 12, 13, 14, 16, 17, 18, 19, 21, 23, 25, 26, 27, 28, 30, 32, 34, 35, 36, 37, 39, 41, 43, 44 ]
+      slots: [ 9, 10, 12, 13, 14, 16, 17, 18, 19, 21, 23, 25, 26, 27, 28, 30, 32, 34, 35, 37, 39, 41, 43, 44 ]
       material: GRAY_STAINED_GLASS_PANE
       display-name: " "
 

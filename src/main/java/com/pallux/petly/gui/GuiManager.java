@@ -116,6 +116,10 @@ public class GuiManager {
         new MaterialTradingGui(player, plugin, config, pdm, tradingSystem).open();
     }
 
+    public void openAchievements(Player player) {
+        new AchievementsGui(player, plugin, config, pdm, plugin.getAchievementSystem(), 1).open();
+    }
+
     public void openLeaderboard(Player player, LeaderboardGui.Category category) {
         new LeaderboardGui(player, plugin, config, pdm, powerCalc, category).open();
     }

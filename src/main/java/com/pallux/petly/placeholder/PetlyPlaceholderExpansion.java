@@ -54,6 +54,8 @@ public class PetlyPlaceholderExpansion extends PlaceholderExpansion {
             case "stars_formatted"     -> TextUtil.formatNumber(data.getStars()) + " ★";
             case "essence_raw"         -> String.valueOf(data.getEssence());
             case "essence_formatted"   -> TextUtil.formatEssence(data.getEssence());
+            case "credits_raw"         -> String.valueOf(data.getCredits());
+            case "credits_formatted"   -> TextUtil.formatCredits(data.getCredits());
             default                    -> null;
         };
     }

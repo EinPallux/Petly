@@ -67,7 +67,9 @@ public class SummonSystem {
         }
 
         if (!results.isEmpty()) {
+            data.addTotalSummons(results.size());
             plugin.getQuestSystem().onPetsSummoned(data, results.size());
+            plugin.getAchievementSystem().checkAll(data);
         }
         pdm.saveAsync(player.getUniqueId());
         return results;

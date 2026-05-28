@@ -56,6 +56,7 @@ public class MainMenuGui extends BaseGui {
                         "<dark_gray>━━━━━━━━━━━━━━━━━━━━",
                         "<gray>✦ Dust     <gold>" + TextUtil.formatDust(data.getDust()),
                         "<gray>◆ Essence  <aqua>" + TextUtil.formatEssence(data.getEssence()),
+                        "<gray>✪ Credits  <yellow>" + TextUtil.formatCredits(data.getCredits()),
                         "<gray>⚡ Team Power  <white>" + TextUtil.formatPower(teamPower),
                         "<gray>🐾 Pets Owned  <aqua>" + data.getPets().size(),
                         "<gray>🎯 Active Mission  <green>" + finalMission,
@@ -80,6 +81,7 @@ public class MainMenuGui extends BaseGui {
         switch (slot) {
             case 11 -> gm.openQuests(player);
             case 15 -> gm.openMaterialTrading(player);
+            case 36 -> gm.openAchievements(player);
             case 20 -> gm.openPetStorage(player, 1);
             case 22 -> gm.openSummon(player);
             case 24 -> gm.openFieldMissions(player, 1);

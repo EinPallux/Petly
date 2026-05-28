@@ -34,6 +34,7 @@ public class PetlyPlugin extends JavaPlugin {
     private MilestoneSystem milestoneSystem;
     private QuestSystem questSystem;
     private MaterialTradingSystem materialTradingSystem;
+    private AchievementSystem achievementSystem;
     private SummonedPetDisplay summonedPetDisplay;
     private PetlyAPI api;
     private Economy economy;
@@ -60,6 +61,7 @@ public class PetlyPlugin extends JavaPlugin {
         milestoneSystem = new MilestoneSystem(configManager, powerCalc);
         questSystem = new QuestSystem(this, configManager, configManager.getQuestConfig(), playerDataManager);
         materialTradingSystem = new MaterialTradingSystem(this, configManager, configManager.getTradingConfig());
+        achievementSystem = new AchievementSystem(this, configManager, configManager.getAchievementConfig(), dustChamberSystem);
         summonedPetDisplay = new SummonedPetDisplay(this, configManager, playerDataManager);
 
         // GUI
@@ -93,6 +95,7 @@ public class PetlyPlugin extends JavaPlugin {
         Objects.requireNonNull(getCommand("milestones")).setExecutor(new MilestonesCommand(this));
         Objects.requireNonNull(getCommand("quests")).setExecutor(new QuestsCommand(this));
         Objects.requireNonNull(getCommand("trade")).setExecutor(new MaterialTradingCommand(this));
+        Objects.requireNonNull(getCommand("achievements")).setExecutor(new AchievementsCommand(this));
 
         // PlaceholderAPI
         if (getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
@@ -187,6 +190,7 @@ public class PetlyPlugin extends JavaPlugin {
     public MilestoneSystem getMilestoneSystem() { return milestoneSystem; }
     public QuestSystem getQuestSystem() { return questSystem; }
     public MaterialTradingSystem getMaterialTradingSystem() { return materialTradingSystem; }
+    public AchievementSystem getAchievementSystem() { return achievementSystem; }
     public SummonedPetDisplay getSummonedPetDisplay() { return summonedPetDisplay; }
     public PetlyAPI getAPI() { return api; }
     public Economy getEconomy() { return economy; }
