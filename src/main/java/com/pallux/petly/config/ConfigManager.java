@@ -14,6 +14,7 @@ public class ConfigManager {
     private final TowerConfig towerConfig;
     private final QuestConfig questConfig;
     private final TradingConfig tradingConfig;
+    private final AchievementConfig achievementConfig;
 
     private FileConfiguration mainConfig;
     private FileConfiguration messagesConfig;
@@ -27,6 +28,7 @@ public class ConfigManager {
         this.towerConfig = new TowerConfig(plugin);
         this.questConfig = new QuestConfig(plugin);
         this.tradingConfig = new TradingConfig(plugin);
+        this.achievementConfig = new AchievementConfig(plugin);
         loadAll();
     }
 
@@ -42,6 +44,7 @@ public class ConfigManager {
         saveDefault("summon-rates.yml");
         saveDefault("quests.yml");
         saveDefault("trading.yml");
+        saveDefault("achievements.yml");
 
         messagesConfig = loadExternal("messages.yml");
         summonRatesConfig = loadExternal("summon-rates.yml");
@@ -52,6 +55,7 @@ public class ConfigManager {
         towerConfig.load();
         questConfig.load();
         tradingConfig.load();
+        achievementConfig.load();
     }
 
     private void saveDefault(String resource) {
@@ -72,6 +76,7 @@ public class ConfigManager {
     public TowerConfig getTowerConfig() { return towerConfig; }
     public QuestConfig getQuestConfig() { return questConfig; }
     public TradingConfig getTradingConfig() { return tradingConfig; }
+    public AchievementConfig getAchievementConfig() { return achievementConfig; }
     public FileConfiguration getMain() { return mainConfig; }
     public FileConfiguration getMessages() { return messagesConfig; }
     public FileConfiguration getSummonRates() { return summonRatesConfig; }

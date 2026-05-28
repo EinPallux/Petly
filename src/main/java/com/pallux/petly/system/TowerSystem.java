@@ -76,6 +76,7 @@ public class TowerSystem {
                 }
 
                 plugin.getQuestSystem().onTowerFloorBeaten(data);
+                plugin.getAchievementSystem().checkAll(data);
                 pdm.saveAsync(player.getUniqueId());
             }
             callback.accept(success);

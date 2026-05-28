@@ -37,6 +37,9 @@ public class PlayerJoinListener implements Listener {
             // Check and refresh quests (daily/weekly reset detection)
             plugin.getQuestSystem().checkAndRefreshQuests(data);
 
+            // Check threshold achievements (covers offline progress + chamber rate)
+            plugin.getAchievementSystem().checkAll(data);
+
             // Check for offline mission results
             if (data.hasActiveMission() && data.getActiveMission().isComplete()) {
                 plugin.getMissionSystem().checkAndResolveAll();

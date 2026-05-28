@@ -73,6 +73,8 @@ public class StarUpSystem {
         pet.setStars(pet.getStars() + 1);
         pet.setLevel(1);
         pet.setXp(0);
+        data.incrementTotalStarUps();
+        plugin.getAchievementSystem().checkAll(data);
 
         Optional<Pet> petDef = config.getPetConfig().getPet(pet.getPetId());
         String petName = petDef.map(Pet::getDisplayName).orElse(pet.getPetId());

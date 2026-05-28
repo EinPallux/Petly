@@ -119,6 +119,12 @@ public class StorageAdapter {
         pdata.setLastWeeklyQuestReset(cfg.getLong("last-weekly-quest-reset", -1));
         loadQuestList(cfg.getConfigurationSection("daily-quests"), pdata.getActiveDailyQuests());
         loadQuestList(cfg.getConfigurationSection("weekly-quests"), pdata.getActiveWeeklyQuests());
+        pdata.setCredits(cfg.getLong("credits", 0));
+        pdata.setTotalSummons(cfg.getLong("total-summons", 0));
+        pdata.setTotalStarUps(cfg.getInt("total-star-ups", 0));
+        pdata.setTotalAscensions(cfg.getInt("total-ascensions", 0));
+        pdata.getCompletedAchievements().addAll(cfg.getStringList("completed-achievements"));
+        pdata.getClaimedAchievements().addAll(cfg.getStringList("claimed-achievements"));
         return pdata;
     }
 
@@ -217,6 +223,12 @@ public class StorageAdapter {
         cfg.set("last-weekly-quest-reset", data.getLastWeeklyQuestReset());
         saveQuestList(cfg, "daily-quests", data.getActiveDailyQuests());
         saveQuestList(cfg, "weekly-quests", data.getActiveWeeklyQuests());
+        cfg.set("credits", data.getCredits());
+        cfg.set("total-summons", data.getTotalSummons());
+        cfg.set("total-star-ups", data.getTotalStarUps());
+        cfg.set("total-ascensions", data.getTotalAscensions());
+        cfg.set("completed-achievements", new ArrayList<>(data.getCompletedAchievements()));
+        cfg.set("claimed-achievements", new ArrayList<>(data.getClaimedAchievements()));
 
         cfg.save(file);
     }

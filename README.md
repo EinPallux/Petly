@@ -1,7 +1,7 @@
 # Petly — Server Admin Guide
 
 A feature-rich pet collection and progression system for **Paper 26.1.2**.  
-Players collect pets through a gacha summon system, level them up, send them on field missions, and display them orbiting around their character.
+Players collect pets through a gacha summon system, level them up, send them on field missions, complete quests and achievements, and display them orbiting around their character.
 
 ---
 
@@ -38,6 +38,8 @@ All configuration lives in `plugins/Petly/`. **Never edit files while the server
 | `guis.yml` | GUI layout: slot positions, titles, filler materials |
 | `summon-rates.yml` | Gacha rates, pity counters, star/ascension costs, milestone rewards |
 | `towers.yml` | The Tower settings: floor scaling formula, max floors, Pet XP per floor, battle duration |
+| `quests.yml` | All daily and weekly quest definitions and rewards |
+| `achievements.yml` | All achievement definitions, targets, and rewards |
 | `playerdata/` | One YAML file per player UUID — do not edit manually |
 
 ### Key `towers.yml` values
@@ -117,6 +119,63 @@ Replace `skin-texture` with a real base64-encoded Minecraft skull texture value.
   pet-drop-chance: 0.04       # 4% chance to receive a bonus pet
 ```
 
+### Adding quests (`quests.yml`)
+
+```yaml
+daily:
+  - id: "summon_1"
+    name: "First Roll"
+    description: "Perform 1 summon today."
+    type: SUMMON
+    target: 1
+    dust-reward: 200
+    essence-reward: 2
+    stars-reward: 0
+
+weekly:
+  - id: "tower_weekly"
+    name: "Tower Climber"
+    description: "Clear 20 Tower floors this week."
+    type: TOWER_FLOORS
+    target: 20
+    dust-reward: 1500
+    essence-reward: 10
+    stars-reward: 1
+```
+
+Quest types: `SUMMON`, `MISSION_COMPLETE`, `TOWER_FLOORS`, `STAR_UP`, `ASCEND`, `COLLECT_DUST`.
+
+### Adding achievements (`achievements.yml`)
+
+```yaml
+first_ur:
+  display-name: "Ultra Collector"
+  description: "Obtain your first Ultra Rare pet."
+  type: OWN_RARITY_UR
+  target: 1
+  dust-reward: 10000
+  essence-reward: 100
+  credits-reward: 10
+  commands:
+    - "give {player} diamond 1"
+```
+
+Achievement types:
+
+| Type | Tracks |
+|---|---|
+| `OWN_PETS` | Total pets owned |
+| `REACH_TOWER_FLOOR` | Highest Tower floor cleared |
+| `COMPLETE_MISSIONS` | Total field missions completed |
+| `TOTAL_SUMMONS` | Total summons performed (lifetime) |
+| `DUST_CHAMBER_RATE` | Current dust generated per 5-minute cycle |
+| `STAR_UP_PET` | Total star-ups performed (lifetime) |
+| `ASCEND_PET` | Total ascensions performed (lifetime) |
+| `OWN_RARITY_SMR` | Whether player owns at least one SMR pet |
+| `OWN_RARITY_UR` | Whether player owns at least one UR pet |
+
+The `commands` list runs via console when the achievement is claimed. Use `{player}` as a placeholder for the player's name.
+
 ---
 
 ## Permissions
@@ -153,6 +212,10 @@ Grant summon permissions to non-admin ranks via your permissions plugin:
 | `/collection` | — | Opens the full pet collection (shows all pets, owned or not). |
 | `/tower` | — | Opens The Tower — 500-floor battle progression system. |
 | `/leaderboard` | `/lb` | Opens the Leaderboard GUI (5 categories). |
+| `/milestones` | `/ms` | Opens the milestones reward panel. |
+| `/quests` | `/q`, `/dailyquests` | Opens the daily and weekly quests menu. |
+| `/trade` | `/trading`, `/market` | Opens the Material Trading window (when open). |
+| `/achievements` | `/ach`, `/achieve` | Opens the Achievements menu. |
 
 ### Admin Command — `/petly`
 
@@ -164,24 +227,40 @@ Permission: `petly.admin`
 | `pet give` | `/petly pet give <player> <petId>` | Gives a player a pet by its config ID. |
 | `pet take` | `/petly pet take <player> <petId>` | Removes one instance of a pet from a player. |
 | `pet nickname` | `/petly pet nickname <petUUID> <name\|clear>` | Sets or clears a pet's nickname (in-game only). |
-| `dust give` | `/petly dust give <player> <amount>` | Gives a player a dust amount. |
+| `dust give` | `/petly dust give <player> <amount>` | Gives a player dust. |
 | `dust take` | `/petly dust take <player> <amount>` | Removes dust from a player. |
+| `dust set` | `/petly dust set <player> <amount>` | Sets a player's dust to an exact amount. |
+| `essence give` | `/petly essence give <player> <amount>` | Gives a player Essence (◆). |
+| `essence take` | `/petly essence take <player> <amount>` | Removes Essence from a player. |
+| `essence set` | `/petly essence set <player> <amount>` | Sets a player's Essence to an exact amount. |
+| `stars give` | `/petly stars give <player> <amount>` | Gives a player Stars (★). |
+| `stars take` | `/petly stars take <player> <amount>` | Removes Stars from a player. |
+| `stars set` | `/petly stars set <player> <amount>` | Sets a player's Stars to an exact amount. |
+| `credits give` | `/petly credits give <player> <amount>` | Gives a player Credits (✪). |
+| `credits take` | `/petly credits take <player> <amount>` | Removes Credits from a player. |
+| `credits set` | `/petly credits set <player> <amount>` | Sets a player's Credits to an exact amount. |
 | `petlevel set` | `/petly petlevel set <player> <petUUID> <level>` | Sets a specific pet's level. |
 | `petlevel add` | `/petly petlevel add <player> <petUUID> <amount>` | Adds levels to a specific pet. |
 | `setpower` | `/petly setpower <player> <petUUID> <stars> <asc>` | Force-sets a pet's star and ascension values. |
+| `trading open` | `/petly trading open` | Force-opens the Material Trading window. |
+| `trading close` | `/petly trading close` | Force-closes the Material Trading window. |
+| `achievements check` | `/petly achievements check <player>` | Rechecks all achievements for a player. |
 | `reset` | `/petly reset <player> <type>` | Resets part of or all data for an online player. |
 
 **Reset types:**
 
 | Type | What it clears |
 |---|---|
-| `all` | Everything — dust, pets, pity counters, missions, tower progress |
+| `all` | Everything — dust, essence, stars, credits, pets, pity counters, missions, tower progress, quests, achievements |
 | `dust` | Dust balance only |
 | `pets` | All owned pets, team, and chamber slots |
 | `petxp` | Resets XP to 0 on every pet (levels unchanged) |
 | `petlevel` | Resets every pet to level 1 with 0 XP |
 | `thetower` | Resets highest cleared floor to 0 |
 | `fieldmissions` | Resets missions-completed counter and mission log |
+| `milestones` | Resets all milestone claim state |
+| `quests` | Clears active quests and resets daily/weekly timers |
+| `achievements` | Clears all completed and claimed achievement records |
 
 `<petId>` is the key used in `pets.yml` (e.g. `my_dragon`).  
 `<petUUID>` is the unique instance ID of an owned pet (visible in the pet detail GUI or via the API).  
@@ -191,15 +270,16 @@ Permission: `petly.admin`
 
 ## Gamemode Overview
 
-### Dust — The Currency
+### Currencies
 
-**Dust** (✦) is the sole in-game currency. Players earn it by:
+Petly has four currencies, each serving a distinct purpose:
 
-- Completing **field missions**
-- Leaving pets in the **dust chamber**
-- Receiving it from admins via `/petly dust give`
-
-Dust is spent on summons, buying XP for pets, starring up, and ascending.
+| Currency | Symbol | Primary source | Primary use |
+|---|---|---|---|
+| **Dust** | ✦ | Field missions, dust chamber | Summons, leveling, star-up, ascension |
+| **Essence** | ◆ | Quests, Material Trading, star-up cost | Star-up (alongside Dust), Material Trading |
+| **Stars** | ★ | Quest rewards, milestone rewards | Milestone claim requirement |
+| **Credits** | ✪ | Achievement rewards only | Premium — server rewards; cannot be earned otherwise |
 
 ---
 
@@ -248,6 +328,9 @@ power = (basePower + ascBaseBonus × asc)
       + (powerPerLevel + ascScalingBonus × asc) × (level − 1)
       + (powerPerStar + 200 × asc) × stars
 ```
+
+**Star-Up cost:** Each star level costs Dust + Essence. A duplicate of the same pet is consumed.  
+**Ascension cost:** Each ascension level costs Dust only (escalating amounts).
 
 ---
 
@@ -310,6 +393,62 @@ Dust Reward       = base-dust-reward       + (floor − 1) × dust-per-floor
 ```
 
 **Milestone broadcasts:** Every 10 floors cleared (10, 20, 30 …) is announced server-wide.
+
+---
+
+### Milestones
+
+Open with `/milestones` or via the menu. Milestone rewards are granted at fixed mission-count thresholds (e.g. 10, 25, 50, 75, 100 missions). Each unlocked milestone gives a pet of increasing rarity and must be manually claimed in the GUI.
+
+---
+
+### Quests
+
+Open with `/quests` or via the menu. Two quest sets refresh automatically:
+
+- **Daily quests** — reset every 24 hours (configurable)
+- **Weekly quests** — reset every 7 days (configurable)
+
+Quest types include: summon pets, complete field missions, clear tower floors, star up a pet, ascend a pet, and collect dust. Progress is tracked automatically. Completed quests show a **Claim** button in the GUI — rewards are not given automatically.
+
+**Quest rewards:** Dust, Essence (◆), and Stars (★) in varying amounts. Configured in `quests.yml`.
+
+---
+
+### Material Trading
+
+Open with `/trade` or via the menu. A scheduled trading window that opens **4× per day** for 1 hour each window (configurable in `config.yml`). When closed, the menu shows a countdown to the next window.
+
+Two trade directions:
+- **Dust → Essence:** Spend Dust (✦) to receive Essence (◆)
+- **Essence → Dust:** Spend Essence (◆) to receive Dust (✦)
+
+Exchange rates are configurable in `config.yml`. Each trade can be performed multiple times per window.
+
+**Admin override:** Force open or close the trading window at any time with `/petly trading open` and `/petly trading close`.
+
+---
+
+### Achievements
+
+Open with `/achievements` or via the Achievements button in `/menu`. Achievements are **one-time challenges** — each can be completed and claimed only once per player.
+
+- Progress is tracked automatically (no extra steps needed from players).
+- A completed achievement shows a **Claim** button in the GUI; rewards are not given automatically.
+- Once claimed, the achievement turns gray and shows ✔ Already claimed.
+
+**GUI sort order:** Unclaimed-complete (ready to claim) first → in-progress sorted by completion % → already claimed.
+
+**Reward types:**
+- **Dust (✦)** — standard currency
+- **Essence (◆)** — used for star-ups and trading
+- **Credits (✪)** — premium currency; achievements are the primary way to earn it
+- **Server commands** — optional console commands executed on claim (e.g. `give {player} diamond 1`)
+
+**Notification:** When a player completes an achievement condition, they receive a chat notification directing them to `/achievements` to claim the reward.
+
+**Admin reset:** `/petly reset <player> achievements` clears all completed and claimed achievement records for a player.  
+**Admin recheck:** `/petly achievements check <player>` rechecks all achievement conditions immediately for an online player.
 
 ---
 
@@ -410,6 +549,12 @@ If PlaceholderAPI is installed, the following placeholders are available:
 | `%petly_active_mission_time%` | Time remaining on active mission |
 | `%petly_pet_count%` | Number of pets the player owns |
 | `%petly_missions_completed%` | Total missions completed |
+| `%petly_stars_raw%` | Player's Stars balance (number) |
+| `%petly_stars_formatted%` | Formatted Stars (e.g. `42 ★`) |
+| `%petly_essence_raw%` | Player's Essence balance (number) |
+| `%petly_essence_formatted%` | Formatted Essence (e.g. `1.2K ◆`) |
+| `%petly_credits_raw%` | Player's Credits balance (number) |
+| `%petly_credits_formatted%` | Formatted Credits (e.g. `25 ✪`) |
 
 ---
 
@@ -435,11 +580,13 @@ List<OwnedPet> pets = api.getPets(playerUUID);
 
 ## Tips for Server Admins
 
-- **Reload without restart:** `/petly reload` reloads all config files at once (including `towers.yml`). Player data in memory is not affected.
+- **Reload without restart:** `/petly reload` reloads all config files at once. Player data in memory is not affected.
 - **Starter Ticket:** Automatically given to brand-new players on first join. No admin action needed — detection is file-based and reliable across server restarts.
 - **Give starter dust:** Run `/petly dust give <player> 2000` on first join via a join script.
 - **Custom pet skins:** Replace `PLACEHOLDER_XXX` values in `pets.yml` with real base64 skull texture strings. Tools like [Minecraft-Heads.com](https://minecraft-heads.com) let you copy the texture value directly.
 - **Balancing:** The recommended-power values in `missions.yml`, `towers.yml`, and stat values in `pets.yml` are the main balancing levers. Increase them to make progression slower; decrease them for faster-paced servers.
 - **Tower tuning:** Edit `towers.yml` to change the dust/power scaling curve, total floor count, Pet XP per floor, or battle animation duration — no code changes required.
-- **Reset a player's progress:** Use `/petly reset <player> <type>` to selectively wipe dust, pets, tower progress, or missions. The player must be online.
+- **Reset a player's progress:** Use `/petly reset <player> <type>` to selectively wipe dust, pets, tower progress, missions, quests, or achievements. The player must be online.
 - **Data backup:** Player data is stored in `plugins/Petly/playerdata/` as individual YAML files. Include this folder in your backup routine.
+- **Achievement commands:** Use `commands` in `achievements.yml` to integrate with other plugins on claim (e.g. give kit items, grant permissions). The `{player}` placeholder is replaced with the player's name.
+- **Credits economy:** Credits (✪) are only earned via achievement rewards by default. Use `/petly credits give` to distribute them manually for events or giveaways.
