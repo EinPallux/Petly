@@ -92,6 +92,8 @@ public class ConfigManager {
     public long getSummonCost3() { return mainConfig.getLong("summon.cost-3", 1400); }
     public long getSummonCost6() { return mainConfig.getLong("summon.cost-6", 2600); }
     public int getSummonAnimationTicks() { return mainConfig.getInt("summon.animation-duration-ticks", 100); }
+    public String getSummonPermission3() { return mainConfig.getString("summon.permission-3", "petly.summon.3"); }
+    public String getSummonPermission6() { return mainConfig.getString("summon.permission-6", "petly.summon.6"); }
 
     public double getLevelXpBase() { return mainConfig.getDouble("leveling.xp-base", 100); }
     public double getLevelXpScaling() { return mainConfig.getDouble("leveling.xp-scaling-factor", 1.15); }

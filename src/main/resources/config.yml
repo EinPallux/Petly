@@ -21,6 +21,10 @@ summon:
   cost-6: 2600
   # How long the summon animation runs in ticks (default: 5 seconds).
   animation-duration-ticks: 100
+  # Permission node required for ×3 summon. Set to empty string "" to allow all players.
+  permission-3: "petly.summon.3"
+  # Permission node required for ×6 summon. Set to empty string "" to allow all players.
+  permission-6: "petly.summon.6"
 
 missions:
   # Base XP multiplier awarded to pets on mission completion (scales by mission index).

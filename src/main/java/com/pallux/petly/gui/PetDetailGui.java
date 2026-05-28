@@ -193,7 +193,11 @@ public class PetDetailGui extends BaseGui {
             case 42 -> {
                 // Send to chamber
                 if (ownedPet.isInTeam()) {
-                    player.sendMessage(TextUtil.parse(config.getMessage("pet-in-chamber")));
+                    player.sendMessage(TextUtil.parse(config.getMessage("pet-in-team")));
+                    return;
+                }
+                if (ownedPet.isInChamber()) {
+                    player.sendMessage(TextUtil.parse(config.getMessage("pet-already-in-chamber")));
                     return;
                 }
                 if (!plugin.getDustChamberSystem().addPetToChamber(data, ownedPet.getInstanceId())) {

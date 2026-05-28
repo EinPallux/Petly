@@ -4,6 +4,7 @@ import com.pallux.petly.PetlyPlugin;
 import com.pallux.petly.util.StarterTicket;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.PlayerDeathEvent;
@@ -38,8 +39,17 @@ public class StarterTicketListener implements Listener {
         }
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGH)
     public void onDeath(PlayerDeathEvent event) {
+        // Remove from drops (standard death)
         event.getDrops().removeIf(StarterTicket::isStarterTicket);
+        // Also clear from inventory — handles keepInventory gamerule where items
+        // stay in inventory rather than appearing in getDrops()
+        Player player = event.getEntity();
+        for (int i = 0; i < player.getInventory().getSize(); i++) {
+            if (StarterTicket.isStarterTicket(player.getInventory().getItem(i))) {
+                player.getInventory().setItem(i, null);
+            }
+        }
     }
 }
